@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".login">
+
+    <TextView
+        android:id="@+id/tv_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tv_login_title"
+        android:textColor="@color/title_subtitles"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_login_subtitle"
+        app:layout_constraintStart_toStartOf="@+id/tv_login_subtitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_login_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tv_login_subtitle"
+        android:textColor="@color/title_subtitles"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_login_user"
+        app:layout_constraintStart_toStartOf="@+id/et_login_user"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />
+
+    <EditText
+        android:id="@+id/et_login_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_field"
+        android:ems="10"
+        android:hint="@string/et_hint_user"
+        android:inputType="textPersonName"
+        android:maxWidth="270dp"
+        android:minWidth="250dp"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_login_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_subtitle" />
+
+    <EditText
+        android:id="@+id/et_login_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/custom_field"
+        android:ems="10"
+        android:hint="@string/et_hint_password"
+        android:inputType="textPersonName"
+        android:maxWidth="270dp"
+        android:minWidth="250dp"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_login_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_login_user" />
+
+    <ImageView
+        android:id="@+id/iv_login_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_login_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_login_password"
+        app:srcCompat="@drawable/catbaker" />
+
+    <TextView
+        android:id="@+id/tv_login_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_login_noAccount"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_singin"
+        app:layout_constraintEnd_toStartOf="@+id/tv_login_signup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_login_image" />
+
+    <TextView
+        android:id="@+id/tv_login_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="@string/tv_login_signUp"
+        android:textColor="@color/title_subtitles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_login_question"
+        app:layout_constraintTop_toTopOf="@+id/tv_login_question" />
+
+    <Button
+        android:id="@+id/btn_login_singin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/btn_login_singIn"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_question" />
+</androidx.constraintlayout.widget.ConstraintLayout>
