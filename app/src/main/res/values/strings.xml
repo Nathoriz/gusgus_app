@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">GusGus.App</string>
+    <string name="tv_login_title">Bienvenido de nuevo</string>
+    <string name="tv_login_subtitle">Estamos listos \npara ti</string>
+    <string name="tv_login_noAccount">¿No tienes una cuenta?</string>
+    <string name="tv_login_signUp">Registrate</string>
+    <string name="btn_login_singIn">INICIAR SESIÓN</string>
+    <string name="img_login_description">gato decorando pastel</string>
+    <string name="et_hint_user">Usuario</string>
+    <string name="et_hint_password">Contraseña</string>
+    <string name="tv_signup_title">Hola!</string>
+    <string name="tv_signup_subtitle">Registrate para comenzar</string>
+    <string name="et_hint_name">Nombre Completo</string>
+    <string name="et_hint_phone">Telefono</string>
+    <string name="et_hint_address">Dirección</string>
+    <string name="tv_signup_account">¿Ya tienes una cuenta?</string>
+    <string name="tv_sigunp_signin">Inicia Sesión</string>
+    <string name="btn_next">SIGUIENTE</string>
+    <string name="tv_hint_confirmPassword">Confirmar Contraseña</string>
+    <string name="signup1_title">Hola!</string>
+    <string name="signup1_subtitle">Comenzemos</string>
+    <string name="signup2_title">Si!</string>
+    <string name="signup2_subtitle">Ya estamos por \nfinalizar</string>
+    <string name="btn_signup">REGISTRAR</string>
 </resources>
