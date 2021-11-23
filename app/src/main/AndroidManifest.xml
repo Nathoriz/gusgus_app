@@ -2,27 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mood.honeyprojects.gusgusapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".sharedPreferences.Preferences"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GusGusApp">
+        android:theme="@style/Theme.GusGusApp"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.signup2"
+            android:name=".view.ui.AdminMainActivity"
             android:exported="false" />
         <activity
-            android:name=".view.splash"
+            android:name=".view.ui.Signup2Activity"
             android:exported="false" />
         <activity
-            android:name=".view.login"
-            android:exported="false" />
-        <activity
-            android:name=".view.signup"
-            android:exported="false" />
-        <activity
-            android:name=".view.MainActivity"
+            android:name=".view.ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +28,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.MainActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

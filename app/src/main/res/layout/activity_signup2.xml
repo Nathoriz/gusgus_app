@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".view.signup2">
+    tools:context=".view.ui.Signup2Activity">
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -34,29 +34,29 @@
         android:text="@string/signup2_subtitle"
         android:textColor="@color/title_subtitles"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/et_signup2_name"
+        app:layout_constraintStart_toStartOf="@+id/txtUsername"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="230dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_signup1_next"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegisUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_signup2_address"
+        app:layout_constraintTop_toBottomOf="@+id/textpassword"
         app:srcCompat="@drawable/yupi" />
 
     <EditText
-        android:id="@+id/et_signup2_name"
+        android:id="@+id/txtUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:width="250dp"
         android:background="@drawable/custom_field"
         android:ems="10"
-        android:hint="@string/et_hint_name"
+        android:hint="@string/et_hint_user"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
@@ -66,41 +66,41 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/et_signup2_phone"
+        android:id="@+id/textpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:width="250dp"
         android:background="@drawable/custom_field"
         android:ems="10"
-        android:hint="@string/et_hint_phone"
+        android:hint="@string/et_hint_password"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_signup2_name" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
     <EditText
-        android:id="@+id/et_signup2_address"
+        android:id="@+id/txtPassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:width="250dp"
         android:background="@drawable/custom_field"
         android:ems="10"
-        android:hint="@string/et_hint_address"
+        android:hint="@string/tv_hint_confirmPassword"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_signup2_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/textpassword" />
 
     <Button
-        android:id="@+id/btn_signup1_next"
+        android:id="@+id/btnRegisUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
