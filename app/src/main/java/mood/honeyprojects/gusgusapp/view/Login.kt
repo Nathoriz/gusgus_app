@@ -1,11 +1,12 @@
-package mood.honeyprojects.gusgusapp
+package mood.honeyprojects.gusgusapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import mood.honeyprojects.gusgusapp.R
 
-class splash : AppCompatActivity() {
+class login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContentView(R.layout.activity_login)
     }
 }

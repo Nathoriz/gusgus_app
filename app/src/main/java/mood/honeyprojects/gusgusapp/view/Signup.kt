@@ -1,4 +1,4 @@
-package mood.honeyprojects.gusgusapp
+package mood.honeyprojects.gusgusapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

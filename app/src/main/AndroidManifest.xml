@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GusGusApp">
         <activity
-            android:name=".signup2"
+            android:name=".view.signup2"
             android:exported="false" />
         <activity
-            android:name=".splash"
+            android:name=".view.splash"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".view.login"
             android:exported="false" />
         <activity
-            android:name=".signup"
+            android:name=".view.signup"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
