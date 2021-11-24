@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/inicio"
+        android:icon="@drawable/ic_casa"
+        android:title="@string/title_gusgus" />
+    <item
+        android:id="@+id/buscar"
+        android:icon="@drawable/ic_buscar"
+        android:title="@string/title_search" />
+    <item
+        android:id="@+id/pedidos"
+        android:icon="@drawable/ic_pedido"
+        android:title="@string/title_orders" />
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/ic_usuario"
+        android:title="@string/title_profile" />
+</menu>

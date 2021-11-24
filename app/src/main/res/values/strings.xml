@@ -22,4 +22,12 @@
     <string name="signup2_title">Si!</string>
     <string name="signup2_subtitle">Ya estamos por \nfinalizar</string>
     <string name="btn_signup">REGISTRAR</string>
+
+    <string name="title_activity_user_main">UserMainActivity</string>
+    <string name="title_gusgus">Gus.Gus</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_orders">Pedidos</string>
+    <string name="title_profile">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
