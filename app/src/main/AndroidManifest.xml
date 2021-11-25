@@ -13,14 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".view.ui.UserMainActivity"
-            android:exported="true"
-            android:label="@string/title_activity_user_main" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:name=".view.ui.client_menu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".view.ui.AdminMainActivity"
@@ -31,10 +32,7 @@
         <activity
             android:name=".view.ui.SplashActivity"
             android:exported="false">
-
         </activity>
-
-
         <activity
             android:name=".view.ui.LoginActivity"
             android:exported="false" />
@@ -44,7 +42,6 @@
         <activity
             android:name=".view.ui.MainActivity"
             android:exported="false" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
