@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
         CoroutineScope( Dispatchers.Main ).launch {
             delay( 5000L )
             if( Preferences.constantes.getBoolean() && Preferences.constantes.getRole() == "CLIENTE" ){
-                startActivity( Intent( this@SplashActivity, MainActivity::class.java) )
+                startActivity( Intent( this@SplashActivity, ClientMenuActivity::class.java) )
                 finish()
             }else if( Preferences.constantes.getBoolean() && Preferences.constantes.getRole() == "ADMIN" ){
                 startActivity( Intent( this@SplashActivity, AdminMainActivity::class.java) )

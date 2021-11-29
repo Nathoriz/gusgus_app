@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityClientMenuBinding
 
-class client_menu : AppCompatActivity() {
+class ClientMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityClientMenuBinding
     
     override fun onCreate(savedInstanceState: Bundle?) {

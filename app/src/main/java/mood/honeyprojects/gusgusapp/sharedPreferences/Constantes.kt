@@ -6,10 +6,7 @@ class Constantes( val context: Context ) {
     //Variables
     val SHARED_NAME = "Mydtb"
 
-    val SHARED_USER_NAME = "SHARED_USER_NAME"
-    val SHARED_APELLIDO = "SHARED_APELLIDO"
     val SHARED_DNI = "SHARED_DNI"
-    val SHARED_INDEX = "SHARED_INDEX"
     val SHARED_ADMIN_NAME = "SHARED_ADMIN_NAME"
     val SHARED_CLIENT_NAME = "SHARED_CLIENT_NAME"
     val SHARED_ROL_NAME = "SHARED_ROL_NAME"
