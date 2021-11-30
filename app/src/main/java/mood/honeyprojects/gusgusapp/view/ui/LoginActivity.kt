@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
         usuarioViewModel.messageLiveData.observe( this,  Observer {
             if( it == "CLIENTE" ){
                 ShowMessage( "Bienvenido(a) ${ Preferences.constantes.getClientName() }" )
-                startActivity( Intent( this, MainActivity::class.java ) )
+                startActivity( Intent( this, ClientMenuActivity::class.java ) )
                 finish()
             }
             if( it == "ADMIN" ){
