@@ -19,7 +19,7 @@
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_admin_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_client_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_client_menu.xml" value="0.264" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_signup.xml" value="0.25416666666666665" />
@@ -29,6 +29,8 @@
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/fragment_orders.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/item_card_categoria.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/item_card_producto.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

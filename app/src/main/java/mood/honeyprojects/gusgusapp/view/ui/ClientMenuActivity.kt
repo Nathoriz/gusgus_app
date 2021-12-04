@@ -35,7 +35,7 @@ class ClientMenuActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         if(fragment!= null){
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragcontainer,fragment)
+            transaction.replace(R.id.nav_host_fragment_activity_principal,fragment)
             transaction.commit()
         }
     }

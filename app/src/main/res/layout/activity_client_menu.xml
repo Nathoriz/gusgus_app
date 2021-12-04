@@ -37,6 +37,7 @@
                 </com.google.android.material.bottomnavigation.BottomNavigationView>
 
             </com.google.android.material.bottomappbar.BottomAppBar>
+
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_perso"
                 android:layout_width="wrap_content"
@@ -46,6 +47,11 @@
                 app:layout_anchor="@id/bottomab"
                 app:srcCompat="@drawable/ic_personalizar">
             </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            <FrameLayout
+                android:id="@+id/nav_host_fragment_activity_principal"
+                android:layout_width="match_parent"
+                android:layout_height="668dp"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </FrameLayout>
 
