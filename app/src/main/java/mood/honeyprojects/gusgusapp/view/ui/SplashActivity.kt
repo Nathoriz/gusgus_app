@@ -18,23 +18,24 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate( layoutInflater )
         setContentView(binding.root)
         supportActionBar?.hide()
+        //SplashPrueba()
+
         Splash()
     }
     private fun Splash(){
         CoroutineScope( Dispatchers.Main ).launch {
             delay( 5000L )
-            if( Preferences.constantes.getBoolean() && Preferences.constantes.getRole() == "CLIENTE" ){
-                startActivity( Intent( applicationContext, ClientMenuActivity::class.java) )
-            }
-            if( Preferences.constantes.getBoolean() && Preferences.constantes.getRole() == "ADMIN" ){
-                startActivity( Intent( applicationContext, AdminMainActivity::class.java) )
-            }
-            if( !Preferences.constantes.getBoolean() ){
-                    startActivity( Intent( applicationContext, LoginActivity::class.java) )
-            }
+            if( Preferences.constantes.getRole() == "CLIENTE" ){
+                startActivity( Intent( this@SplashActivity, ClientMenuActivity::class.java) )
 
+            }else if( Preferences.constantes.getRole() == "ADMIN" ){
+                startActivity( Intent( this@SplashActivity, AdminMainActivity::class.java) )
+
+            }else{
+                if( Preferences.constantes.getRole().isEmpty() ){
+                    startActivity( Intent( this@SplashActivity, LoginActivity::class.java) )
+                }
+            }
         }
-
     }
-
 }

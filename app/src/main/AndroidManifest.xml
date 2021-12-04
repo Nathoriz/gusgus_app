@@ -16,8 +16,7 @@
 
         <activity
             android:name=".view.ui.ClientMenuActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"/>
         <activity
             android:name=".view.ui.AdminMainActivity"
             android:exported="false" />

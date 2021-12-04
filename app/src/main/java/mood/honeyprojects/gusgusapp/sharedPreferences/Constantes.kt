@@ -25,7 +25,7 @@ class Constantes( val context: Context ) {
         storage.edit().putBoolean( SHARED_EXIST, exist ).apply()
     }
     fun getBoolean(): Boolean{
-        return storage.getBoolean( SHARED_EXIST, false )!!
+        return storage.getBoolean( SHARED_EXIST, false )
     }
     fun saveTelefono( telefono: String ){
         storage.edit().putString( SHARED_TELEFONO, telefono ).apply()
