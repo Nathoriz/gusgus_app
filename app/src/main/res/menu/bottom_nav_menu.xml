@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_buscar"
         android:title="@string/title_search" />
     <item
+        android:id="@+id/fake"
+        android:title=""
+        android:enabled="false"/>
+    <item
         android:id="@+id/pedidos"
         android:icon="@drawable/ic_pedido"
         android:title="@string/title_orders" />

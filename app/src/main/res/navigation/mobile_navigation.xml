@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_gusgus"
-        android:name="mood.honeyprojects.gusgusapp.view.ui.GusGus"
+        android:name="mood.honeyprojects.gusgusapp.view.ui.GusGusFragment"
         android:label="@string/title_gusgus"
         tools:layout="@layout/fragment_gus_gus" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="mood.honeyprojects.gusgusapp.view.ui.Search"
+        android:name="mood.honeyprojects.gusgusapp.view.ui.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_orders"
-        android:name="mood.honeyprojects.gusgusapp.view.ui.Orders"
+        android:name="mood.honeyprojects.gusgusapp.view.ui.OrdersFragment"
         android:label="@string/title_orders"
         tools:layout="@layout/fragment_orders" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="mood.honeyprojects.gusgusapp.view.ui.Profile"
+        android:name="mood.honeyprojects.gusgusapp.view.ui.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

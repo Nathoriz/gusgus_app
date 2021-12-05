@@ -4,13 +4,8 @@ import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityPersonalizarBinding
 
 class PersonalizarActivity : AppCompatActivity() {

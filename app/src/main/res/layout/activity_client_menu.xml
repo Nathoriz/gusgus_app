@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ui.ClientMenuActivity">
 
-    <FrameLayout
-        android:id="@+id/fragcontainer"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/pink"
+        android:paddingStart="16dp"
+        app:fabCradleMargin="15dp"
+        app:fabCradleRoundedCornerRadius="30dp">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorly"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/clientmenu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bottomab"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:backgroundTint="@color/pink"
-                app:contentInsetStart="0dp"
-                app:contentInsetLeft="0dp"
-                app:fabCradleMargin="13dp"
-                app:fabCradleRoundedCornerRadius="20dp"
-                app:fabCradleVerticalOffset="8dp">
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/clientmenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:menu="@menu/bottom_nav_menu"
-                    android:background="@android:color/transparent"
-                    app:itemIconTint="@color/white"
-                    app:itemTextColor="@color/white">
-                </com.google.android.material.bottomnavigation.BottomNavigationView>
+            android:layout_height="match_parent"
+            app:menu="@menu/bottom_nav_menu"
+            android:background="@android:color/transparent"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"/>
 
-            </com.google.android.material.bottomappbar.BottomAppBar>
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_perso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="go"
-                android:transitionName="go"
-                app:backgroundTint="@color/white"
-                app:elevation="6dp"
-                app:layout_anchor="@id/bottomab"
-                app:srcCompat="@drawable/ic_perso" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabperso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="go"
+        android:transitionName="go"
+        app:backgroundTint="@color/white"
+        app:maxImageSize="30dp"
+        app:elevation="6dp"
+        app:layout_anchor="@id/bottomab"
+        android:tintMode="@color/pink"
+        android:src="@drawable/ic_personalizar"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-            <FrameLayout
-                android:id="@+id/nav_host_fragment_activity_principal"
-                android:layout_width="match_parent"
-                android:layout_height="668dp"/>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    </FrameLayout>
+<fragment
+    android:id="@+id/nav_host_fragment_activity_principal"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    android:layout_width="match_parent"
+    android:layout_height="688dp"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/mobile_navigation" />
 
-</RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
