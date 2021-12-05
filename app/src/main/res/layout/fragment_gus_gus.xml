@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="12dp"
-    android:layout_marginTop="12dp"
-    android:layout_marginRight="12dp"
+    android:padding="@dimen/padding_layout"
     tools:context=".view.ui.GusGusFragment">
 
 
@@ -15,10 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="TextView"
-        android:textColor="#6E484D"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/msg_good_morning"
+        android:textColor="@color/title_subtitles"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,12 +23,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/titulo"
-        android:textColor="#6E484D"
-        android:textSize="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/title_subtitles"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvnombreUser" />
 
@@ -39,7 +36,7 @@
         android:id="@+id/carousel_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +49,8 @@
             app:autoPlay="true"
             app:autoPlayDelay="3000"
             app:autoWidthFixing="true"
-            app:bottomShadowAlpha="0.1"
-            app:bottomShadowHeight="64dp"
+            app:bottomShadowAlpha="0.0"
+            app:bottomShadowHeight="0dp"
             app:captionMargin="0dp"
 
             app:captionTextSize="14sp"
@@ -91,29 +88,42 @@
             app:showIndicator="true"
             app:showNavigationButtons="false"
             app:showTopShadow="true"
-            app:topShadowAlpha="0.1"
-            app:topShadowHeight="32dp"
+            app:topShadowAlpha="0.0"
+            app:topShadowHeight="0dp"
             app:touchToPause="true" />
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvcategoria"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carousel_container" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvproducto"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvcategoria" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="CATEGORIA"
+        android:textColor="@color/title_subtitles"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carousel_container" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
