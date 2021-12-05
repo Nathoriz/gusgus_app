@@ -42,11 +42,12 @@
                 android:id="@+id/fab_perso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="go"
+                android:transitionName="go"
                 app:backgroundTint="@color/white"
-                android:tintMode="@color/pink"
+                app:elevation="6dp"
                 app:layout_anchor="@id/bottomab"
-                app:srcCompat="@drawable/ic_personalizar">
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                app:srcCompat="@drawable/ic_perso" />
 
             <FrameLayout
                 android:id="@+id/nav_host_fragment_activity_principal"

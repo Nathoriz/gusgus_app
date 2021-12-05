@@ -39,7 +39,7 @@
             android:name=".view.ui.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ui.MainActivity"
+            android:name=".view.ui.PersonalizarActivity"
             android:exported="false" />
         <meta-data
             android:name="preloaded_fonts"

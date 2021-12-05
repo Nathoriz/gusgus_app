@@ -24,6 +24,7 @@
     <string name="btn_signup">REGISTRAR</string>
 
     <string name="titulo">¿Que probaras hoy?</string>
+    <string name="customPedido">Aun no has  seleccionado  ninguna opción</string>
 
     <string name="title_activity_user_main">UserMainActivity</string>
     <string name="title_gusgus">Gus.Gus</string>

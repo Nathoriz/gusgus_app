@@ -1,9 +1,13 @@
 package mood.honeyprojects.gusgusapp.view.ui
 
+import android.app.ActivityOptions
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityClientMenuBinding
 
@@ -30,6 +34,7 @@ class ClientMenuActivity : AppCompatActivity() {
             }
             true
         }
+        config()
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -38,5 +43,14 @@ class ClientMenuActivity : AppCompatActivity() {
             transaction.replace(R.id.nav_host_fragment_activity_principal,fragment)
             transaction.commit()
         }
+    }
+    private fun config(){
+        setExitSharedElementCallback( MaterialContainerTransformSharedElementCallback() )
+        window.sharedElementsUseOverlay = false
+    }
+    fun go( view: View) {
+        val intent = Intent( this, PersonalizarActivity::class.java )
+        val bundle = ActivityOptions.makeSceneTransitionAnimation( this, binding.fabPerso, "go" ).toBundle()
+        startActivity( intent, bundle )
     }
 }
