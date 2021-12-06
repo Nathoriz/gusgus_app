@@ -19,6 +19,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_login_subtitle"
         app:layout_constraintStart_toStartOf="@+id/tv_login_subtitle"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.50"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -81,7 +82,6 @@
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/tv_login_question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_login_password"
         app:srcCompat="@drawable/catbaker" />
@@ -104,7 +104,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:text="@string/tv_login_signUp"
         android:textColor="@color/title_subtitles"
         app:layout_constraintEnd_toEndOf="parent"

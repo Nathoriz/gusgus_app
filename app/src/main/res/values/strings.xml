@@ -40,4 +40,8 @@
     <string name="creations">Mis creaciones</string>
     <string name="key">Contraseña</string>
     <string name="poweroff">Cerrar Sesión</string>
+    <string name="title_activity_client_main">ClientMainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

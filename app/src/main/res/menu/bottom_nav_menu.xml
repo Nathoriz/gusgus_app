@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/inicio"
+        android:id="@+id/gusGusFragment"
         android:icon="@drawable/ic_casa"
         android:title="@string/title_gusgus" />
+
     <item
-        android:id="@+id/buscar"
+        android:id="@+id/searchFragment"
         android:icon="@drawable/ic_buscar"
         android:title="@string/title_search" />
     <item
         android:id="@+id/fake"
-        android:title=""
-        android:enabled="false"/>
+        android:title="fake"
+        android:enabled="false"
+        />
+
     <item
-        android:id="@+id/pedidos"
+        android:id="@+id/ordersFragment"
         android:icon="@drawable/ic_pedido"
         android:title="@string/title_orders" />
+
     <item
-        android:id="@+id/perfil"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_usuario"
-        android:title="@string/title_profile" />
+        android:title="@string/title_profile"/>
+
 </menu>

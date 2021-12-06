@@ -2,30 +2,26 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_gusgus">
-
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@id/gusGusFragment">
     <fragment
-        android:id="@+id/navigation_gusgus"
+        android:id="@+id/gusGusFragment"
         android:name="mood.honeyprojects.gusgusapp.view.ui.GusGusFragment"
-        android:label="@string/title_gusgus"
+        android:label="fragment_gus_gus"
         tools:layout="@layout/fragment_gus_gus" />
-
     <fragment
-        android:id="@+id/navigation_search"
+        android:id="@+id/searchFragment"
         android:name="mood.honeyprojects.gusgusapp.view.ui.SearchFragment"
-        android:label="@string/title_search"
+        android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
-
     <fragment
-        android:id="@+id/navigation_orders"
+        android:id="@+id/ordersFragment"
         android:name="mood.honeyprojects.gusgusapp.view.ui.OrdersFragment"
-        android:label="@string/title_orders"
+        android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
-
     <fragment
-        android:id="@+id/navigation_profile"
+        android:id="@+id/profileFragment"
         android:name="mood.honeyprojects.gusgusapp.view.ui.ProfileFragment"
-        android:label="@string/title_profile"
+        android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
