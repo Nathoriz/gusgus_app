@@ -12,4 +12,7 @@ interface ProductoAPI {
 
     @GET( "producto/listar" )
     fun ListarProductPorCategoria( @Query("categoria") categoria: String ): Call<List<Producto>>
+
+    @GET( "producto/filtro" )
+    fun FiltroProducto( @Query("nombre") nombre: String ): Call<List<Producto>>
 }
