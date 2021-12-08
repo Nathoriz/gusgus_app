@@ -94,7 +94,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/ivlogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -104,13 +104,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvlogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/poweroff"
         android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivlogout"
+        app:layout_constraintStart_toEndOf="@+id/ivlogout"
+        app:layout_constraintTop_toTopOf="@+id/ivlogout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

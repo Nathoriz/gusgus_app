@@ -16,7 +16,10 @@
         <entry key="..\:/Users/MELISSA/AndroidStudioProjects/GusGusApp/app/src/main/res/layout/activity_splash.xml" value="0.29375" />
         <entry key="..\:/Users/MELISSA/AndroidStudioProjects/GusGusApp/app/src/main/res/layout/fragment_first.xml" value="0.29375" />
         <entry key="..\:/Users/MELISSA/AndroidStudioProjects/GusGusApp/app/src/main/res/layout/fragment_second.xml" value="0.29375" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/custom_admin.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/custom_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/custom_field.xml" value="0.2703125" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/custom_perfil_preview.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/custom_searchview.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/ic_buscar.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/ic_casa.xml" value="0.2703125" />
@@ -28,7 +31,7 @@
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/ic_perso.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/ic_personalizar.xml" value="0.2703125" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/drawable/ic_usuario.xml" value="0.2703125" />
-        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_admin_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_admin_main.xml" value="0.25" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_client_main.xml" value="0.264" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_client_menu.xml" value="0.264" />
         <entry key="..\:/Users/emili/AndroidStudioProjects/GusGusApp/gusgus_app/app/src/main/res/layout/activity_login.xml" value="0.264" />

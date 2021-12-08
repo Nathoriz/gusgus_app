@@ -63,6 +63,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
     //Lottie
     implementation 'com.airbnb.android:lottie:4.2.0'
+    //RoundedImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
 
     implementation 'androidx.core:core-ktx:1.6.0'

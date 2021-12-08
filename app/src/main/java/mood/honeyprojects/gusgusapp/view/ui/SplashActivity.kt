@@ -24,16 +24,18 @@ class SplashActivity : AppCompatActivity() {
     }
     private fun Splash(){
         CoroutineScope( Dispatchers.Main ).launch {
-            delay( 5000L )
+            delay( 3000L )
             if( Preferences.constantes.getRole() == "CLIENTE" ){
                 startActivity( Intent( this@SplashActivity, ClientMainActivity::class.java) )
+                finish()
 
             }else if( Preferences.constantes.getRole() == "ADMIN" ){
                 startActivity( Intent( this@SplashActivity, AdminMainActivity::class.java) )
-
+                finish()
             }else{
                 if( Preferences.constantes.getRole().isEmpty() ){
                     startActivity( Intent( this@SplashActivity, LoginActivity::class.java) )
+                    finish()
                 }
             }
         }
