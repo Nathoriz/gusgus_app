@@ -45,5 +45,10 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="nombreProductAdmin">Productos</string>
+    <string name="nombrePedidosAdmin">Pedidos</string>
+    <string name="nombrePublicidadAdmin">Publicidad</string>
+    <string name="nombreUsuariosAdmin">Usuarios</string>
+
     <string name="nombreProducto">Nombre:</string>
 </resources>
