@@ -14,10 +14,13 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DetailProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ui.ClientMainActivity"
             android:exported="false"
             android:label="@string/title_activity_client_main"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.ui.AdminMainActivity"
             android:exported="false" />

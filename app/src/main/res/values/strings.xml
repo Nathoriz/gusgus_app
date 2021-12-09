@@ -51,4 +51,10 @@
     <string name="nombreUsuariosAdmin">Usuarios</string>
 
     <string name="nombreProducto">Nombre:</string>
+    <string name="tx_altura">Altura</string>
+    <string name="tx_sabor">Sabor</string>
+    <string name="tx_diametro">Diámetro</string>
+    <string name="tx_relleno">Relleno</string>
+    <string name="tx_cubierta">Cubierta</string>
+    <string name="tx_realizarpedido">REALIZAR PEDIDO</string>
 </resources>
