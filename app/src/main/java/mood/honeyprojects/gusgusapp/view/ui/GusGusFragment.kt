@@ -7,20 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import mood.honeyprojects.gusgusapp.databinding.FragmentGusGusBinding
 import mood.honeyprojects.gusgusapp.listeners.CategoriaListener
 import mood.honeyprojects.gusgusapp.model.entity.Categoria
 import mood.honeyprojects.gusgusapp.model.entity.Producto
-import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.view.adapter.CategoriaAdapter
 import mood.honeyprojects.gusgusapp.view.adapter.ProductoAdapter
 import mood.honeyprojects.gusgusapp.viewModel.CategoriaViewModel
 import mood.honeyprojects.gusgusapp.viewModel.ProductoViewModel
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class GusGusFragment : Fragment(), CategoriaListener {
     //Adapters
@@ -50,7 +56,8 @@ class GusGusFragment : Fragment(), CategoriaListener {
         GetProducto()
         InitRecyclerViewCate( binding.rvcategoria )
         InitRecyclerView( binding.rvproducto )
-        ShowNameUser()
+        MostrarHora()
+        //ShowNameUser()
         sliderList( binding.carousel )
 
         return binding.root
@@ -68,18 +75,34 @@ class GusGusFragment : Fragment(), CategoriaListener {
     }
     private fun InitRecyclerView( rv: RecyclerView ){
         adapter = ProductoAdapter( productos )
-        //LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         rv.layoutManager = GridLayoutManager( context, 2 )
         rv.adapter = adapter
     }
     private fun GetCategoria(){
         categoriaViewModel.ListarCategoria()
     }
+    private fun MostrarHora(){
+        lifecycleScope.launch{
+            val hora = withContext( Dispatchers.IO ){ HoraActual() }
+            val hestado = hora.substring( hora.length - 2 )
+            val hhora = hora.substring( 0, 2 ).toInt()
+
+            if( hestado == "AM" ){
+                binding.tvnombreUser.text = "Buenos Días"
+            }else if( hhora in 12..18 && hestado == "PM" ){
+                binding.tvnombreUser.text = "Buenas Tardes"
+            }else if( hhora in 19..23 || hhora.toString() == "00" && hestado == "PM" ){
+                binding.tvnombreUser.text = "Buenas Noches"
+            }
+        }
+    }
+    private fun HoraActual(): String {
+        val dateformat: DateFormat = SimpleDateFormat("HH:mm a")
+        val formatDate = dateformat.format(Date()).toString()
+        return formatDate.substring(formatDate.length - formatDate.length)
+    }
     private fun GetProducto(){
         productoviewModel.ListarProducts()
-    }
-    private fun ShowNameUser(){
-        binding.tvnombreUser.text = "Bienvenido(a) ${Preferences.constantes.getClientName() }"
     }
     private fun InitViewModel(){
         productoviewModel.listaProductoLiveData.observe( viewLifecycleOwner, Observer {

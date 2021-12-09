@@ -13,4 +13,9 @@
     <color name="hint">#545454</color>
     <color name="pink">#F5AEB0</color>
 
+    <color name="adminMain">#76A2A8</color>
+    <color name="adminSaludoColor">#9DF3FF</color>
+    <color name="viewAdmincolor">#EF9EA8</color>
+    <color name="viewAdmincolorbox">#F6E8DD</color>
+
 </resources>

@@ -11,18 +11,35 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="270dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_searchview"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvproducto"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/ivnotfound"
+        android:layout_width="0dp"
+        android:layout_height="244dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/notfound"
+        tools:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

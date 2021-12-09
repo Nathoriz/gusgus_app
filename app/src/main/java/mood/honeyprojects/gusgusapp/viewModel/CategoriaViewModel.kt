@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Categoria
 import mood.honeyprojects.gusgusapp.model.serviceAPI.CategoriaAPI
-import mood.honeyprojects.gusgusapp.model.serviceAPI.ProductoAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,7 +29,6 @@ class CategoriaViewModel: ViewModel() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<List<Categoria>>, t: Throwable) {
             }
         } )

@@ -16,7 +16,8 @@
         <activity
             android:name=".view.ui.ClientMainActivity"
             android:exported="false"
-            android:label="@string/title_activity_client_main" />
+            android:label="@string/title_activity_client_main"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".view.ui.AdminMainActivity"
             android:exported="false" />
