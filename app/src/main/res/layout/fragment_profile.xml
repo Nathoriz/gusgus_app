@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginStart="8dp"
-        android:text="@string/tv_nameclient"
+        tools:text="@string/tx_nameClient"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/creations"
+        android:text="@string/tx_creations"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/key"
+        android:text="@string/tx_password"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -108,9 +108,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/poweroff"
+        android:text="@string/tx_poweroff"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="@+id/ivlogout"
         app:layout_constraintStart_toEndOf="@+id/ivlogout"
         app:layout_constraintTop_toTopOf="@+id/ivlogout" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
