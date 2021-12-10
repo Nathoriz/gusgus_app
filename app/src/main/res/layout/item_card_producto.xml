@@ -20,7 +20,7 @@
            android:fontFamily="@font/rancho"
            android:gravity="bottom|center"
            android:paddingBottom="16dp"
-           android:text="Torta Francia!"
+           tools:text="Torta Francia!"
            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
            android:textSize="18dp"
            app:layout_constraintBottom_toBottomOf="parent"

@@ -1,60 +1,70 @@
 <resources>
     <string name="app_name">GusGus.App</string>
-    <string name="tv_login_title">Bienvenido de nuevo</string>
-    <string name="tv_login_subtitle">Estamos listos \npara ti</string>
-    <string name="tv_login_noAccount">¿No tienes una cuenta?</string>
-    <string name="tv_login_signUp">Registrate</string>
-    <string name="btn_login_singIn">INICIAR SESIÓN</string>
-    <string name="img_login_description">gato decorando pastel</string>
-    <string name="et_hint_user">Usuario</string>
-    <string name="et_hint_password">Contraseña</string>
-    <string name="tv_signup_title">Hola!</string>
-    <string name="tv_signup_subtitle">Registrate para comenzar</string>
-    <string name="et_hint_name">Nombre Completo</string>
-    <string name="et_hint_phone">Telefono</string>
-    <string name="et_hint_address">Dirección</string>
-    <string name="tv_signup_account">¿Ya tienes una cuenta?</string>
-    <string name="tv_sigunp_signin">Inicia Sesión</string>
-    <string name="btn_next">SIGUIENTE</string>
-    <string name="tv_hint_confirmPassword">Confirmar Contraseña</string>
+    <string name="login_title">Bienvenido de nuevo</string>
+    <string name="login_subtitle">Estamos listos \npara ti</string>
+
     <string name="signup1_title">Hola!</string>
     <string name="signup1_subtitle">Comenzemos</string>
+
     <string name="signup2_title">Si!</string>
     <string name="signup2_subtitle">Ya estamos por \nfinalizar</string>
-    <string name="btn_signup">REGISTRAR</string>
 
-    <string name="titulo">¿Que probaras hoy?</string>
-    <string name="customPedido">Aun no has seleccionado \nninguna opción</string>
+    <string name="menu_title">¿Que probaras hoy?</string>
+    <string name="msg_good_morning">Buenos Días</string>
 
-    <string name="title_activity_user_main">UserMainActivity</string>
+    <string name="title_profileFrag">MI PERFIL</string>
+    <string name="subtitle_profileFrag">Tú y GusGus</string>
+
+    <string name="editProfile_subtitle">MIS DATOS</string>
+
+
+
+
     <string name="title_gusgus">Gus.Gus</string>
     <string name="title_search">Buscar</string>
     <string name="title_orders">Pedidos</string>
     <string name="title_profile">Perfil</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="msg_good_morning">Buenos Días</string>
-    <string name="title_profileFrag">MI PERFIL</string>
-    <string name="subtitle_profileFrag">Tú y GusGus</string>
-    <string name="tv_nameclient">Alex Pilco</string>
-    <string name="creations">Mis creaciones</string>
-    <string name="key">Contraseña</string>
-    <string name="poweroff">Cerrar Sesión</string>
+
     <string name="title_activity_client_main">ClientMainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="tx_nameClient">Alex Pilco</string>
+    <string name="tx_creations">Mis creaciones</string>
+    <string name="tx_poweroff">Cerrar Sesión</string>
 
     <string name="nombreProductAdmin">Productos</string>
     <string name="nombrePedidosAdmin">Pedidos</string>
     <string name="nombrePublicidadAdmin">Publicidad</string>
     <string name="nombreUsuariosAdmin">Usuarios</string>
-
     <string name="nombreProducto">Nombre:</string>
+
+    <string name="tx_signUpNow">Registrate</string>
+    <string name="tx_singIn">INICIAR SESIÓN</string>
+    <string name="tx_user">Usuario</string>
+    <string name="tx_password">Contraseña</string>
+    <string name="tx_noAccount">¿No tienes una cuenta?</string>
+
+    <string name="tx_confirmPassword">Confirmar Contraseña</string>
+    <string name="tx_name">Nombre</string>
+    <string name="tx_phone">Telefono</string>
+    <string name="tx_address">Dirección</string>
+    <string name="tx_haveAccount">¿Ya tienes una cuenta?</string>
+    <string name="tx_signinNow">Inicia Sesión</string>
+    <string name="tx_next">SIGUIENTE</string>
+    <string name="tx_signup">REGISTRAR</string>
+
+    <string name="tx_noOptionSelected">Aun no has seleccionado \nninguna opción</string>
+
     <string name="tx_altura">Altura</string>
     <string name="tx_sabor">Sabor</string>
     <string name="tx_diametro">Diámetro</string>
     <string name="tx_relleno">Relleno</string>
     <string name="tx_cubierta">Cubierta</string>
     <string name="tx_realizarpedido">REALIZAR PEDIDO</string>
+
+    <string name="img_login_description">gato decorando pastel</string>
+    <string name="tx_category">CATEGORIA</string>
+    <string name="tx_distrito">Distrito</string>
+    <string name="tx_editar">Editar</string>
+    <string name="tx_save">Guardar</string>
+
+
 </resources>
