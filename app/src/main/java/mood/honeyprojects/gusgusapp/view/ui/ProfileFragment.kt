@@ -21,18 +21,16 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate( inflater, container, false )
-
+        binding.txtperfil.text = Preferences.constantes.getClientName()
         Listener()
 
         return binding.root
     }
     private fun Listener(){
-        binding.tvlogout.setOnClickListener {
-            LogOut()
-        }
-        binding.ivlogout.setOnClickListener{
-            LogOut()
-        }
+        binding.tvlogout.setOnClickListener { LogOut() }
+        binding.ivlogout.setOnClickListener{ LogOut() }
+        binding.ivperfil.setOnClickListener { GoPerfil() }
+        binding.txtperfil.setOnClickListener { GoPerfil() }
     }
     private fun LogOut(){
         Preferences.constantes.saveBoolean( false )
@@ -40,8 +38,14 @@ class ProfileFragment : Fragment() {
         Preferences.constantes.saveAdminName( "" )
         Preferences.constantes.saveClientName( "" )
         Preferences.constantes.saveTelefono( "" )
+        Preferences.constantes.saveDireccion( "" )
+        Preferences.constantes.saveTelefonoUser( "" )
         val intent = Intent( context, LoginActivity::class.java)
         intent.flags = ( Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK )
+        startActivity( intent )
+    }
+    private fun GoPerfil(){
+        val intent = Intent( context, UserDataActivity::class.java )
         startActivity( intent )
     }
 }

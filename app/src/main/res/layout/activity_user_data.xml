@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_layout"
-    tools:context=".view.ui.userDataActivity">
+    tools:context=".view.ui.UserDataActivity">
 
     <TextView
-        android:id="@+id/tv_grettingmessage"
+        android:id="@+id/txtuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat"
-        tools:text="Hola, Alex"
         android:textColor="@color/title_subtitles"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+        app:layout_constraintTop_toBottomOf="@+id/ivregresar"
+        tools:text="Hola, Alex" />
 
     <ImageView
         android:id="@+id/iv_grettingimage"
@@ -28,11 +28,11 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_grettingmessage"
+        app:layout_constraintTop_toBottomOf="@+id/txtuser"
         app:srcCompat="@drawable/dia" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/ivregresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +175,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btneditar"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
@@ -193,12 +193,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
-        tools:visibility="gone">
+        app:layout_constraintTop_toBottomOf="@+id/textView20">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

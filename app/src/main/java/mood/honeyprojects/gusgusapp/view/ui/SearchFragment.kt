@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.databinding.FragmentSearchBinding
@@ -60,7 +61,7 @@ class SearchFragment : Fragment() {
     }
     private fun InitRecyclerView( rv: RecyclerView ){
         adapter = ProductoSAdapter( listaproducto )
-        rv.layoutManager = LinearLayoutManager( context )
+        rv.layoutManager = GridLayoutManager( context, 2 )
         rv.adapter = adapter
     }
     private fun InitViewModel(){

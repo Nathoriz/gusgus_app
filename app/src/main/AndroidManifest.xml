@@ -14,7 +14,7 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.ui.userDataActivity"
+            android:name=".view.ui.UserDataActivity"
             android:exported="false" />
         <activity
             android:name=".view.ui.DetailProductActivity"

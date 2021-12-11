@@ -32,6 +32,8 @@ class UsuarioViewModel: ViewModel() {
                         }else if( data.usuario?.rol?.tiporol == "CLIENTE" ){
                             Preferences.constantes.saveRole( data.usuario.rol.tiporol )
                             Preferences.constantes.saveClientName( data.usuario.cliente?.nombreCompleto.toString() )
+                            Preferences.constantes.saveTelefonoUser( data.usuario.cliente?.telefono.toString() )
+                            Preferences.constantes.saveDireccion( data.usuario.cliente?.direccion.toString() )
                             Preferences.constantes.saveBoolean( true )
                             messageLiveData.postValue( data.usuario.rol.tiporol.toString() )
                         }

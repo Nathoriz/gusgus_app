@@ -13,9 +13,23 @@ class Constantes( val context: Context ) {
     val SHARED_TELEFONO = "SHARED_TELEFONO"
     val SHARED_EXIST = "SHARED_EXIST"
     val SHARED_PRODUCT_ID = "SHARED_PRODUCT_ID"
+    val SHARED_TELEFONO_USER = "SHARED_TELEFONO_USER"
+    val SHARED_DIRECCION = "SHARED_DIRECCION"
 
     val storage = context.getSharedPreferences( SHARED_NAME, 0 )
 
+    fun saveDireccion( direccion: String ){
+        storage.edit().putString( SHARED_DIRECCION, direccion ).apply()
+    }
+    fun getDireccion(): String{
+        return storage.getString( SHARED_DIRECCION, "" )!!
+    }
+    fun saveTelefonoUser( telefono: String ){
+        storage.edit().putString( SHARED_TELEFONO_USER, telefono ).apply()
+    }
+    fun getTelefonoUser(): String{
+        return storage.getString( SHARED_TELEFONO_USER, "" )!!
+    }
     fun saveIdProduct( id: Long ){
         storage.edit().putLong( SHARED_PRODUCT_ID, id ).apply()
     }

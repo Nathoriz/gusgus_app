@@ -27,13 +27,14 @@
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent" />
 
-       <ImageView
+       <com.rishabhharit.roundedimageview.RoundedImageView
            android:id="@+id/ivtorta"
            android:layout_width="120dp"
            android:layout_height="150dp"
            android:layout_alignParentStart="true"
            android:layout_alignParentEnd="true"
            android:layout_marginBottom="50dp"
+           app:cornerRadius="15dp"
            android:foregroundGravity="center"
            android:scaleType="centerCrop"
            app:circularflow_radiusInDP="15dp"
