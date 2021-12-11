@@ -1,10 +1,13 @@
 package mood.honeyprojects.gusgusapp.view.adapter
 
+import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import mood.honeyprojects.gusgusapp.databinding.ItemCardProductoBinding
 import mood.honeyprojects.gusgusapp.model.entity.Producto
+import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
+import mood.honeyprojects.gusgusapp.view.ui.DetailProductActivity
 import java.lang.Exception
 
 class ProductoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
@@ -29,5 +32,10 @@ class ProductoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
                 binding.txtNombreTorta.visibility = View.VISIBLE
             }
         } )
+        binding.root.setOnClickListener {
+            val intent = Intent( binding.root.context, DetailProductActivity::class.java )
+            Preferences.constantes.saveIdProduct( producto.id!! )
+            binding.root.context.startActivity( intent )
+        }
     }
 }

@@ -4,12 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Producto
+import mood.honeyprojects.gusgusapp.model.requestEntity.DetalleProductoResponse
 import mood.honeyprojects.gusgusapp.model.serviceAPI.ProductoAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.create
-
 class ProductoViewModel: ViewModel() {
 
     val listaProductoLiveData = MutableLiveData<List<Producto>>()
@@ -56,5 +55,4 @@ class ProductoViewModel: ViewModel() {
             }
         } )
     }
-
 }
