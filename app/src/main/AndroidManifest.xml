@@ -14,6 +14,9 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ConfirmOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity

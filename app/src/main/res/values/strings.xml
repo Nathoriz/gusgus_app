@@ -67,6 +67,10 @@
     <string name="tx_confirm">Confirmar</string>
     <string name="title_changepassword">VERIFICAR</string>
     <string name="tx_examplePassword">*********************</string>
+    <string name="title_confirmorder">Datos de envio</string>
+    <string name="tx_subtotal">Subtotal</string>
+    <string name="tx_envio">Envio</string>
+    <string name="tx_total">TOTAL</string>
 
 
 </resources>
