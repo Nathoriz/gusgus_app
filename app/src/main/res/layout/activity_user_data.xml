@@ -210,6 +210,7 @@
                 android:id="@+id/textInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:endIconMode="clear_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -217,7 +218,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_editnombre"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/custom_field"
                     android:hint="@string/tx_name"
                     android:textColorHint="@color/hint" />
@@ -228,6 +229,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                app:endIconMode="clear_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -235,9 +237,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_edittelefono"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/custom_field"
                     android:hint="@string/tx_phone"
+                    android:inputType="number"
                     android:textColorHint="@color/hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -256,6 +259,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                app:endIconMode="clear_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner">
@@ -263,7 +267,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_editdireccion"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/custom_field"
                     android:hint="@string/tx_address"
                     android:textColorHint="@color/hint" />
