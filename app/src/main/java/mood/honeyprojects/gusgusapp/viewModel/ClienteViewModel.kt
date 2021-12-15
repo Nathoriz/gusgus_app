@@ -92,6 +92,7 @@ class ClienteViewModel: ViewModel() {
                         Preferences.constantes.saveTelefonoUser( it.telefono!! )
                         Preferences.constantes.saveClientName( it.nombreCompleto!! )
                         Preferences.constantes.saveDireccion( it.direccion!! )
+                        Preferences.constantes.saveDistrito( it.distrito?.nombre!! )
                         valiupdate.valiUpdate( true )
                         responseLiveData.postValue( "Datos Actualizados")
                     }

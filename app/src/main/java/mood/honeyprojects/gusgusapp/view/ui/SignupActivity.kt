@@ -12,11 +12,13 @@ import mood.honeyprojects.gusgusapp.model.entity.Cliente
 import mood.honeyprojects.gusgusapp.model.requestEntity.UsuarioClient
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.viewModel.ClienteViewModel
+import mood.honeyprojects.gusgusapp.viewModel.DistritoViewModel
 
 class SignupActivity : AppCompatActivity(), ValiRegisterClient {
     //Variables
     private lateinit var binding: ActivitySignupBinding
     private val clienteViewModel: ClienteViewModel by viewModels()
+    private val distritoViewModel: DistritoViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +37,13 @@ class SignupActivity : AppCompatActivity(), ValiRegisterClient {
         }
     }
     private fun RegistrarClient(){
-        val cliente = Cliente(
-            null,
-            binding.txtNombre.text.toString(),
-            binding.txtDireccion.text.toString(),
-            binding.txttelefono.text.toString()
-        )
-        clienteViewModel.RegistrarClient( cliente, this )
+//        val cliente = Cliente(
+//            null,
+//            binding.txtNombre.text.toString(),
+//            binding.txtDireccion.text.toString(),
+//            binding.txttelefono.text.toString()
+//        )
+//        clienteViewModel.RegistrarClient( cliente, this )
     }
     private fun InitViewModel(){
         clienteViewModel.responseLiveData.observe( this,  Observer {

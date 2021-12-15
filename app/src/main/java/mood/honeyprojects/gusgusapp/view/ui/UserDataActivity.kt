@@ -2,7 +2,7 @@ package mood.honeyprojects.gusgusapp.view.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -14,8 +14,10 @@ import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityUserDataBinding
 import mood.honeyprojects.gusgusapp.listeners.ValiUpdate
 import mood.honeyprojects.gusgusapp.model.entity.Cliente
+import mood.honeyprojects.gusgusapp.model.entity.Distrito
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.viewModel.ClienteViewModel
+import mood.honeyprojects.gusgusapp.viewModel.DistritoViewModel
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,6 +25,9 @@ import java.util.*
 class UserDataActivity : AppCompatActivity(), ValiUpdate {
     private lateinit var binding: ActivityUserDataBinding
     private val clienteViewModel: ClienteViewModel by viewModels()
+    private val distritoViewModel: DistritoViewModel by viewModels()
+    var distrito: String?=null
+    var distritoSelec : Distrito?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +35,16 @@ class UserDataActivity : AppCompatActivity(), ValiUpdate {
         setContentView( binding.root )
         supportActionBar?.hide()
 
+        ObtenerListDistrito()
+        InitViewModelTwo()
+        InitViewModel()
         MostrarHora()
         ShowDataUser()
         Listener()
-        InitViewModel()
+
     }
     private fun Listener(){
-        binding.btneditar.setOnClickListener { ActionEditPerfil( 1 ); BuscarClient() }
+        binding.btneditar.setOnClickListener { ActionEditPerfil( 1 ); BuscarClient(); InitViewModelTwo() }
         binding.btneditar.setOnLongClickListener { ActionEditPerfil( 2 ); true  }
         binding.btnGuardaredituser.setOnClickListener {
             ActualizarClient()
@@ -47,6 +55,7 @@ class UserDataActivity : AppCompatActivity(), ValiUpdate {
         binding.tvNombrecompleto.text = Preferences.constantes.getClientName()
         binding.tvTelefono.text = Preferences.constantes.getTelefonoUser()
         binding.tvDireccion.text = Preferences.constantes.getDireccion()
+        binding.tvDistrito.text = Preferences.constantes.getDistrito()
     }
     private fun MostrarHora(){
         lifecycleScope.launch{
@@ -66,13 +75,20 @@ class UserDataActivity : AppCompatActivity(), ValiUpdate {
     fun BuscarClient(){
         clienteViewModel.BuscarCliente( Preferences.constantes.getIDCliente() )
     }
+    fun BuscarDistrito( nombre: String ){
+        distritoViewModel.BuscarDistrito( nombre )
+    }
+    fun ObtenerListDistrito(){
+        distritoViewModel.ListDistrito()
+    }
     fun ActualizarClient(){
         val client = Cliente(
             Preferences.constantes.getIDCliente(),
             binding.etEditnombre.text.toString(),
             binding.etEditdireccion.text.toString(),
-            binding.etEdittelefono.text.toString()
-            )
+            binding.etEdittelefono.text.toString(),
+            distritoSelec
+        )
         clienteViewModel.ActualizarCliente( client, this )
     }
     private fun HoraActual(): String {
@@ -91,12 +107,7 @@ class UserDataActivity : AppCompatActivity(), ValiUpdate {
             binding.btnGuardaredituser.visibility = View.GONE
         }
     }
-    fun InitViewModel(){
-        clienteViewModel.responseLiveData.observe( this, Observer {
-            if( it != null ){
-                ShowMessage( it )
-            }
-        } )
+    fun InitViewModelTwo(){
         clienteViewModel.responseClienteLiveData.observe( this, Observer {
             if( it != null ){
                 binding.etEditnombre.setText( it.nombreCompleto )
@@ -104,6 +115,43 @@ class UserDataActivity : AppCompatActivity(), ValiUpdate {
                 binding.etEditdireccion.setText( it.direccion )
             }
         } )
+        distritoViewModel.responseString.observe( this, Observer {
+            if( it != null ){
+                val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.spinner.adapter = adapter
+
+                for( dart in it ){
+                    if( dart == Preferences.constantes.getDistrito() ){
+                        val int = adapter.getPosition( dart )
+                        binding.spinner.setSelection( int )
+                    }
+                }
+                binding.spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        val int = adapter.getPosition( it[position] )
+                        distrito = it[ int ]
+                        Toast.makeText( this@UserDataActivity, distrito, Toast.LENGTH_LONG ).show()
+                        BuscarDistrito( distrito!! )
+                    }
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                    }
+                }
+            }
+        } )
+    }
+    fun InitViewModel(){
+        clienteViewModel.responseLiveData.observe( this, Observer {
+            if( it != null ){
+                ShowMessage( it )
+            }
+        } )
+        distritoViewModel.responseDistritoMutableLiveData.observe( this, Observer {
+            if( it != null ){
+                distritoSelec = it
+            }
+        } )
+
     }
     fun ShowMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_SHORT ).show()

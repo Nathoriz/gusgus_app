@@ -35,6 +35,7 @@ class UsuarioViewModel: ViewModel() {
                             Preferences.constantes.saveTelefonoUser( data.usuario.cliente?.telefono.toString() )
                             Preferences.constantes.saveDireccion( data.usuario.cliente?.direccion.toString() )
                             data.usuario.cliente?.id?.let { Preferences.constantes.saveIDCliente(it) }
+                            Preferences.constantes.saveDistrito( data.usuario.cliente?.distrito?.nombre!! )
                             Preferences.constantes.saveBoolean( true )
                             messageLiveData.postValue( data.usuario.rol.tiporol.toString() )
                         }
