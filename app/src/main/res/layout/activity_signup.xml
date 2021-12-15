@@ -116,7 +116,7 @@
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/custom_field"
+        android:background="@drawable/custom_spinner"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
