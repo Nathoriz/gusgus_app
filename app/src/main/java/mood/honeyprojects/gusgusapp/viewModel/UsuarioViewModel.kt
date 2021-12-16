@@ -4,8 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Usuario
-import mood.honeyprojects.gusgusapp.model.requestEntity.UsuarioLogin
-import mood.honeyprojects.gusgusapp.model.requestEntity.UsuarioResponse
+import mood.honeyprojects.gusgusapp.model.requestEntity.*
 import mood.honeyprojects.gusgusapp.model.serviceAPI.UsuarioAPI
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import org.json.JSONObject
@@ -17,6 +16,9 @@ class UsuarioViewModel: ViewModel() {
     //LiveData
     val messageLiveData = MutableLiveData<String>()
     val messageErrorLiveData = MutableLiveData<String>()
+
+    val messageResponseValiPassword = MutableLiveData<ValiPassword>()
+    val messageResponseUpdatePassword = MutableLiveData<ValiPassword>()
 
     fun Login( usuarioLogin: UsuarioLogin ){
         val response = RetrofitHelper.getRetrofit().create( UsuarioAPI::class.java ).LoginUsuario( usuarioLogin )
@@ -49,6 +51,45 @@ class UsuarioViewModel: ViewModel() {
                 TODO("Not yet implemented")
             }
         } )
+    }
+    fun ValidarPassword( password: PasswordResponseVali ){
+        val response = RetrofitHelper.getRetrofit().create( UsuarioAPI::class.java ).ValidarPassword( password )
+        response.enqueue( object: Callback<ValiPassword> {
+            override fun onResponse(call: Call<ValiPassword>, response: Response<ValiPassword>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        messageResponseValiPassword.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 400 ){
+                        messageErrorLiveData.postValue( getErrorMessage( it.string() ) )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<ValiPassword>, t: Throwable) {
+            }
+        })
+    }
+    fun UpdatePassword( password: PasswordResponseUpdate ){
+        val response = RetrofitHelper.getRetrofit().create( UsuarioAPI::class.java ).UpdatePassword( password )
+        response.enqueue( object: Callback<ValiPassword> {
+            override fun onResponse(call: Call<ValiPassword>, response: Response<ValiPassword>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        messageResponseUpdatePassword.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 400 ){
+                        messageErrorLiveData.postValue( getErrorMessage( it.string() ) )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<ValiPassword>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
     }
     fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)

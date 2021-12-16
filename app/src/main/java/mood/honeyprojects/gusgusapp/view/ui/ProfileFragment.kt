@@ -31,6 +31,8 @@ class ProfileFragment : Fragment() {
         binding.ivlogout.setOnClickListener{ LogOut() }
         binding.ivperfil.setOnClickListener { GoPerfil() }
         binding.txtperfil.setOnClickListener { GoPerfil() }
+        binding.ivpassword.setOnClickListener { ChangePassword() }
+        binding.txtpassword.setOnClickListener { ChangePassword() }
     }
     private fun LogOut(){
         Preferences.constantes.saveBoolean( false )
@@ -41,14 +43,16 @@ class ProfileFragment : Fragment() {
         Preferences.constantes.saveDireccion( "" )
         Preferences.constantes.saveTelefonoUser( "" )
         Preferences.constantes.saveDistrito( "" )
-        Preferences.constantes.saveNomDistri( "" )
-        Preferences.constantes.saveIDistri( 0L )
         val intent = Intent( context, LoginActivity::class.java)
         intent.flags = ( Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK )
         startActivity( intent )
     }
     private fun GoPerfil(){
         val intent = Intent( context, UserDataActivity::class.java )
+        startActivity( intent )
+    }
+    private fun ChangePassword(){
+        val intent = Intent( context, ChangePasswordActivity::class.java )
         startActivity( intent )
     }
 }
