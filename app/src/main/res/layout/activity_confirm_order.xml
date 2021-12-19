@@ -26,14 +26,14 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/montserrat"
-            android:text="@string/title_confirmorder"
+            android:text="@string/subtitle_confirm_order"
             android:textColor="@color/title_subtitles"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imageView18"
-            app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mt_comentario" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -86,7 +86,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/custom_field"
+                    android:background="@drawable/custom_spinner"
                     android:paddingStart="10sp"
                     android:paddingEnd="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -183,8 +183,9 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/montserrat"
             android:paddingLeft="20dp"
@@ -194,6 +195,56 @@
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_confirmorder_total" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_confirm_order"
+            android:textColor="@color/title_subtitles"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+        <EditText
+            android:id="@+id/et_cumpleaniero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="Rosa Amaria"
+            android:inputType="text|textNoSuggestions"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <EditText
+            android:id="@+id/mt_comentario"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:height="100dp"
+            android:background="@drawable/custom_field"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/msg_comentario_torta"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_cumpleaniero"
+            tools:ignore="SpeakableTextPresentCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
