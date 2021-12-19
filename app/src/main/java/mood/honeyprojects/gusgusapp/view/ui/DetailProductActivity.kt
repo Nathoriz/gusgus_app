@@ -1,16 +1,12 @@
 package mood.honeyprojects.gusgusapp.view.ui
 
-import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityDetailProductBinding
 import mood.honeyprojects.gusgusapp.model.entity.Diametro
@@ -21,6 +17,7 @@ import mood.honeyprojects.gusgusapp.viewModel.DetalleProductoViewModel
 class DetailProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailProductBinding
     private val detalleProducto: DetalleProductoViewModel by viewModels()
+    private var valor = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +26,11 @@ class DetailProductActivity : AppCompatActivity() {
         supportActionBar?.hide()
         InitViewModel()
         GetDetalleProducto()
+        Listener()
+    }
+    private fun Listener(){
+        binding.aumentar.setOnClickListener { IncrementPrecio() }
+        binding.disminuir.setOnClickListener { DecrementPrecio() }
     }
     private fun GetDetalleProducto(){
         detalleProducto.DetalleProducto( Preferences.constantes.getIdProduct() )
@@ -39,7 +41,8 @@ class DetailProductActivity : AppCompatActivity() {
                 Picasso.get().load(it.detalle?.producto?.urlimg).into(binding.ivImgproduct)
                 binding.tvNombreproducto.text = it.detalle?.producto?.nombre
                 binding.tvDescripcion.text = it.detalle?.producto?.descripcion
-                binding.tvTotal.text = "S/ ${it.detalle?.producto?.precio.toString()}"
+                binding.tvTotal.text = "${it.detalle?.producto?.precio.toString()}"
+                binding.precioFalso.text = "${it.detalle?.producto?.precio.toString()}"
                 if (it.detalle?.diametros?.get(0)?.descripcion == "vacio") {
                     binding.rlDiametrocont.visibility = View.GONE
                 }
@@ -92,5 +95,32 @@ class DetailProductActivity : AppCompatActivity() {
                 }
             }
         } )
+    }
+    private fun IncrementPrecio(){
+        if( valor >= 1 ){
+            binding.disminuir.visibility = View.VISIBLE
+            binding.tvCantidad.text = (++valor).toString()
+
+            val total = binding.precioFalso.text.toString()
+            val superTotal = total.toDouble() * valor
+            binding.tvTotal.text = superTotal.toString()
+        }
+    }
+    private fun DecrementPrecio(){
+        if( valor == 2 ){
+            binding.disminuir.visibility = View.INVISIBLE
+            binding.tvCantidad.text = (--valor).toString()
+            val precio = binding.precioFalso.text.toString()
+            binding.tvTotal.text = precio
+
+        }else{
+            binding.tvCantidad.text = (--valor).toString()
+
+            val precio = binding.precioFalso.text.toString()
+            val total = binding.tvTotal.text.toString()
+
+            val superTotal = total.toDouble() - precio.toDouble()
+            binding.tvTotal.text = superTotal.toString()
+        }
     }
 }

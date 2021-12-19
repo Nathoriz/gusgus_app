@@ -262,22 +262,23 @@
         android:layout_width="110dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_descripcion">
 
         <ImageView
-            android:id="@+id/imageView19"
+            android:id="@+id/disminuir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_minus" />
 
         <ImageView
-            android:id="@+id/imageView20"
+            android:id="@+id/aumentar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -291,8 +292,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@+id/imageView20"
-            android:layout_toEndOf="@+id/imageView19"
+            android:layout_toStartOf="@+id/aumentar"
+            android:layout_toEndOf="@+id/disminuir"
             android:gravity="center_horizontal|center_vertical"
             android:text="1" />
     </RelativeLayout>
@@ -371,6 +372,15 @@
             app:roundedCorners="topRight|bottomRight"
             tools:srcCompat="@drawable/gradient_pink_lt_rd" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/precioFalso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_descripcion" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
