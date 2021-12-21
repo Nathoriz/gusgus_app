@@ -48,7 +48,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@+id/imageView12"
-            android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"
             android:text="adads"
             android:textSize="12sp" />
@@ -95,7 +94,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@+id/imageView13"
-            android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"
             android:textSize="12sp"
             tools:text="26cm" />
@@ -143,7 +141,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@+id/iv_saborimg"
-            android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"
             android:textSize="12sp"
             tools:text="Vainilla" />
@@ -190,7 +187,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@+id/imageView15"
-            android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"
             android:textSize="12sp"
             tools:text="Fodge" />
@@ -237,7 +233,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@+id/imageView16"
-            android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"
             android:textSize="12sp"
             tools:text="Fondam" />
@@ -250,7 +245,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:fontFamily="@font/montserrat"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -11,7 +11,13 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Font -->
+        <item name="android:fontFamily">@font/montserrat</item>
+        <!--  EditText      -->
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <!--  Button      -->
+<!--        <item name="buttonStyle">@style/ButtonStyle</item>-->
+
     </style>
 
     <style name="Theme.GusGusApp.NoActionBar">
@@ -19,7 +25,21 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.GusGusApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:width">250dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:background">@drawable/custom_field</item>
+    </style>
 
+<!--    <style name="ButtonStyle" parent="@android:style/Widget.Button">-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:background">@drawable/custom_button</item>-->
+<!--        <item name="android:backgroundTint">@null</item>-->
+<!--    </style>-->
+
+    <style name="Theme.GusGusApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.GusGusApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

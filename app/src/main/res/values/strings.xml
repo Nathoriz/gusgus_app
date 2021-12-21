@@ -68,7 +68,7 @@
     <string name="tx_editar">Editar</string>
     <string name="tx_save">Guardar</string>
     <string name="tx_messageChangePassword">Por favor ingrese su \ncontraseña actual para poder\ncambiar su contraseña</string>
-    <string name="tx_confirm">Confirmar Pedido</string>
+    <string name="tx_confirm">Confirmar</string>
     <string name="title_changepassword">VERIFICAR</string>
     <string name="tx_examplePassword">*********************</string>
     <string name="subtitle_confirm_order">Datos de envio</string>
@@ -81,6 +81,7 @@
     <string name="tx_cancelado">CANCELADO</string>
     <string name="title_confirm_order">Cumpleañer@</string>
     <string name="msg_comentario_torta">Quiero que mi torta sea de tematica de tokio, que incluya objetos o lugares mas destacados del lugar.</string>
+    <string name="tx_confirmOrder">Confirmar Pedido</string>
 
 
 </resources>

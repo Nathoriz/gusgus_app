@@ -13,7 +13,6 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
         android:text="@string/title_profileFrag"
         android:textColor="@color/title_subtitles"
         android:textSize="18sp"
