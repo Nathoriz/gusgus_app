@@ -1,5 +1,6 @@
 package mood.honeyprojects.gusgusapp.view.ui
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import com.squareup.picasso.Picasso
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityDetailProductBinding
 import mood.honeyprojects.gusgusapp.model.entity.Diametro
+import mood.honeyprojects.gusgusapp.model.entity.Producto
 import mood.honeyprojects.gusgusapp.model.entity.Relleno
 import mood.honeyprojects.gusgusapp.model.entity.Sabor
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
@@ -18,6 +20,7 @@ class DetailProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailProductBinding
     private val detalleProducto: DetalleProductoViewModel by viewModels()
     private var valor = 1
+    private var producto: Producto?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +34,23 @@ class DetailProductActivity : AppCompatActivity() {
     private fun Listener(){
         binding.aumentar.setOnClickListener { IncrementPrecio() }
         binding.disminuir.setOnClickListener { DecrementPrecio() }
+        binding.btnRealizarpedido.setOnClickListener { Pedido() }
     }
     private fun GetDetalleProducto(){
         detalleProducto.DetalleProducto( Preferences.constantes.getIdProduct() )
+    }
+    private fun Pedido(){
+        val intent = Intent( this, ConfirmOrderActivity::class.java )
+        intent.putExtra( "idProduct", producto?.id )
+        if( producto?.categoria?.nombre == "Tortas" ){
+            intent.putExtra( "precio", "0.0" )
+            intent.putExtra( "cantidad", "0" )
+            startActivity( intent )
+        }else{
+            intent.putExtra( "precio", binding.tvTotal.text.toString() )
+            intent.putExtra( "cantidad", binding.tvCantidad.text.toString() )
+            startActivity( intent )
+        }
     }
     private fun InitViewModel(){
         detalleProducto.detalleProductoLiveData.observe( this,  Observer {
@@ -93,6 +110,7 @@ class DetailProductActivity : AppCompatActivity() {
                 } else {
                     binding.rlCantidadcont.visibility = View.VISIBLE
                 }
+                producto = it.detalle.producto
             }
         } )
     }

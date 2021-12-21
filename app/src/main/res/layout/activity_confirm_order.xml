@@ -136,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="TextView"
+            android:textAlignment="viewEnd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_orderproduct" />
 
@@ -182,7 +183,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_envio" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnConfirmPedido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"

@@ -55,4 +55,19 @@ class ProductoViewModel: ViewModel() {
             }
         } )
     }
+    fun ListForIdProduct( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).ListForIdProduct( id )
+        response.enqueue( object: Callback<List<Producto>> {
+            override fun onResponse(call: Call<List<Producto>>, response: Response<List<Producto>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        listaProductoLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Producto>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
 }

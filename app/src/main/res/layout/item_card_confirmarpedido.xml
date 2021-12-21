@@ -93,4 +93,13 @@
         app:layout_constraintTop_toTopOf="@+id/iv_pluscant"
         tools:text="1" />
 
+    <TextView
+        android:id="@+id/txtprecioFalso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

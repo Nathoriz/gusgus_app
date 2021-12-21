@@ -20,4 +20,7 @@ interface ProductoAPI {
 
     @GET( "producto/{id}" )
     fun DetalleProducto( @Path("id") id: Long? ): Call<DetalleProductoResponse>
+
+    @GET( "producto/find/{id}" )
+    fun ListForIdProduct( @Path( "id" ) id: Long? ): Call<List<Producto>>
 }
