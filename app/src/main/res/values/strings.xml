@@ -20,8 +20,6 @@
     <string name="title_ordersFrag">PEDIDOS</string>
 
 
-
-
     <string name="title_gusgus">Gus.Gus</string>
     <string name="title_search">Buscar</string>
     <string name="title_orders">Pedidos</string>
@@ -82,6 +80,7 @@
     <string name="title_confirm_order">Cumpleañer@</string>
     <string name="msg_comentario_torta">Quiero que mi torta sea de tematica de tokio, que incluya objetos o lugares mas destacados del lugar.</string>
     <string name="tx_confirmOrder">Confirmar Pedido</string>
+    <string name="title_tortas_personalizadas">MIS CREACIONES</string>
 
 
 </resources>

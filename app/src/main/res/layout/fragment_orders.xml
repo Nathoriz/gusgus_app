@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title_ordersFrag"
         android:textColor="@color/title_subtitles"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

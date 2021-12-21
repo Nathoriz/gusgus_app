@@ -24,14 +24,11 @@
 
         <TextView
             android:id="@+id/textView7"
+            style="@style/TitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:fontFamily="@font/montserrat"
             android:text="@string/subtitle_confirm_order"
-            android:textColor="@color/title_subtitles"
-            android:textSize="22sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mt_comentario" />
 
@@ -54,7 +51,7 @@
                 <EditText
                     android:id="@+id/et_date"
                     android:layout_width="150dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_calendario"
                     android:inputType="date"
                     app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +61,7 @@
                 <EditText
                     android:id="@+id/et_time"
                     android:layout_width="150dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_tiempo"
                     android:inputType="time"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -186,13 +183,12 @@
 
         <TextView
             android:id="@+id/textView9"
+            style="@style/TitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/title_confirm_order"
-            android:textColor="@color/title_subtitles"
             android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView18" />

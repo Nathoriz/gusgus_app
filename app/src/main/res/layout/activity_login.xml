@@ -9,12 +9,11 @@
 
     <TextView
         android:id="@+id/tv_login_title"
+        style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
-        android:textColor="@color/title_subtitles"
         android:textSize="22sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tv_login_subtitle"
         app:layout_constraintStart_toStartOf="@+id/tv_login_subtitle"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,11 +22,10 @@
 
     <TextView
         android:id="@+id/tv_login_subtitle"
+        style="@style/SubtitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_subtitle"
-        android:textColor="@color/title_subtitles"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/et_login_user"
         app:layout_constraintStart_toStartOf="@+id/et_login_user"
         app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />

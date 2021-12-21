@@ -21,15 +21,20 @@
     <color name="viewAdmincolor">#EF9EA8</color>
     <color name="viewAdmincolorbox">#F6E8DD</color>
 
-    <!--card pedidos-->
+    <!-- Item Colors-->
     <color name="green">#D6FFD7</color>
     <color name="dkgreen">#96B396</color>
     <color name="lila">#D2CEF9</color>
     <color name="dklila">#9B98C1</color>
+    <color name="ltpink">#F6E8DD</color>
+
+
 
     <!--Style-->
     <color name="shadow_field">#CAC3C2</color>
     <color name="cooffe">#B37C72</color>
 
+
+    <color name="link">#0192F5</color>
 
 </resources>
