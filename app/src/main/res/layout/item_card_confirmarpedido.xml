@@ -19,17 +19,15 @@
 
     <TextView
         android:id="@+id/tv_nombreorderproducto"
+        style="@style/SubtitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat"
-        tools:text="Sueño de Paris"
-        android:textColor="@color/title_subtitles"
-        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_imgorder"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sueño de Paris" />
 
     <TextView
         android:id="@+id/tv_precio"
@@ -37,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_imgorder"
@@ -50,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/montserrat"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_imgorder"

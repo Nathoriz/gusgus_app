@@ -14,9 +14,10 @@
         android:padding="15dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
+            android:id="@+id/cv_imgpedidocont"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
             app:cardCornerRadius="50dp"
             app:cardElevation="0dp"
             app:cardMaxElevation="0dp"
@@ -24,23 +25,22 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView21"
+                android:id="@+id/iv_imgpedido"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="20dp"
-                app:srcCompat="@drawable/ic_diametro" />
+                app:srcCompat="@drawable/ic_pedido" />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/tv_idpedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/montserrat"
             android:textColor="@color/text"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
+            app:layout_constraintStart_toEndOf="@+id/cv_imgpedidocont"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="000001" />
 
@@ -50,45 +50,42 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView36"
+            app:layout_constraintStart_toEndOf="@+id/cv_imgpedidocont"
+            app:layout_constraintTop_toBottomOf="@+id/tv_idpedido"
             app:srcCompat="@drawable/ic_tiempo" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/tv_fechacreacionpedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/montserrat"
             app:layout_constraintBottom_toBottomOf="@+id/imageView22"
             app:layout_constraintStart_toEndOf="@+id/imageView22"
             app:layout_constraintTop_toTopOf="@+id/imageView22"
             tools:text="17 NOV 2021" />
 
         <TextView
-            android:id="@+id/textView38"
+            android:id="@+id/tv_preciototalpedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
             android:textColor="@color/text"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/textView37"
-            app:layout_constraintEnd_toEndOf="@+id/textView39"
-            app:layout_constraintStart_toStartOf="@+id/textView39"
-            app:layout_constraintTop_toBottomOf="@+id/textView36"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_fechacreacionpedido"
+            app:layout_constraintEnd_toEndOf="@+id/tv_estadopedido"
+            app:layout_constraintStart_toStartOf="@+id/tv_estadopedido"
+            app:layout_constraintTop_toBottomOf="@+id/tv_idpedido"
             tools:text="S/150" />
 
         <TextView
-            android:id="@+id/textView39"
+            android:id="@+id/tv_estadopedido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_light"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView38"
+            app:layout_constraintTop_toBottomOf="@+id/tv_preciototalpedido"
             tools:text="EN ESPERA" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

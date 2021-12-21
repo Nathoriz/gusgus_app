@@ -17,24 +17,22 @@
 
     <TextView
         android:id="@+id/textView"
+        style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/signup2_title"
-        android:textColor="@color/title_subtitles"
         android:textSize="22sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/SubtitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/signup2_subtitle"
-        android:textColor="@color/title_subtitles"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/txtUsername"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -54,14 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:width="250dp"
-        android:background="@drawable/custom_field"
-        android:ems="10"
         android:hint="@string/tx_user"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -71,14 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:width="250dp"
-        android:background="@drawable/custom_field"
-        android:ems="10"
         android:hint="@string/tx_password"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
@@ -88,14 +74,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:width="250dp"
-        android:background="@drawable/custom_field"
-        android:ems="10"
         android:hint="@string/tx_confirmPassword"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textpassword" />
