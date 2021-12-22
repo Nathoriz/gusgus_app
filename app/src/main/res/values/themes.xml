@@ -17,8 +17,11 @@
         <item name="editTextStyle">@style/EditTextStyle</item>
         <!--  Button      -->
 <!--        <item name="buttonStyle">@style/ButtonStyle</item>-->
-
     </style>
+    <style name="datePickerTheme" parent="android:Theme.Material.Dialog">
+        <item name="android:colorAccent">@color/purple_700</item>
+    </style>
+
 
     <style name="Theme.GusGusApp.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -53,4 +56,5 @@
 
     <style name="Theme.GusGusApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.GusGusApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

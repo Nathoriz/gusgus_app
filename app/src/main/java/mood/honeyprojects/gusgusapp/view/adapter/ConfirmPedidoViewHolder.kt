@@ -43,7 +43,7 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
             productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
         }else{
             binding.ivPluscant.visibility = View.VISIBLE
-            binding.ivMinuscant.visibility = View.INVISIBLE
+            binding.ivMinuscant.visibility = View.VISIBLE
             productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
         }
     }
