@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.classes.DatePickerFragment
+import mood.honeyprojects.gusgusapp.classes.TimePickerFragment
 import mood.honeyprojects.gusgusapp.databinding.ActivityConfirmOrderBinding
 import mood.honeyprojects.gusgusapp.listeners.ProductoDetailListener
 import mood.honeyprojects.gusgusapp.model.entity.Distrito
@@ -43,10 +44,18 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     }
     private fun Listener(){
         binding.etDate.setOnClickListener { ShowDatePickerForm() }
+        binding.etTime.setOnClickListener { ShowTimePickerForm() }
+    }
+    private fun ShowTimePickerForm(){
+        val timePicker = TimePickerFragment { onTimeSelected( it ) }
+        timePicker.show( supportFragmentManager, "time" )
     }
     private fun ShowDatePickerForm(){
         val datePicker = DatePickerFragment { anio, mes, dia -> onDateSelected( anio, mes, dia ) }
         datePicker.show( supportFragmentManager, "datePicker" )
+    }
+    private fun onTimeSelected( time: String ){
+        binding.etTime.setText( time )
     }
     private fun onDateSelected( anio: Int, mes: Int, dia: Int ){
         binding.etDate.setText( "$anio-$mes-$dia" )

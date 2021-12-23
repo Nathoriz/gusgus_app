@@ -24,7 +24,7 @@ class DatePickerFragment( val listener: (anio: Int, mes: Int, dia: Int) -> Unit)
         val dia = calendar.get( Calendar.DAY_OF_MONTH )
 
         val datePicker = DatePickerDialog( activity as Context, R.style.datePickerTheme, this, anio, mes, dia )
-
+        datePicker.datePicker.minDate = calendar.timeInMillis
         return datePicker
     }
 }

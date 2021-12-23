@@ -64,7 +64,8 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_tiempo"
-                    android:inputType="time"
+                    android:clickable="false"
+                    android:focusable="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
