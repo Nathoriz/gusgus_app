@@ -51,6 +51,12 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Subtitle2Style">
+        <item name="android:textColor">@color/title_subtitles</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="Theme.GusGusApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.GusGusApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
