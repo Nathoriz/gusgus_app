@@ -10,7 +10,7 @@ class ProductoSAdapter( private val products: List<Producto> ): RecyclerView.Ada
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoSViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from( parent.context )
-        return ProductoSViewHolder( layoutInflater.inflate( R.layout.item_producto_search, parent, false ) )
+        return ProductoSViewHolder( layoutInflater.inflate( R.layout.item_card_producto, parent, false ) )
     }
 
     override fun onBindViewHolder(holder: ProductoSViewHolder, position: Int) {

@@ -14,7 +14,7 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
     fun bind( producto: Producto, productoDeail: ProductoDetailListener, precioTotal: Double, cantidad: Int ){
         Picasso.get().load( producto.urlimg ).into( binding.ivImgorder )
         binding.tvNombreorderproducto.text = producto.nombre
-        ValiCantidad( cantidad )
+        ValiCantidad( cantidad, producto.categoria?.nombre )
         ValiPrecio( precioTotal, producto.precio!! )
         ValiCategoria( producto.categoria?.nombre, productoDeail )
         binding.tvCategoria.text = producto.categoria?.nombre
@@ -40,10 +40,10 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
     private fun ValiCategoria( categoria: String?, productoDeail: ProductoDetailListener ){
         if( categoria == "Tortas" ){
             binding.ivPluscant.visibility = View.INVISIBLE
+            binding.ivMinuscant.visibility = View.INVISIBLE
             productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
         }else{
             binding.ivPluscant.visibility = View.VISIBLE
-            binding.ivMinuscant.visibility = View.INVISIBLE
             productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
         }
     }
@@ -56,14 +56,17 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
             binding.txtprecioFalso.text = precioNow.toString()
         }
     }
-    private fun ValiCantidad( cantidad: Int ){
-        if( cantidad == 0 ){
+    private fun ValiCantidad( cantidad: Int, categoria: String? ){
+        if( cantidad == 0 && categoria == "Tortas" ){
             valor = 1
             binding.tvCantorder.text = valor.toString()
         }else{
             valor = cantidad
             binding.tvCantorder.text = cantidad.toString()
             binding.ivMinuscant.visibility = View.VISIBLE
+            if( cantidad == 1 && categoria != "Tortas" ){
+                binding.ivMinuscant.visibility = View.INVISIBLE
+            }
         }
     }
     private fun Incrementar( productoDeail: ProductoDetailListener ){

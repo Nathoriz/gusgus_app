@@ -13,7 +13,7 @@ object RetrofitHelper {
         val client = OkHttpClient.Builder()
         client.addInterceptor( logging )
 
-        return Retrofit.Builder().baseUrl("http://192.168.100.41:8080/")
+        return Retrofit.Builder().baseUrl("http://192.168.1.4:8080/")
             .client( client.build() )
             .addConverterFactory( GsonConverterFactory.create() )
             .build()
