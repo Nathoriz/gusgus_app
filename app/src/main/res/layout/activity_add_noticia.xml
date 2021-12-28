@@ -17,7 +17,7 @@
         app:tint="@color/dark" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/iv_image_addnoticia"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="16dp"
@@ -27,18 +27,18 @@
         app:srcCompat="@drawable/ic_smile" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btn_subirimg_addnoticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_image_addnoticia"
+        app:layout_constraintEnd_toEndOf="@+id/iv_image_addnoticia"
         app:srcCompat="@drawable/ic_upload"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/et_nombre_addnoticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -46,20 +46,20 @@
         android:hint="@string/tx_name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_image_addnoticia" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/swt_visibilidad_addnoticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:minHeight="48dp"
         android:text="Publicar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/et_descripcion_addnoticia" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_guardar_addnoticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/et_descripcion_addnoticia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -82,7 +82,7 @@
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre_addnoticia" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
