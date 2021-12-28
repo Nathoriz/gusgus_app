@@ -8,7 +8,7 @@
     tools:context=".view.ui.UserDataActivity">
 
     <TextView
-        android:id="@+id/txtuser"
+        android:id="@+id/tv_title_udata"
         style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,13 +19,13 @@
         tools:text="Hola, Alex" />
 
     <ImageView
-        android:id="@+id/iv_grettingimage"
+        android:id="@+id/iv_gretting_udata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtuser"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_udata"
         app:srcCompat="@drawable/dia" />
 
     <ImageView
@@ -37,7 +37,7 @@
         app:srcCompat="@drawable/ic_back2" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tv_subtitle_udata"
         style="@style/SubtitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,10 +45,10 @@
         android:text="@string/editProfile_subtitle"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_grettingimage" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_gretting_udata" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_containershowuserdata"
+        android:id="@+id/cv_containershow_udata"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -57,7 +57,7 @@
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20">
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle_udata">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -77,16 +77,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_nombrecompleto"
+                android:id="@+id/tv_nombreshow_udata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
                 android:textColor="@color/text2"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
-                tools:text="ALEX PILCO QUISPE" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                app:layout_constraintStart_toEndOf="@+id/textView21"
+                app:layout_constraintTop_toTopOf="@+id/textView21"
+                tools:text="Alex" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -98,13 +98,13 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nombrecompleto" />
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
             <TextView
-                android:id="@+id/tv_telefono"
+                android:id="@+id/tv_telefonoshow_udata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="16dp"
                 android:textColor="@color/text2"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
@@ -117,56 +117,31 @@
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/tx_distrito"
+                android:layout_marginTop="16dp"
+                android:text="@string/tx_lastname"
                 android:textColor="@color/text2"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
             <TextView
-                android:id="@+id/tv_distrito"
+                android:id="@+id/tv_apellidoshow_udata"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="16dp"
                 android:textColor="@color/text2"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView25"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView25"
                 app:layout_constraintTop_toTopOf="@+id/textView25"
-                tools:text="San Juan de Miraflores" />
+                tools:text="Pilco" />
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/tx_address"
-                android:textColor="@color/text2"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-            <TextView
-                android:id="@+id/tv_direccion"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:textColor="@color/text2"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView27"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView27"
-                app:layout_constraintTop_toTopOf="@+id/textView27"
-                tools:text="Jr. Lola Wiii XD" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btneditar"
+        android:id="@+id/btn_editar_udata"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
@@ -180,7 +155,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_containeruserdatafield"
+        android:id="@+id/cv_containeredit_udata"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -189,7 +164,7 @@
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20">
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle_udata">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -207,7 +182,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_editnombre"
+                    android:id="@+id/et_nombre_udata"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_field"
@@ -226,25 +201,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_edittelefono"
+                    android:id="@+id/et_apellido_udata"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_field"
-                    android:hint="@string/tx_phone"
-                    android:inputType="number"
+                    android:hint="@string/tx_lastname"
+                    android:inputType="textPersonName"
                     android:textColorHint="@color/hint" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/custom_spinner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-                tools:ignore="SpeakableTextPresentCheck" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -253,21 +217,22 @@
                 app:endIconMode="clear_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner">
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_editdireccion"
+                    android:id="@+id/et_telefono_udata"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_field"
-                    android:hint="@string/tx_address"
+                    android:hint="@string/tx_phone"
+                    android:inputType="number"
                     android:textColorHint="@color/hint" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btn_guardaredituser"
+        android:id="@+id/btn_guardar_udata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"

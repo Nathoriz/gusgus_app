@@ -33,22 +33,22 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/signup2_subtitle"
-        app:layout_constraintStart_toStartOf="@+id/txtUsername"
+        app:layout_constraintStart_toStartOf="@+id/et_usuario_signup2"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="230dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegisUsuario"
+        app:layout_constraintBottom_toTopOf="@+id/btn_registrar_signup2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword2"
+        app:layout_constraintTop_toBottomOf="@+id/et_confcontrasenia_signup2"
         app:srcCompat="@drawable/yupi" />
 
     <EditText
-        android:id="@+id/txtUsername"
+        android:id="@+id/et_usuario_signup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/textpassword"
+        android:id="@+id/et_contrasenia_signup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -67,10 +67,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/et_usuario_signup2" />
 
     <EditText
-        android:id="@+id/txtPassword2"
+        android:id="@+id/et_confcontrasenia_signup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -78,10 +78,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/et_contrasenia_signup2" />
 
     <Button
-        android:id="@+id/btnRegisUsuario"
+        android:id="@+id/btn_registrar_signup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"

@@ -90,9 +90,9 @@ class ClienteViewModel: ViewModel() {
                     if( response.code() == 200 ){
                         Preferences.constantes.saveIDCliente( it.id!! )
                         Preferences.constantes.saveTelefonoUser( it.telefono!! )
-                        Preferences.constantes.saveClientName( it.nombreCompleto!! )
-                        Preferences.constantes.saveDireccion( it.direccion!! )
-                        Preferences.constantes.saveDistrito( it.distrito?.nombre!! )
+                        Preferences.constantes.saveClientName( it.nombre!! + " " + it.apellido!! )
+//                        Preferences.constantes.saveDireccion( it.direccion!! )
+//                        Preferences.constantes.saveDistrito( it.distrito?.nombre!! )
                         valiupdate.valiUpdate( true )
                         responseLiveData.postValue( "Datos Actualizados")
                     }

@@ -2,7 +2,7 @@ package mood.honeyprojects.gusgusapp.model.entity
 
 import com.google.gson.annotations.SerializedName
 
-class PlantillaProduccion (
+class Receta (
     @SerializedName("id") val id: Long?,
     @SerializedName("nombre") val nombre: String?,
     @SerializedName("descripcion") val descripcion: String?,

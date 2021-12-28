@@ -9,6 +9,6 @@ class Producto(
     @SerializedName("descripcion") val descripcion: String?,
     @SerializedName("categoria") val categoria: Categoria?,
     @SerializedName("precio") val precio: Double?,
-    @SerializedName("estado") val estado: Estado?,
+    @SerializedName("receta") val receta: Receta?,
     @SerializedName("visibilidad") val visibilidad: Visibilidad?
 )

@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup1_subtitle"
-        app:layout_constraintStart_toStartOf="@+id/txtNombre"
+        app:layout_constraintStart_toStartOf="@+id/et_nombre_signup"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/hello" />
 
     <EditText
-        android:id="@+id/txtNombre"
+        android:id="@+id/et_nombre_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -56,18 +56,18 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/txtDireccion"
+        android:id="@+id/et_apellido_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:hint="@string/tx_address"
+        android:hint="@string/tx_lastname"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_distritoregistro" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre_signup" />
 
     <EditText
-        android:id="@+id/txttelefono"
+        android:id="@+id/et_telefono_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -75,10 +75,10 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDireccion" />
+        app:layout_constraintTop_toBottomOf="@+id/et_apellido_signup" />
 
     <Button
-        android:id="@+id/btnRegisCliente"
+        android:id="@+id/btn_next_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
@@ -89,16 +89,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Spinner
-        android:id="@+id/sp_distritoregistro"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/custom_spinner"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
-        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

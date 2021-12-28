@@ -10,7 +10,7 @@
     tools:context=".view.ui.SearchFragment">
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/sv_productos_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_searchview"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvproducto"
+        android:id="@+id/rv_productos_search"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -27,18 +27,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" >
+        app:layout_constraintTop_toBottomOf="@+id/sv_productos_search" >
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/ivnotfound"
+        android:id="@+id/iv_notfound_search"
         android:layout_width="0dp"
         android:layout_height="244dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/sv_productos_search"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/notfound"

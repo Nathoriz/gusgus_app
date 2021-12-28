@@ -33,11 +33,11 @@ class UsuarioViewModel: ViewModel() {
                             messageLiveData.postValue( data.usuario.rol.tiporol.toString() )
                         }else if( data.usuario?.rol?.tiporol == "CLIENTE" ){
                             Preferences.constantes.saveRole( data.usuario.rol.tiporol )
-                            Preferences.constantes.saveClientName( data.usuario.cliente?.nombreCompleto.toString() )
+                            Preferences.constantes.saveClientWholeName( data.usuario.cliente?.nombre.toString() + " " +  data.usuario.cliente?.apellido.toString())
+                            Preferences.constantes.saveClientName(data.usuario.cliente?.nombre.toString());
+                            Preferences.constantes.saveClientLastname(data.usuario.cliente?.apellido.toString());
                             Preferences.constantes.saveTelefonoUser( data.usuario.cliente?.telefono.toString() )
-                            Preferences.constantes.saveDireccion( data.usuario.cliente?.direccion.toString() )
                             data.usuario.cliente?.id?.let { Preferences.constantes.saveIDCliente(it) }
-                            Preferences.constantes.saveDistrito( data.usuario.cliente?.distrito?.nombre!! )
                             Preferences.constantes.saveBoolean( true )
                             messageLiveData.postValue( data.usuario.rol.tiporol.toString() )
                         }

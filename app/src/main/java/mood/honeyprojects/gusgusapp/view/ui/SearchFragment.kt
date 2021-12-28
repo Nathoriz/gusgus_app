@@ -29,19 +29,19 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchBinding.inflate( inflater, container, false )
-        binding.ivnotfound.visibility = View.INVISIBLE
+        binding.ivNotfoundSearch.visibility = View.INVISIBLE
         InitViewModel()
         GetProducto()
-        InitRecyclerView( binding.rvproducto )
+        InitRecyclerView( binding.rvProductosSearch )
         FiltroProducto()
 
         return binding.root
     }
 
     private fun FiltroProducto(){
-        binding.searchView.setOnQueryTextListener( object: SearchView.OnQueryTextListener{
+        binding.svProductosSearch.setOnQueryTextListener( object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                binding.searchView.clearFocus()
+                binding.svProductosSearch.clearFocus()
                 if (query != null) {
                     productoSearchViewModel.FiltroProducto( query )
                 }
@@ -67,8 +67,8 @@ class SearchFragment : Fragment() {
     private fun InitViewModel(){
         productoSearchViewModel.listaProductoLiveData.observe( viewLifecycleOwner, Observer {
             if( it != null ){
-                binding.rvproducto.visibility = View.VISIBLE
-                binding.ivnotfound.visibility = View.INVISIBLE
+                binding.rvProductosSearch.visibility = View.VISIBLE
+                binding.ivNotfoundSearch.visibility = View.INVISIBLE
 
                 listaproducto.clear()
                 listaproducto.addAll( it )
@@ -77,8 +77,8 @@ class SearchFragment : Fragment() {
         } )
         productoSearchViewModel.responseMensaje.observe( viewLifecycleOwner, Observer {
             if( it != null ){
-                binding.rvproducto.visibility = View.INVISIBLE
-                binding.ivnotfound.visibility = View.VISIBLE
+                binding.rvProductosSearch.visibility = View.INVISIBLE
+                binding.ivNotfoundSearch.visibility = View.VISIBLE
             }
         } )
     }

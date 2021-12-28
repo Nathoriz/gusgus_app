@@ -24,19 +24,22 @@ class LoginActivity : AppCompatActivity() {
         InitViewModel()
         Listeners()
     }
+
     private fun Listeners(){
-        binding.tvLoginSignup.setOnClickListener {
+        binding.tvRegistrarseLogin.setOnClickListener {
             val intent = Intent( this, SignupActivity::class.java )
             startActivity( intent )
         }
-        binding.btnLoginSingin.setOnClickListener {
+        binding.btnIniciarsesionLogin.setOnClickListener {
             Login()
         }
     }
+
     private fun Login(){
-        val usuarioLogin = UsuarioLogin( binding.etLoginUser.text.toString(), binding.etLoginPassword.text.toString() )
+        val usuarioLogin = UsuarioLogin( binding.etUsuarioLogin.text.toString(), binding.etContraseniaLogin.text.toString() )
         usuarioViewModel.Login( usuarioLogin )
     }
+
     private fun InitViewModel(){
         usuarioViewModel.messageLiveData.observe( this,  Observer {
             if( it == "CLIENTE" ){
@@ -54,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
             ShowMessage( it )
         } )
     }
+
     private fun ShowMessage( message: String ){
         Toast.makeText( applicationContext, message, Toast.LENGTH_LONG ).show()
     }

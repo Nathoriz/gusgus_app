@@ -8,30 +8,30 @@
     tools:context=".view.ui.LoginActivity">
 
     <TextView
-        android:id="@+id/tv_login_title"
+        android:id="@+id/tv_title_login"
         style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_login_subtitle"
-        app:layout_constraintStart_toStartOf="@+id/tv_login_subtitle"
+        app:layout_constraintBottom_toTopOf="@+id/tv_subtitle_login"
+        app:layout_constraintStart_toStartOf="@+id/tv_subtitle_login"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.50"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/tv_login_subtitle"
+        android:id="@+id/tv_subtitle_login"
         style="@style/SubtitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_subtitle"
-        app:layout_constraintBottom_toTopOf="@+id/et_login_user"
-        app:layout_constraintStart_toStartOf="@+id/et_login_user"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />
+        app:layout_constraintBottom_toTopOf="@+id/et_usuario_login"
+        app:layout_constraintStart_toStartOf="@+id/et_usuario_login"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_login" />
 
     <EditText
-        android:id="@+id/et_login_user"
+        android:id="@+id/et_usuario_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -41,14 +41,14 @@
         android:maxWidth="270dp"
         android:minWidth="250dp"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_login_password"
+        app:layout_constraintBottom_toTopOf="@+id/et_contrasenia_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_subtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle_login" />
 
     <EditText
-        android:id="@+id/et_login_password"
+        android:id="@+id/et_contrasenia_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -63,45 +63,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_user" />
+        app:layout_constraintTop_toBottomOf="@+id/et_usuario_login" />
 
     <ImageView
         android:id="@+id/iv_login_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_login_question"
+        app:layout_constraintBottom_toTopOf="@+id/tv_haveaccount_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_contrasenia_login"
         app:srcCompat="@drawable/catbaker" />
 
     <TextView
-        android:id="@+id/tv_login_question"
+        android:id="@+id/tv_haveaccount_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/tx_haveAccount"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login_singin"
-        app:layout_constraintEnd_toStartOf="@+id/tv_login_signup"
+        app:layout_constraintBottom_toTopOf="@+id/btn_iniciarsesion_login"
+        app:layout_constraintEnd_toStartOf="@+id/tv_registrarse_login"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_login_image" />
 
     <TextView
-        android:id="@+id/tv_login_signup"
+        android:id="@+id/tv_registrarse_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="@string/tx_signUpNow"
         android:textColor="@color/title_subtitles"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_login_question"
-        app:layout_constraintTop_toTopOf="@+id/tv_login_question" />
+        app:layout_constraintStart_toEndOf="@+id/tv_haveaccount_login"
+        app:layout_constraintTop_toTopOf="@+id/tv_haveaccount_login" />
 
     <Button
-        android:id="@+id/btn_login_singin"
+        android:id="@+id/btn_iniciarsesion_login"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -112,5 +112,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_question" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_haveaccount_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,27 +30,31 @@ class Signup2Activity : AppCompatActivity(), ValiRegisterUsuario {
         InitViewModel()
         Listeners()
     }
+
     private fun RegistrarUsuarioCliente(){
         val cliente = Client( Preferences.constantes.getTelefono() )
         val usuario = UsuarioClient(
             cliente,
-            binding.textpassword.text.toString(),
-            binding.txtUsername.text.toString()
+            binding.etContraseniaSignup2.text.toString(),
+            binding.etUsuarioSignup2.text.toString()
         )
         if( ValidarContrasenia() ){
             clienteViewModel.RegistrarUsuario( usuario, this )
         }
     }
+
     private fun ValidarContrasenia():Boolean{
-        if( !binding.txtPassword2.text.toString().equals(binding.textpassword.text.toString()) ){
+        if( !binding.etConfcontraseniaSignup2.text.toString().equals(binding.etContraseniaSignup2.text.toString()) ){
             ShowMessage( "Asegurate que la contraseña sea correcta." )
             return false
         }
         return true
     }
+
     private fun Listeners(){
-        binding.btnRegisUsuario.setOnClickListener { RegistrarUsuarioCliente() }
+        binding.btnRegistrarSignup2.setOnClickListener { RegistrarUsuarioCliente() }
     }
+
     private fun InitViewModel(){
         clienteViewModel.responseLiveData.observe( this,  Observer {
             if( it != null ){
@@ -60,11 +64,13 @@ class Signup2Activity : AppCompatActivity(), ValiRegisterUsuario {
             }
         } )
     }
+
     override fun ValiUsuario(vali: Boolean) {
         if( vali ){
             startActivity( Intent( this, LoginActivity::class.java ).addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK ) )
         }
     }
+
     private fun ShowMessage( message: String ){
         Toast.makeText( applicationContext, message, Toast.LENGTH_LONG ).show()
     }

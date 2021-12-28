@@ -26,21 +26,21 @@ class ChangePasswordActivity : AppCompatActivity() {
     }
 
     private fun Listeners(){
-        binding.btnConfirm.setOnClickListener { ValidarPassword() }
-        binding.btnSave.setOnClickListener { UpdatePassword() }
+        binding.btnConfirnarChngpassword.setOnClickListener { ValidarPassword() }
+        binding.btnGuardarChngpassword.setOnClickListener { UpdatePassword() }
     }
     private fun UpdatePassword(){
         val updatePassword = PasswordResponseUpdate(
             Preferences.constantes.getIDCliente(),
-            binding.tvNewpassword.text.toString(),
-            binding.tvNewPasswordConfirm.text.toString()
+            binding.etNuevacontraseniaChngpassword.text.toString(),
+            binding.etConfnuevacontraseniaChngpassword.text.toString()
         )
         usuarioViewModel.UpdatePassword( updatePassword )
     }
     private fun ValidarPassword(){
         val password = PasswordResponseVali(
             Preferences.constantes.getIDCliente(),
-            binding.tvConfirmpassword.text.toString()
+            binding.etConfcontraseniaChngpassword.text.toString()
         )
         usuarioViewModel.ValidarPassword( password )
     }
@@ -48,9 +48,9 @@ class ChangePasswordActivity : AppCompatActivity() {
         usuarioViewModel.messageResponseValiPassword.observe( this, Observer {
             if( it != null ){
                 if( it.estado == true ){
-                    binding.clConfitmPasswordCont.visibility = View.GONE
-                    binding.clChangePasswordCont.visibility = View.VISIBLE
-                    binding.tvConfirmpassword.setText( "" )
+                    binding.clValidateChngpassword.visibility = View.GONE
+                    binding.clUpdateChngpassword.visibility = View.VISIBLE
+                    binding.etConfcontraseniaChngpassword.setText( "" )
                     ShowMessage( it.message.toString() )
                 }
             }
@@ -63,11 +63,11 @@ class ChangePasswordActivity : AppCompatActivity() {
         usuarioViewModel.messageResponseUpdatePassword.observe( this, Observer {
             if( it != null ){
                 if( it.estado == true ){
-                    binding.clChangePasswordCont.visibility = View.GONE
-                    binding.clConfitmPasswordCont.visibility = View.VISIBLE
-                    binding.tvNewpassword.setText( "" )
-                    binding.tvNewPasswordConfirm.setText( "" )
-                    binding.tvNewpassword.requestFocus()
+                    binding.clUpdateChngpassword.visibility = View.GONE
+                    binding.clValidateChngpassword.visibility = View.VISIBLE
+                    binding.etNuevacontraseniaChngpassword.setText( "" )
+                    binding.etConfnuevacontraseniaChngpassword.setText( "" )
+                    binding.etNuevacontraseniaChngpassword.requestFocus()
                     ShowMessage( it.message.toString() )
                 }
             }

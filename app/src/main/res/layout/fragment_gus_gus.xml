@@ -11,7 +11,7 @@
 
 
     <TextView
-        android:id="@+id/tvnombreUser"
+        android:id="@+id/tv_gretting_gusgus"
         style="@style/SubtitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_title_gusgus"
         style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,20 +29,20 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvnombreUser" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gretting_gusgus" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/carousel_container"
+        android:id="@+id/carousel_noticias_gusgus"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5">
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_gusgus">
 
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel"
+            android:id="@+id/noticias_gusgus"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             app:autoPlay="true"
@@ -93,7 +93,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvcategoria"
+        android:id="@+id/rv_categoria_gusgus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -101,10 +101,10 @@
         android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle_gusgus" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvproducto"
+        android:id="@+id/rv_productos_gusgus"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
@@ -112,10 +112,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvcategoria" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_categoria_gusgus" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_subtitle_gusgus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -124,7 +124,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carousel_container" />
+        app:layout_constraintTop_toBottomOf="@+id/carousel_noticias_gusgus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -81,6 +81,7 @@
     <string name="msg_comentario_torta">Quiero que mi torta sea de tematica de tokio, que incluya objetos o lugares mas destacados del lugar.</string>
     <string name="tx_confirmOrder">Confirmar Pedido</string>
     <string name="title_tortas_personalizadas">MIS CREACIONES</string>
+    <string name="tx_lastname">Apellido</string>
 
 
 </resources>

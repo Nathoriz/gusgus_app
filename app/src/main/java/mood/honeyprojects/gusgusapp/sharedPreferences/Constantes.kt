@@ -8,7 +8,9 @@ class Constantes( val context: Context ) {
 
     val SHARED_DNI = "SHARED_DNI"
     val SHARED_ADMIN_NAME = "SHARED_ADMIN_NAME"
+    val SHARED_CLIENT_WHOLENAME = "SHARED_CLIENT_NAME"
     val SHARED_CLIENT_NAME = "SHARED_CLIENT_NAME"
+    val SHARED_CLIENT_LASTNAME = "SHARED_CLIENT_NAME"
     val SHARED_ROL_NAME = "SHARED_ROL_NAME"
     val SHARED_TELEFONO = "SHARED_TELEFONO"
     val SHARED_EXIST = "SHARED_EXIST"
@@ -76,11 +78,25 @@ class Constantes( val context: Context ) {
         return storage.getString( SHARED_ADMIN_NAME, "" )!!
     }
 
+    fun saveClientWholeName( name: String ){
+        return storage.edit().putString( SHARED_CLIENT_WHOLENAME, name ).apply()
+    }
+    fun getClientWholeName(): String{
+        return storage.getString( SHARED_CLIENT_WHOLENAME, "" )!!
+    }
+
     fun saveClientName( name: String ){
         return storage.edit().putString( SHARED_CLIENT_NAME, name ).apply()
     }
     fun getClientName(): String{
         return storage.getString( SHARED_CLIENT_NAME, "" )!!
+    }
+
+    fun saveClientLastname( lastname: String ){
+        return storage.edit().putString( SHARED_CLIENT_LASTNAME, lastname ).apply()
+    }
+    fun getClientLastname(): String{
+        return storage.getString( SHARED_CLIENT_LASTNAME, "" )!!
     }
 
     fun saveRole( role: String ){

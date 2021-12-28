@@ -21,18 +21,18 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate( inflater, container, false )
-        binding.txtperfil.text = Preferences.constantes.getClientName()
+        binding.tvNombrecompletoProfile.text = Preferences.constantes.getClientWholeName()
         Listener()
 
         return binding.root
     }
     private fun Listener(){
-        binding.tvlogout.setOnClickListener { LogOut() }
-        binding.ivlogout.setOnClickListener{ LogOut() }
-        binding.ivperfil.setOnClickListener { GoPerfil() }
-        binding.txtperfil.setOnClickListener { GoPerfil() }
-        binding.ivpassword.setOnClickListener { ChangePassword() }
-        binding.txtpassword.setOnClickListener { ChangePassword() }
+        binding.tvLogoutProfile.setOnClickListener { LogOut() }
+        binding.ivPoweroffProfile.setOnClickListener{ LogOut() }
+        binding.tvNombrecompletoProfile.setOnClickListener { GoPerfil() }
+        binding.ivSmileProfile.setOnClickListener { GoPerfil() }
+        binding.tvPasswordProfile.setOnClickListener { ChangePassword() }
+        binding.ivKeyProfile.setOnClickListener { ChangePassword() }
     }
     private fun LogOut(){
         Preferences.constantes.saveBoolean( false )

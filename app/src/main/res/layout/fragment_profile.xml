@@ -10,7 +10,7 @@
     tools:context=".view.ui.ProfileFragment">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_title_profile"
         style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,101 +20,101 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_subtitle_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/subtitle_profileFrag"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_profile" />
 
     <ImageView
-        android:id="@+id/ivperfil"
+        android:id="@+id/iv_smile_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_smile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle_profile" />
 
     <TextView
-        android:id="@+id/txtperfil"
+        android:id="@+id/tv_nombrecompleto_profile"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginStart="8dp"
         tools:text="@string/tx_nameClient"
         android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="@+id/ivperfil"
-        app:layout_constraintStart_toEndOf="@+id/ivperfil"
-        app:layout_constraintTop_toTopOf="@+id/ivperfil" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_smile_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_smile_profile"
+        app:layout_constraintTop_toTopOf="@+id/iv_smile_profile" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/iv_list_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_creations"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_smile_profile" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv_creations_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/tx_creations"
         android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_list_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_list_profile"
+        app:layout_constraintTop_toTopOf="@+id/iv_list_profile" />
 
     <ImageView
-        android:id="@+id/ivpassword"
+        android:id="@+id/iv_key_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_llave"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_list_profile" />
 
     <TextView
-        android:id="@+id/txtpassword"
+        android:id="@+id/tv_password_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/tx_password"
         android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="@+id/ivpassword"
-        app:layout_constraintStart_toEndOf="@+id/ivpassword"
-        app:layout_constraintTop_toTopOf="@+id/ivpassword" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_key_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_key_profile"
+        app:layout_constraintTop_toTopOf="@+id/iv_key_profile" />
 
     <ImageView
-        android:id="@+id/ivlogout"
+        android:id="@+id/iv_poweroff_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_powerof"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_key_profile" />
 
     <TextView
-        android:id="@+id/tvlogout"
+        android:id="@+id/tv_logout_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/tx_poweroff"
         android:textAlignment="viewStart"
-        app:layout_constraintBottom_toBottomOf="@+id/ivlogout"
-        app:layout_constraintStart_toEndOf="@+id/ivlogout"
-        app:layout_constraintTop_toTopOf="@+id/ivlogout" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_poweroff_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_poweroff_profile"
+        app:layout_constraintTop_toTopOf="@+id/iv_poweroff_profile" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/iv_plant_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"

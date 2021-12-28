@@ -21,9 +21,6 @@ class SignupActivity : AppCompatActivity(), ValiRegisterClient {
     //Variables
     private lateinit var binding: ActivitySignupBinding
     private val clienteViewModel: ClienteViewModel by viewModels()
-    private val distritoViewModel: DistritoViewModel by viewModels()
-    private var distrito: Distrito?=null
-    private var nombreDistri: String?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,31 +30,23 @@ class SignupActivity : AppCompatActivity(), ValiRegisterClient {
 
         //Metodos
         InitViewModel()
-        GetListDistrito()
         Listeners()
-
     }
     private fun Listeners(){
-        binding.btnRegisCliente.setOnClickListener {
+        binding.btnNextSignup.setOnClickListener {
             RegistrarClient()
         }
-    }
-    private fun GetListDistrito(){
-        distritoViewModel.ListDistrito()
-    }
-    private fun BuscarDistrito( nombre: String ){
-        distritoViewModel.BuscarDistrito( nombre )
     }
     private fun RegistrarClient(){
         val cliente = Cliente(
             null,
-            binding.txtNombre.text.toString(),
-            binding.txtDireccion.text.toString(),
-            binding.txttelefono.text.toString(),
-            distrito
+            binding.etNombreSignup.text.toString(),
+            binding.etApellidoSignup.text.toString(),
+            binding.etTelefonoSignup.text.toString(),
         )
         clienteViewModel.RegistrarClient( cliente, this )
     }
+
     private fun InitViewModel(){
         clienteViewModel.responseLiveData.observe( this,  Observer {
             if( it != null ){
@@ -66,33 +55,11 @@ class SignupActivity : AppCompatActivity(), ValiRegisterClient {
                 Toast.makeText( this, "Error Server", Toast.LENGTH_SHORT ).show()
             }
         } )
-        distritoViewModel.responseString.observe( this, Observer {
-            if( it != null ){
-                val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.spDistritoregistro.adapter = adapter
-
-                binding.spDistritoregistro.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                        val int = adapter.getPosition( it[position] )
-                        nombreDistri = it[ int ]
-                        Toast.makeText( this@SignupActivity, nombreDistri, Toast.LENGTH_LONG ).show()
-                        BuscarDistrito( nombreDistri!! )
-                    }
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                    }
-                }
-            }
-        } )
-        distritoViewModel.responseDistritoMutableLiveData.observe( this, Observer {
-            if( it != null ){
-                distrito = it
-            }
-        } )
     }
+
     override fun ValiCliente(vali: Boolean) {
         if( vali ){
-            Preferences.constantes.saveTelefono( binding.txttelefono.text.toString() )
+            Preferences.constantes.saveTelefono( binding.etTelefonoSignup.text.toString() )
             startActivity( Intent( this, Signup2Activity::class.java ) )
         }
     }
