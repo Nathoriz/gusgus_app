@@ -14,6 +14,12 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.ui.AddNoticiaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.NoticiaActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ui.DetailTortaPersonalizadaActivity"
             android:exported="false" />
         <activity

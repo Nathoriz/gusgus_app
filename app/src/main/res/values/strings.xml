@@ -82,6 +82,8 @@
     <string name="tx_confirmOrder">Confirmar Pedido</string>
     <string name="title_tortas_personalizadas">MIS CREACIONES</string>
     <string name="tx_lastname">Apellido</string>
+    <string name="tx_img">Subir Imagen</string>
+    <string name="tx_description">Descripción</string>
 
 
 </resources>
