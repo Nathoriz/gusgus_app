@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import mood.honeyprojects.gusgusapp.R
 
-class SaborActivity : AppCompatActivity() {
+class AddSaborActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sabor)
+        setContentView(R.layout.activity_add_sabor)
     }
 }

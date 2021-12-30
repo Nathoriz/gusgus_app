@@ -86,6 +86,7 @@
     <string name="tx_description">Descripción</string>
     <string name="tx_edit">Editar</string>
     <string name="tx_publicar">Publicar</string>
+    <string name="tx_rgbcolor">Color rgb</string>
 
 
 </resources>
