@@ -29,7 +29,7 @@ class NoticiaViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<List<Noticias>>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
         })
     }
@@ -50,7 +50,7 @@ class NoticiaViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<Noticias>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
         })
     }

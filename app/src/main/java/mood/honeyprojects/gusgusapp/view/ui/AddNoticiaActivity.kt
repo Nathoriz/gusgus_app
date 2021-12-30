@@ -44,7 +44,11 @@ class AddNoticiaActivity : AppCompatActivity() {
 
     private fun Listener(){
         binding.btnGuardarAddnoticia.setOnClickListener { GuardarNoticia() }
-        binding.btnSubirimgAddnoticia.setOnClickListener{ GuardarImagenIntoStorage() }
+        binding.btnSubirimgAddnoticia.setOnClickListener{
+            if( validateData() ){
+                GuardarImagenIntoStorage()
+            }
+        }
     }
     private fun InitFirebase(){
         imgreferences = FirebaseDatabase.getInstance().reference.child("FotoProducto")
@@ -86,28 +90,24 @@ class AddNoticiaActivity : AppCompatActivity() {
         }
     }
     private fun GuardarImagenIntoStorage(){
-        if( binding.etNombreAddnoticia.text.toString().isEmpty() && binding.etDescripcionAddnoticia.text.toString().isEmpty() ){
-            ShowMessage( "Ingrese un nombre y descripción de la foto." )
-        }else {
-            val nombre = binding.etNombreAddnoticia.text.toString()
-            val descripcion = binding.etDescripcionAddnoticia.text.toString()
-            val resultNombre = nombre.replace(" ","")
+        val nombre = binding.etNombreAddnoticia.text.toString()
+        val descripcion = binding.etDescripcionAddnoticia.text.toString()
+        val resultNombre = nombre.replace(" ","")
 
-            val ref = storageReference.child( "$resultNombre.jpg" )
-            val uploadTask = encodeImage?.let { ref.putBytes(it) }
-            val uriTask = uploadTask?.continueWithTask { p0 ->
-                if (!p0.isSuccessful) {
-                    throw Objects.requireNonNull(p0.exception!!)
-                }
-                ref.downloadUrl
-            }?.addOnCompleteListener {
-                val downloadUri = it.result
-                val entidad = NoticiaResponse( resultNombre, downloadUri.toString(), descripcion, null )
-                imgreferences.push().setValue( entidad )
-
-                ShowMessage( "Imagen Subida con exito." )
-                url = downloadUri.toString();
+        val ref = storageReference.child( "$resultNombre.jpg" )
+        val uploadTask = encodeImage?.let { ref.putBytes(it) }
+        val uriTask = uploadTask?.continueWithTask { p0 ->
+            if (!p0.isSuccessful) {
+                throw Objects.requireNonNull(p0.exception!!)
             }
+            ref.downloadUrl
+        }?.addOnCompleteListener {
+            val downloadUri = it.result
+            val entidad = NoticiaResponse( resultNombre, downloadUri.toString(), descripcion, null )
+            imgreferences.push().setValue( entidad )
+
+            ShowMessage( "Imagen Subida con exito." )
+            url = downloadUri.toString();
         }
     }
     private fun encodeImage(bitmap: Bitmap): ByteArray {
@@ -137,5 +137,19 @@ class AddNoticiaActivity : AppCompatActivity() {
     }
     private fun ShowMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
+    }
+    private fun validateData(): Boolean{
+        if( encodeImage == null ){
+            ShowMessage( "Seleccione una foto." )
+            return false
+        }else if( binding.etNombreAddnoticia.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese un nombre." )
+            return false
+        }else if( binding.etDescripcionAddnoticia.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese una descripción." )
+            return false
+        }else{
+            return true
+        }
     }
 }
