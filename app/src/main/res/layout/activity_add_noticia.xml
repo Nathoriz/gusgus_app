@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:minHeight="48dp"
-        android:text="Publicar"
+        android:text="@string/tx_publicar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_descripcion_addnoticia" />
 
@@ -62,8 +62,8 @@
         android:id="@+id/btn_guardar_addnoticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
         android:text="@string/tx_save"
+        android:background="@drawable/custom_button"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
