@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641432518227",
+    "project_id": "gusgusapp-122f9",
+    "storage_bucket": "gusgusapp-122f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641432518227:android:1575a57fe7e3e69685d0a6",
+        "android_client_info": {
+          "package_name": "mood.honeyprojects.gusgusapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641432518227-m2a5vcp9ujvu61d7o6vd3kcgs3ihedjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSla2Wcw-uo7iufAi0X5HcN8KY7QPt0xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641432518227-m2a5vcp9ujvu61d7o6vd3kcgs3ihedjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

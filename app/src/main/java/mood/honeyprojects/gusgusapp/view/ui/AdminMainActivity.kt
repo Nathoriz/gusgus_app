@@ -92,13 +92,17 @@ class AdminMainActivity : AppCompatActivity() {
         } )
         binding.cvPublicidad.setOnTouchListener( object: View.OnTouchListener{
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+
                 if( event?.action == MotionEvent.ACTION_UP ){
                     binding.cvPublicidad.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, NoticiaActivity::class.java )
+                    startActivity( intent )
                 }else if( event?.action == MotionEvent.ACTION_DOWN ){
                     binding.cvPublicidad.startAnimation( scaledown )
                 }
                 return true
             }
+
         } )
         binding.cvUsuarios.setOnTouchListener( object: View.OnTouchListener{
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
