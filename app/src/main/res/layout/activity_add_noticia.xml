@@ -32,10 +32,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
         android:padding="10dp"
+        tools:ignore="SpeakableTextPresentCheck"
         app:layout_constraintBottom_toBottomOf="@+id/iv_image_addnoticia"
         app:layout_constraintEnd_toEndOf="@+id/iv_image_addnoticia"
         app:srcCompat="@drawable/ic_upload"
-        tools:ignore="SpeakableTextPresentCheck" />
+      />
 
     <EditText
         android:id="@+id/et_nombre_addnoticia"
