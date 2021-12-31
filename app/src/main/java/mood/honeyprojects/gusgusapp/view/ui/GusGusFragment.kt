@@ -22,6 +22,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Producto
 import mood.honeyprojects.gusgusapp.view.adapter.CategoriaAdapter
 import mood.honeyprojects.gusgusapp.view.adapter.ProductoAdapter
 import mood.honeyprojects.gusgusapp.viewModel.CategoriaViewModel
+import mood.honeyprojects.gusgusapp.viewModel.NoticiaViewModel
 import mood.honeyprojects.gusgusapp.viewModel.ProductoViewModel
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
@@ -38,8 +39,9 @@ class GusGusFragment : Fragment(), CategoriaListener {
     //ViewModels
     private val productoviewModel: ProductoViewModel by viewModels()
     private val categoriaViewModel: CategoriaViewModel by viewModels()
+    private val noticiaViewModel: NoticiaViewModel by viewModels()
     //Listas
-    val list = mutableListOf<CarouselItem>()
+    val list = mutableListOf<String>()
     private val categorias = mutableListOf<Categoria>()
     private val productos = mutableListOf<Producto>()
 
@@ -53,20 +55,21 @@ class GusGusFragment : Fragment(), CategoriaListener {
         binding = FragmentGusGusBinding.inflate( inflater, container, false )
 
         InitViewModel()
+        GetUrlNoticias()
         GetCategoria()
         GetProducto()
         InitRecyclerViewCate( binding.rvCategoriaGusgus )
         InitRecyclerView( binding.rvProductosGusgus )
         MostrarHora()
-        sliderList( binding.noticiasGusgus )
         return binding.root
     }
 
-    private fun sliderList( carrusel: ImageCarousel ){
-        list.add( CarouselItem("https://i.ibb.co/y8xXFNK/publicidad-Uno.png") )
-        list.add( CarouselItem("https://i.ibb.co/JRhPwTj/Publicidad-Dos.png") )
-        list.add( CarouselItem("https://i.ibb.co/ysYBb9n/Publicidadtres.png") )
-        carrusel.addData( list )
+    private fun sliderList( carrusel: ImageCarousel, list: List<String> ){
+        val listCarru = mutableListOf<CarouselItem>()
+        for( url in list ){
+            listCarru.add( CarouselItem(url) )
+        }
+        carrusel.addData( listCarru )
     }
 
     private fun InitRecyclerViewCate( rvCate: RecyclerView ){
@@ -110,6 +113,9 @@ class GusGusFragment : Fragment(), CategoriaListener {
     private fun GetProducto(){
         productoviewModel.ListarProducts()
     }
+    private fun GetUrlNoticias(){
+        noticiaViewModel.FindNoticiasbyVisibilidad( true )
+    }
 
     private fun InitViewModel(){
         productoviewModel.listaProductoLiveData.observe( viewLifecycleOwner, Observer {
@@ -124,6 +130,11 @@ class GusGusFragment : Fragment(), CategoriaListener {
                 categorias.clear()
                 categorias.addAll( it )
                 cateAdapter.notifyDataSetChanged()
+            }
+        } )
+        noticiaViewModel.urlNoticiasLiveData.observe( viewLifecycleOwner, Observer {
+            if( it != null ){
+                sliderList( binding.noticiasGusgus, it )
             }
         } )
     }

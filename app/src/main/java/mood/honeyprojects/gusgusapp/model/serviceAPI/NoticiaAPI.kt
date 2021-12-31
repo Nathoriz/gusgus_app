@@ -4,10 +4,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Noticias
 import mood.honeyprojects.gusgusapp.model.requestEntity.NoticiaResponse
 import mood.honeyprojects.gusgusapp.model.requestEntity.NoticiaUpdate
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
+import retrofit2.http.*
 
 interface NoticiaAPI {
 
@@ -19,4 +16,7 @@ interface NoticiaAPI {
 
     @PUT( "noticias/actualizar" )
     fun ActualizarNoticia( @Body noticia: NoticiaUpdate ): Call<String>
+
+    @GET( "noticias/visibilidad" )
+    fun FindNoticiasVisibilidad( @Query("aBoolean" ) aBoolean: Boolean ): Call<List<Noticias>>
 }

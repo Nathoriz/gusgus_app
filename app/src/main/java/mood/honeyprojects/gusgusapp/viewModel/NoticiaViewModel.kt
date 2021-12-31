@@ -17,6 +17,7 @@ class NoticiaViewModel: ViewModel() {
     val noticiasLiveData = MutableLiveData<List<Noticias>>()
     val noticiaLiveData = MutableLiveData<Noticias>()
     val messageResponse = MutableLiveData<String>()
+    val urlNoticiasLiveData = MutableLiveData<List<String>>()
 
     fun ListarNoticias(){
         val response = RetrofitHelper.getRetrofit().create( NoticiaAPI::class.java ).listarNoticia()
@@ -61,7 +62,7 @@ class NoticiaViewModel: ViewModel() {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
-                        messageResponse.postValue( getErrorMessage2(it) )
+                        messageResponse.postValue( it )
                     }
                 }
             }
@@ -69,13 +70,27 @@ class NoticiaViewModel: ViewModel() {
             }
         })
     }
+    fun FindNoticiasbyVisibilidad( boolean: Boolean ){
+        val response = RetrofitHelper.getRetrofit().create( NoticiaAPI::class.java ).FindNoticiasVisibilidad( boolean )
+        response.enqueue( object: Callback<List<Noticias>> {
+            override fun onResponse(call: Call<List<Noticias>>, response: Response<List<Noticias>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        var list = mutableListOf<String>()
+                        for( url in it ){
+                            list.add( url.imgurl.toString() )
+                        }
+                        urlNoticiasLiveData.postValue( list )
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<Noticias>>, t: Throwable) {
+            }
+        })
+    }
     fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")
-    }
-
-    fun getErrorMessage2(raw: String): String{
-        val objects = JSONObject(raw)
-        return objects.getString("Mensaje")
     }
 }
