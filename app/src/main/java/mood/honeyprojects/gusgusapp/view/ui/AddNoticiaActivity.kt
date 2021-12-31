@@ -16,8 +16,10 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.coroutines.*
 import mood.honeyprojects.gusgusapp.databinding.ActivityAddNoticiaBinding
+import mood.honeyprojects.gusgusapp.model.entity.Visibilidad
 import mood.honeyprojects.gusgusapp.model.requestEntity.NoticiaResponse
 import mood.honeyprojects.gusgusapp.viewModel.NoticiaViewModel
+import mood.honeyprojects.gusgusapp.viewModel.VisibilidadViewModel
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.util.*
@@ -25,10 +27,13 @@ import java.util.*
 class AddNoticiaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddNoticiaBinding
     private val noticiaViewModel: NoticiaViewModel by viewModels()
+    private val visibilidadViewModel: VisibilidadViewModel by viewModels()
+
     private lateinit var imgreferences: DatabaseReference
     private lateinit var storageReference: StorageReference
 
     private var encodeImage: ByteArray?=null
+    private var visibilidad: Visibilidad?=null
     private var url = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +43,10 @@ class AddNoticiaActivity : AppCompatActivity() {
         supportActionBar?.hide()
         InitViewModel()
         InitFirebase()
+        BuscarVisibilidad()
         AbrirGaleria()
         Listener()
+
     }
 
     private fun Listener(){
@@ -48,6 +55,7 @@ class AddNoticiaActivity : AppCompatActivity() {
             if( validateData() ){
                 GuardarImagenIntoStorage()
             }
+            ShowMessage( visibilidad?.visible.toString() )
         }
     }
     private fun InitFirebase(){
@@ -65,17 +73,31 @@ class AddNoticiaActivity : AppCompatActivity() {
                 ShowMessage( it )
             }
         } )
+        visibilidadViewModel.visibilidadLiveData.observe( this, Observer {
+            if( it != null ){
+                visibilidad = it
+            }
+        } )
+    }
+    private fun BuscarVisibilidad(){
+        binding.swtVisibilidadAddnoticia.setOnCheckedChangeListener { _, isChecked ->
+            if ( isChecked ) visibilidadViewModel.GetVisibilidad( true ) else visibilidadViewModel.GetVisibilidad( false )
+        }
+        if( !binding.swtVisibilidadAddnoticia.isChecked ){
+            visibilidadViewModel.GetVisibilidad( false )
+        }
     }
     private fun GuardarNoticia(){
         if( url.isEmpty() ){
             ShowMessage( "Primero suba una foto porfavor." )
         }else{
             ShowMessage( url )
+            ShowMessage( visibilidad.toString() )
             val noticia = NoticiaResponse(
                 binding.etNombreAddnoticia.text.toString(),
                 url,
                 binding.etDescripcionAddnoticia.text.toString(),
-                null
+                visibilidad
             )
             noticiaViewModel.GuardarNoticia( noticia )
             val intent = Intent( this, NoticiaActivity::class.java )

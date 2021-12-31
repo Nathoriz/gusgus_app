@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Noticias
 import mood.honeyprojects.gusgusapp.model.requestEntity.NoticiaResponse
+import mood.honeyprojects.gusgusapp.model.requestEntity.NoticiaUpdate
 import mood.honeyprojects.gusgusapp.model.serviceAPI.NoticiaAPI
 import org.json.JSONObject
 import retrofit2.Call
@@ -54,8 +55,27 @@ class NoticiaViewModel: ViewModel() {
             }
         })
     }
+    fun ActualizarNoticia( noticia: NoticiaUpdate ){
+        val response = RetrofitHelper.getRetrofit().create( NoticiaAPI::class.java ).ActualizarNoticia( noticia )
+        response.enqueue( object: Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        messageResponse.postValue( getErrorMessage2(it) )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+            }
+        })
+    }
     fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")
+    }
+
+    fun getErrorMessage2(raw: String): String{
+        val objects = JSONObject(raw)
+        return objects.getString("Mensaje")
     }
 }
