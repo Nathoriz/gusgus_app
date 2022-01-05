@@ -19,4 +19,7 @@ interface NoticiaAPI {
 
     @GET( "noticias/visibilidad" )
     fun FindNoticiasVisibilidad( @Query("aBoolean" ) aBoolean: Boolean ): Call<List<Noticias>>
+
+    @GET( "noticias/filtro" )
+    fun FiltroNoticia( @Query( "nombre" ) nombre: String ): Call<List<Noticias>>
 }

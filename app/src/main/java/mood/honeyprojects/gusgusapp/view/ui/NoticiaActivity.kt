@@ -3,6 +3,9 @@ package mood.honeyprojects.gusgusapp.view.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +36,7 @@ class NoticiaActivity : AppCompatActivity() {
         InitRecyclerView( binding.rvNoticiasNoticia )
         GetNoticias()
         Listener()
+        FiltroNoticia()
     }
     private fun Listener(){
         binding.fabAgregarNoticia.setOnClickListener { AddNoticia() }
@@ -41,6 +45,24 @@ class NoticiaActivity : AppCompatActivity() {
     private fun AddNoticia(){
         val intent = Intent( this, AddNoticiaActivity::class.java )
         startActivity( intent )
+    }
+    private fun FiltroNoticia(){
+        binding.svNoticiasNoticia.setOnQueryTextListener( object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.svNoticiasNoticia.clearFocus()
+                if (query != null) {
+                    noticiaViewModel.FiltroNoticias( query )
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText != null) {
+                    noticiaViewModel.FiltroNoticias( newText )
+                }
+                return false
+            }
+        } )
     }
     private fun CloseNoticia(){
         val intent = Intent( this, AdminMainActivity::class.java )
@@ -58,9 +80,15 @@ class NoticiaActivity : AppCompatActivity() {
     private fun InitViewModel(){
         noticiaViewModel.noticiasLiveData.observe( this, Observer {
             if( it != null ){
+                binding.rvNoticiasNoticia.visibility = View.VISIBLE
                 listNoticias.clear()
                 listNoticias.addAll( it )
                 adapter.notifyDataSetChanged()
+            }
+        } )
+        noticiaViewModel.messageResponse.observe( this, Observer {
+            if( it != null ){
+                binding.rvNoticiasNoticia.visibility = View.INVISIBLE
             }
         } )
     }

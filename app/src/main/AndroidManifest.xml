@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".view.ui.AddDiametroActivity"
-            android:exported="false" />
+
         <activity
             android:name=".view.ui.DiametroActivity"
             android:exported="false" />

@@ -89,6 +89,25 @@ class NoticiaViewModel: ViewModel() {
             }
         })
     }
+    fun FiltroNoticias( nombre: String ){
+        val response = RetrofitHelper.getRetrofit().create( NoticiaAPI::class.java ).FiltroNoticia( nombre )
+        response.enqueue( object: Callback<List<Noticias>>{
+            override fun onResponse(call: Call<List<Noticias>>, response: Response<List<Noticias>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        noticiasLiveData.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 404 ){
+                        messageResponse.postValue( getErrorMessage( it.string() ) )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Noticias>>, t: Throwable) {
+            }
+        } )
+    }
     fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")
