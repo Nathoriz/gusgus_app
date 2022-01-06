@@ -81,7 +81,7 @@
         android:id="@+id/btn_next_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/custom_button_corner"
         android:text="@string/tx_next"
         app:backgroundTint="@null"
         app:icon="@drawable/ic_next"

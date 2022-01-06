@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="@string/tx_save"
         app:backgroundTint="@null"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/custom_button_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

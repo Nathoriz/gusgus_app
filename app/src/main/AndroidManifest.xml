@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".view.ui.EntregaActivity"
+            android:exported="false" />
         <activity
             android:name=".view.ui.DiametroActivity"
             android:exported="false" />

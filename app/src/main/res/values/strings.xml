@@ -87,6 +87,8 @@
     <string name="tx_edit">Editar</string>
     <string name="tx_publicar">Publicar</string>
     <string name="tx_rgbcolor">Color rgb</string>
+    <string name="tx_date">--/--/--</string>
+    <string name="tx_time">0:00pm</string>
 
 
 </resources>

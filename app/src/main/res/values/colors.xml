@@ -10,10 +10,10 @@
 
     <!--Text-->
     <color name="title_subtitles">#6E484D</color>
-    <color name="text">#242323</color>
-    <color name="text2">#545454</color>
-    <color name="hint">#545454</color>
-    <color name="pink">#F5AEB0</color>
+    <color name="text">#343440</color>
+    <color name="text_gray">#616174</color>
+    <color name="text_pink">#F5AEB0</color>
+    <color name="hint">#5A6271</color>
 
     <!--Admin-->
     <color name="adminMain">#76A2A8</color>
@@ -37,5 +37,11 @@
     <color name="skyblue">#9DF3FF</color>
 
     <color name="link">#0192F5</color>
+    <color name="ico_gray">#3F4859</color>
+
+    <!-- Transparent -->
+
+
+    <color name="transpink">#59F0A2AA</color>
 
 </resources>
