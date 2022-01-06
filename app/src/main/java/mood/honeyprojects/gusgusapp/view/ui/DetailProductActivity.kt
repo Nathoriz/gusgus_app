@@ -40,16 +40,18 @@ class DetailProductActivity : AppCompatActivity() {
         detalleProducto.DetalleProducto( Preferences.constantes.getIdProduct() )
     }
     private fun Pedido(){
-        val intent = Intent( this, ConfirmOrderActivity::class.java )
+        val intent = Intent( this, EntregaActivity::class.java )
         intent.putExtra( "idProduct", producto?.id )
         if( producto?.categoria?.nombre == "Tortas" ){
             intent.putExtra( "precio", "0.0" )
             intent.putExtra( "cantidad", "0" )
             startActivity( intent )
+            finish()
         }else{
             intent.putExtra( "precio", binding.tvTotal.text.toString() )
             intent.putExtra( "cantidad", binding.tvCantidad.text.toString() )
             startActivity( intent )
+            finish()
         }
     }
     private fun InitViewModel(){

@@ -11,6 +11,7 @@
     <!--Text-->
     <color name="title_subtitles">#6E484D</color>
     <color name="text">#343440</color>
+    <color name="text2">#343440</color>
     <color name="text_gray">#616174</color>
     <color name="text_pink">#F5AEB0</color>
     <color name="hint">#5A6271</color>
@@ -43,5 +44,6 @@
 
 
     <color name="transpink">#59F0A2AA</color>
+    <color name="pink">#F5AEB0</color>
 
 </resources>
