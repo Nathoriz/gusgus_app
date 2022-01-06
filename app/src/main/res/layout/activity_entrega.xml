@@ -23,83 +23,6 @@
         app:tint="@color/ico_gray"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_delivery_entrega"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_entrega">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <EditText
-                android:id="@+id/et_datedelvery_entrega"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:drawableStart="@drawable/ic_calendario"
-                android:drawablePadding="30dp"
-                android:ems="10"
-                android:hint="@string/tx_date"
-                android:inputType="date"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <EditText
-                android:id="@+id/et_timedelivery_entrega"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:drawableStart="@drawable/ic_tiempo"
-                android:drawablePadding="30dp"
-                android:ems="10"
-                android:hint="@string/tx_time"
-                android:inputType="time"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Spinner
-                android:id="@+id/sp_distritodelivery_entrega"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/custom_spinner"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <EditText
-                android:id="@+id/et_direcciondelivery_entrega"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/tx_address"
-                android:inputType="text"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/iv_img_entrega"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ib_close_entrega"
-        app:srcCompat="@drawable/mappin" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_opciones"
         android:layout_width="0dp"
@@ -184,6 +107,83 @@
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/iv_img_entrega"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_close_entrega"
+        app:srcCompat="@drawable/mappin" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_delivery_entrega"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img_entrega">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/et_datedelvery_entrega"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_calendario"
+                android:drawablePadding="30dp"
+                android:ems="10"
+                android:hint="@string/tx_date"
+                android:inputType="date"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <EditText
+                android:id="@+id/et_timedelivery_entrega"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_tiempo"
+                android:drawablePadding="30dp"
+                android:ems="10"
+                android:hint="@string/tx_time"
+                android:inputType="time"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/sp_distritodelivery_entrega"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <EditText
+                android:id="@+id/et_direcciondelivery_entrega"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/tx_address"
+                android:inputType="text"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/btn_delivery_entrega"
         android:layout_width="0dp"
@@ -207,6 +207,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         app:cardCornerRadius="20dp"
         app:cardElevation="7dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -218,8 +219,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:visibility="gone">
+            android:padding="20dp">
 
             <ImageView
                 android:id="@+id/imageView14"
