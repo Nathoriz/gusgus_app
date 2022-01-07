@@ -43,8 +43,8 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         Listener()
     }
     private fun Listener(){
-        binding.etDate.setOnClickListener { ShowDatePickerForm() }
-        binding.etTime.setOnClickListener { ShowTimePickerForm() }
+//        binding..setOnClickListener { ShowDatePickerForm() }
+//        binding.etTime.setOnClickListener { ShowTimePickerForm() }
     }
     private fun ShowTimePickerForm(){
         val timePicker = TimePickerFragment { onTimeSelected( it ) }
@@ -55,16 +55,16 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         datePicker.show( supportFragmentManager, "datePicker" )
     }
     private fun onTimeSelected( time: String ){
-        binding.etTime.setText( time )
+//        binding.etTime.setText( time )
     }
     private fun onDateSelected( anio: Int, mes: Int, dia: Int ){
-        binding.etDate.setText( "$anio-$mes-$dia" )
+//        binding.etDate.setText( "$anio-$mes-$dia" )
     }
     private fun ListDistrito(){
-        distritoViewModel.ListDistrito()
+//        distritoViewModel.ListDistrito()
     }
     private fun BuscarDistrito( nombre: String ){
-        distritoViewModel.BuscarDistrito( nombre )
+//        distritoViewModel.BuscarDistrito( nombre )
     }
     private fun FindProductForId(){
         val intent = this.intent
@@ -94,18 +94,18 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.spDistrito.adapter = adapter
+//                binding.spDistrito.adapter = adapter
 
-                binding.spDistrito.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                        val int = adapter.getPosition( it[position] )
-                        nombreDistri = it[ int ]
-                        //Toast.makeText( this@ConfirmOrderActivity, nombreDistri, Toast.LENGTH_LONG ).show()
-                        BuscarDistrito( nombreDistri!! )
-                    }
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                    }
-                }
+//                binding.spDistrito.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+//                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//                        val int = adapter.getPosition( it[position] )
+//                        nombreDistri = it[ int ]
+//                        //Toast.makeText( this@ConfirmOrderActivity, nombreDistri, Toast.LENGTH_LONG ).show()
+//                        BuscarDistrito( nombreDistri!! )
+//                    }
+//                    override fun onNothingSelected(parent: AdapterView<*>?) {
+//                    }
+//                }
             }
         } )
         distritoViewModel.responseDistritoMutableLiveData.observe( this, Observer {
