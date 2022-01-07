@@ -72,7 +72,7 @@
     <string name="subtitle_confirm_order">Datos de envio</string>
     <string name="tx_subtotal">Subtotal</string>
     <string name="tx_envio">Envio</string>
-    <string name="tx_total">TOTAL</string>
+    <string name="tx_total">Total</string>
     <string name="tx_espera">EN ESPERA</string>
     <string name="tx_pendiente">PENDIENTE</string>
     <string name="tx_enviado">ENVIADO</string>

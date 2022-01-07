@@ -29,14 +29,15 @@
     <color name="dklila">#9B98C1</color>
     <color name="ltpink">#F6E8DD</color>
     <color name="dark">#242323</color>
-
+    <color name="morado">#B87DCA</color>
+    <color name="dkmorado">#9261A1</color>
+    <color name="naranja">#FFC31C</color>
 
     <!--Style-->
     <color name="shadow_field">#CAC3C2</color>
     <color name="cooffe">#B37C72</color>
     <color name="dkskyblue">#76A2A8</color>
     <color name="skyblue">#9DF3FF</color>
-
     <color name="link">#0192F5</color>
     <color name="ico_gray">#3F4859</color>
 

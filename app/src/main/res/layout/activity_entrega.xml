@@ -9,20 +9,6 @@
     tools:context=".view.ui.EntregaActivity">
 
 
-    <ImageButton
-        android:id="@+id/ib_close_entrega"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/radius_50dp"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:padding="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_close"
-        app:tint="@color/ico_gray"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_opciones"
         android:layout_width="0dp"
@@ -106,6 +92,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/ib_close_entrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_50dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/ico_gray"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/iv_img_entrega"

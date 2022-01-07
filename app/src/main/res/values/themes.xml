@@ -15,6 +15,8 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <!--  EditText      -->
         <item name="editTextStyle">@style/EditTextStyle</item>
+        <!--  TextView      -->
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
         <!--  Button      -->
 <!--        <item name="buttonStyle">@style/ButtonStyle</item>-->
     </style>
@@ -41,11 +43,22 @@
         <item name="android:background">@drawable/custom_field</item>
     </style>
 
+    <style name="TextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:color">@color/text</item>
+    </style>
+
 <!--    <style name="ButtonStyle" parent="@android:style/Widget.Button">-->
 <!--        <item name="android:textStyle">bold</item>-->
 <!--        <item name="android:background">@drawable/custom_button</item>-->
 <!--        <item name="android:backgroundTint">@null</item>-->
 <!--    </style>-->
+
+    <style name="BigTitleStyle">
+        <item name="android:textColor">@color/title_subtitles</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <style name="TitleStyle">
         <item name="android:textColor">@color/title_subtitles</item>

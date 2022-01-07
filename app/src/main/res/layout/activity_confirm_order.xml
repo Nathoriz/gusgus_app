@@ -14,29 +14,20 @@
         android:padding="@dimen/padding_layout"
         tools:context=".view.ui.ConfirmOrderActivity">
 
-        <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back2" />
-
         <TextView
             android:id="@+id/textView7"
-            style="@style/TitleStyle"
+            style="@style/BigTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/subtitle_confirm_order"
+            android:text="Mi"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mt_comentario" />
+            app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,54 +36,119 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_lila"
-                android:padding="16dp">
+                android:background="@color/dkmorado"
+                android:paddingStart="25dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="25dp"
+                android:paddingBottom="20dp">
 
-                <EditText
-                    android:id="@+id/et_date"
-                    android:layout_width="150dp"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView5"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_calendario"
-                    android:clickable="false"
-                    android:focusable="false"
+                    android:backgroundTint="@color/morado"
+                    app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <EditText
-                    android:id="@+id/et_time"
-                    android:layout_width="150dp"
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="12dp"
+                        app:srcCompat="@drawable/ic_fill_geo" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView6"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_tiempo"
-                    android:clickable="false"
-                    android:focusable="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/morado"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView5">
 
-                <Spinner
-                    android:id="@+id/sp_distrito"
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="12dp"
+                        app:srcCompat="@drawable/ic_fill_calendar" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/morado"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView6">
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:srcCompat="@drawable/ic_fill_time" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_editentrega_conforder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/naranja"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView20"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="15dp"
+                        app:srcCompat="@drawable/ic_edit"
+                        app:tint="@color/white" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_direccion_conforder"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/custom_spinner"
-                    android:paddingStart="10sp"
-                    android:paddingEnd="10sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_date"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardView5"
+                    app:layout_constraintEnd_toStartOf="@+id/cv_editentrega_conforder"
+                    app:layout_constraintStart_toEndOf="@+id/cardView5"
+                    app:layout_constraintTop_toTopOf="@+id/cardView5" />
 
-                <EditText
-                    android:id="@+id/et_address"
+                <TextView
+                    android:id="@+id/tv_fecha_conforder"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="@string/tx_address"
-                    android:inputType="textPersonName"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sp_distrito" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardView6"
+                    app:layout_constraintEnd_toStartOf="@+id/cv_editentrega_conforder"
+                    app:layout_constraintStart_toEndOf="@+id/cardView6"
+                    app:layout_constraintTop_toTopOf="@+id/cardView6" />
+
+                <TextView
+                    android:id="@+id/tv_tiempo_conforder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardView8"
+                    app:layout_constraintEnd_toStartOf="@+id/cv_editentrega_conforder"
+                    app:layout_constraintStart_toEndOf="@+id/cardView8"
+                    app:layout_constraintTop_toTopOf="@+id/cardView8" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -158,69 +214,54 @@
             android:id="@+id/tv_confirmorder_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="TextView"
             android:textColor="@color/text"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_envio" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
         <Button
             android:id="@+id/btnConfirmPedido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/custom_button_corner"
+            android:background="@drawable/custom_button_rectangulo"
             android:fontFamily="@font/montserrat"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="@string/tx_confirm"
             android:textStyle="bold"
             app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_confirmorder_total" />
+            app:layout_constraintStart_toEndOf="@+id/tv_confirmorder_total"
+            app:layout_constraintTop_toBottomOf="@+id/tv_envio" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/radius_50dp"
+            android:backgroundTint="@null"
+            android:padding="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close"
+            app:tint="@color/ico_gray"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textView9"
-            style="@style/TitleStyle"
+            android:id="@+id/textView4"
+            style="@style/BigTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/title_confirm_order"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView18" />
-
-        <EditText
-            android:id="@+id/et_cumpleaniero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@null"
-            android:hint="Rosa Amaria"
-            android:inputType="text|textNoSuggestions"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <EditText
-            android:id="@+id/mt_comentario"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="start|top"
-            android:hint="@string/msg_comentario_torta"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cumpleaniero"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_marginStart="8dp"
+            android:text="Pedido"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
