@@ -27,7 +27,7 @@
             app:layout_constraintGuide_percent="0.500684" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textViewdelivery"
             style="@style/Subtitle2Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +49,8 @@
             app:cardElevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline11">
+            app:layout_constraintTop_toTopOf="@+id/guideline11"
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -67,7 +68,7 @@
             android:backgroundTint="@color/lila"
             app:cardCornerRadius="60dp"
             app:cardElevation="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            app:layout_constraintBottom_toTopOf="@+id/textViewrecogertienda"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -80,7 +81,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textViewrecogertienda"
             style="@style/Subtitle2Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,6 +92,7 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
@@ -141,9 +143,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:clickable="false"
                 android:drawableStart="@drawable/ic_calendario"
                 android:drawablePadding="30dp"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/tx_date"
                 android:inputType="date"
                 android:paddingStart="30dp"
@@ -160,6 +164,8 @@
                 android:ems="10"
                 android:hint="@string/tx_time"
                 android:inputType="time"
+                android:clickable="false"
+                android:focusable="false"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -222,7 +228,7 @@
             android:padding="20dp">
 
             <ImageView
-                android:id="@+id/imageView14"
+                android:id="@+id/ivDate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="16dp"
@@ -233,14 +239,16 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:clickable="false"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/tx_date"
                 android:inputType="date"
                 android:textAlignment="center"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageView
-                android:id="@+id/imageView17"
+                android:id="@+id/ivTIme"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="16dp"
@@ -251,7 +259,9 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:clickable="false"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/tx_time"
                 android:inputType="time"
                 android:textAlignment="center"
