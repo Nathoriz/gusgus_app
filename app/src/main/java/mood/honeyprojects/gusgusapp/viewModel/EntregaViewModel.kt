@@ -21,6 +21,7 @@ class EntregaViewModel: ViewModel() {
                 response.body()?.let {
                     if( response.code() == 200 ){
                         responseLiveData.postValue( it )
+                        messageLiveData.postValue( "Datos registrados." )
                     }
                 }
                 response.errorBody()?.let {
