@@ -8,22 +8,29 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.classes.DatePickerFragment
 import mood.honeyprojects.gusgusapp.classes.TimePickerFragment
 import mood.honeyprojects.gusgusapp.databinding.ActivityEntregaBinding
+import mood.honeyprojects.gusgusapp.listeners.EntregaListener
 import mood.honeyprojects.gusgusapp.model.entity.Distrito
 import mood.honeyprojects.gusgusapp.model.entity.Entrega
+import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.viewModel.DistritoViewModel
 import mood.honeyprojects.gusgusapp.viewModel.EntregaViewModel
 
-class EntregaActivity : AppCompatActivity() {
+class EntregaActivity : AppCompatActivity(), EntregaListener {
     private lateinit var binding: ActivityEntregaBinding
     private val distritoViewModel: DistritoViewModel by viewModels()
     private val entregaViewModel: EntregaViewModel by viewModels()
 
     private var nombreDistri: String?=null
     private var distrito: Distrito?=null
+    private var idEntrega = 0L
     private var opcion = 0
     private var opcionDateANdTime = 0
 
@@ -32,9 +39,8 @@ class EntregaActivity : AppCompatActivity() {
         binding =  ActivityEntregaBinding.inflate( layoutInflater )
         setContentView( binding.root )
         supportActionBar?.hide()
-
-        ViewModelDitrito()
         ViewModelEntrega()
+        ViewModelDitrito()
         ListDistrito()
         Listener()
     }
@@ -53,20 +59,34 @@ class EntregaActivity : AppCompatActivity() {
         binding.etTimedeliveryEntrega.setOnClickListener { ShowTimePickerForm(); opcionDateANdTime = 1 }
         binding.ivDate.setOnClickListener { ShowDatePickerForm(); opcionDateANdTime = 2 }
         binding.ivTIme.setOnClickListener { ShowTimePickerForm(); opcionDateANdTime = 2 }
-        binding.btnDeliveryEntrega.setOnClickListener { GuardarDelivery() }
-        binding.btnStoreEntrega.setOnClickListener { GuardarEntregaTienda() }
-
+        binding.btnDeliveryEntrega.setOnClickListener { if( ValidarFrmDelivery() ) { GuardarDelivery(); CapturarIntents() } }
+        binding.btnStoreEntrega.setOnClickListener { if( ValidarFrmEntregaTienda() ) { GuardarEntregaTienda(); CapturarIntents() } }
     }
-    private fun GuardarEntregaTienda(){
-        val distrito = Distrito( null, "" )
-        val entrega =  Entrega(
+    private fun CapturarIntents(){
+        val intent = this.intent
+        val extra = intent.extras
+        val id = extra?.getLong("idProduct")
+        val precioTotal = extra?.getString("precio")
+        val cantidad = extra?.getString("cantidad")
+        val intentGo = Intent( this, ConfirmOrderActivity::class.java )
+        //Mandando Nuevos Intents extras
+        intentGo.putExtra( "idProduct", id )
+        intentGo.putExtra( "precio", precioTotal )
+        intentGo.putExtra( "cantidad", cantidad )
+        intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
+        startActivity( intentGo )
+    }
+    private fun GuardarEntregaTienda() {
+        val distrito = Distrito( null, "", "" )
+        val entrega = Entrega(
             null,
             binding.etDatestoreEntrega.text.toString(),
             distrito,
             binding.etTimestoreEntrega.text.toString(),
-            "Jr. Manuel Pasos 1246, Cercado de Lima, Provincia de Lima"
+            "Pedro Villalobos 1260",
+            false
         )
-        entregaViewModel.Guardar( entrega )
+        entregaViewModel.Guardar( entrega, this )
     }
     private fun GuardarDelivery(){
         val entrega = Entrega(
@@ -74,9 +94,35 @@ class EntregaActivity : AppCompatActivity() {
             binding.etDatedelveryEntrega.text.toString(),
             distrito,
             binding.etTimedeliveryEntrega.text.toString(),
-            binding.etDirecciondeliveryEntrega.text.toString()
+            binding.etDirecciondeliveryEntrega.text.toString(),
+            true
         )
-        entregaViewModel.Guardar( entrega )
+        entregaViewModel.Guardar( entrega, this )
+    }
+    private fun ValidarFrmEntregaTienda(): Boolean{
+        if( binding.etDatestoreEntrega.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese una fecha" )
+            return false
+        }else if( binding.etTimestoreEntrega.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese la hora" )
+            return false
+        }else{
+            return true
+        }
+    }
+    private fun ValidarFrmDelivery(): Boolean{
+        if( binding.etDatedelveryEntrega.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese una fecha" )
+            return false;
+        }else if( binding.etTimedeliveryEntrega.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese la hora" )
+            return false;
+        }else if( binding.etDirecciondeliveryEntrega.text.toString().isEmpty() ){
+            ShowMessage( "Ingrese su dirección" )
+            return false
+        }else{
+            return true;
+        }
     }
     private fun BuscarDistrito( nombre: String ){
         distritoViewModel.BuscarDistrito( nombre )
@@ -187,5 +233,12 @@ class EntregaActivity : AppCompatActivity() {
     }
     private fun ShowMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_SHORT ).show()
+    }
+
+    override fun idEntregaListener(id: Long) {
+        if( id != 0L ){
+            Preferences.constantes.saveIdEntrega(id)
+            //ShowMessage( id.toString() )
+        }
     }
 }

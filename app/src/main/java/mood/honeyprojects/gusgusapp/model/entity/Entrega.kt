@@ -7,5 +7,6 @@ class Entrega (
     @SerializedName("fecha") val fecha: String?,
     @SerializedName("distrito" ) val distrito: Distrito?,
     @SerializedName("hora") val hora: String?,
-    @SerializedName( "direccion" ) val direccion: String?
+    @SerializedName( "direccion" ) val direccion: String?,
+    @SerializedName( "envio" ) val envio: Boolean?
     )
