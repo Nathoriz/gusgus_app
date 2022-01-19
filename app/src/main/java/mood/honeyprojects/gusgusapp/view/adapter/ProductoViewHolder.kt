@@ -12,7 +12,7 @@ import java.lang.Exception
 
 class ProductoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
     private val binding =ItemCardProductoBinding.bind( view )
-
+    private val v = view.context
     fun bind( producto: Producto ){
         binding.txterror.visibility = View.GONE
         binding.txtNombreTorta.text = producto.nombre

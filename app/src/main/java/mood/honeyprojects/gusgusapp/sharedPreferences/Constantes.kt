@@ -3,7 +3,6 @@ package mood.honeyprojects.gusgusapp.sharedPreferences
 import android.content.Context
 
 class Constantes( val context: Context ) {
-    //Variables
     val SHARED_NAME = "Mydtb"
 
     val SHARED_DNI = "SHARED_DNI"
