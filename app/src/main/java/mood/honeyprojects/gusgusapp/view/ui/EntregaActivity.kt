@@ -59,10 +59,10 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         binding.etTimedeliveryEntrega.setOnClickListener { ShowTimePickerForm(); opcionDateANdTime = 1 }
         binding.ivDate.setOnClickListener { ShowDatePickerForm(); opcionDateANdTime = 2 }
         binding.ivTIme.setOnClickListener { ShowTimePickerForm(); opcionDateANdTime = 2 }
-        binding.btnDeliveryEntrega.setOnClickListener { if( ValidarFrmDelivery() ) { GuardarDelivery(); CapturarIntents() } }
-        binding.btnStoreEntrega.setOnClickListener { if( ValidarFrmEntregaTienda() ) { GuardarEntregaTienda(); CapturarIntents() } }
+        binding.btnDeliveryEntrega.setOnClickListener { if( ValidarFrmDelivery() ) { GuardarDelivery() } }
+        binding.btnStoreEntrega.setOnClickListener { if( ValidarFrmEntregaTienda() ) { GuardarEntregaTienda() } }
     }
-    private fun CapturarIntents(){
+    private fun CapturarIntents( identrega: Long ){
         val intent = this.intent
         val extra = intent.extras
         val id = extra?.getLong("idProduct")
@@ -73,6 +73,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         intentGo.putExtra( "idProduct", id )
         intentGo.putExtra( "precio", precioTotal )
         intentGo.putExtra( "cantidad", cantidad )
+        intentGo.putExtra( "id", identrega )
         intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
         startActivity( intentGo )
     }
@@ -237,7 +238,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
 
     override fun idEntregaListener(id: Long) {
         if( id != 0L ){
-            Preferences.constantes.saveIdEntrega(id)
+            CapturarIntents( id )
             //ShowMessage( id.toString() )
         }
     }

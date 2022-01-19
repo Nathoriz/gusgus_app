@@ -1,5 +1,5 @@
 package mood.honeyprojects.gusgusapp.listeners
 
 interface ProductoDetailListener {
-    fun ProductoDetail( precioTotal: Double )
+    fun ProductoDetail( precioTotal: Double, cantidad: Int )
 }

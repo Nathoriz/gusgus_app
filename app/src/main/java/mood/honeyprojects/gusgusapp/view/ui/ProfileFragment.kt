@@ -44,6 +44,7 @@ class ProfileFragment : Fragment() {
         Preferences.constantes.saveTelefonoUser( "" )
         Preferences.constantes.saveClientWholeName( "" )
         Preferences.constantes.saveClientLastname( "" )
+        Preferences.constantes.saveIdEntrega( 0L )
         val intent = Intent( context, LoginActivity::class.java)
         intent.flags = ( Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK )
         startActivity( intent )

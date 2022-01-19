@@ -16,17 +16,14 @@ import mood.honeyprojects.gusgusapp.listeners.ProductoDetailListener
 import mood.honeyprojects.gusgusapp.model.entity.*
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.view.adapter.ConfirmPedidoAdapter
-import mood.honeyprojects.gusgusapp.viewModel.DistritoViewModel
-import mood.honeyprojects.gusgusapp.viewModel.EntregaViewModel
-import mood.honeyprojects.gusgusapp.viewModel.PedidoViewModel
-import mood.honeyprojects.gusgusapp.viewModel.ProductoViewModel
+import mood.honeyprojects.gusgusapp.viewModel.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     private lateinit var binding: ActivityConfirmOrderBinding
     private lateinit var adapter: ConfirmPedidoAdapter
-    //private val distritoViewModel: DistritoViewModel by viewModels()
+    private val detalleViewModel: DetallePedidoViewModel by viewModels()
     private val productoviewModel: ProductoViewModel by viewModels()
     private val entregaViewModel: EntregaViewModel by viewModels()
     private val pedidoViewModel: PedidoViewModel by viewModels()
@@ -35,6 +32,9 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     private var distrito: Distrito?=null //NO esta en uso Para registrar el distrito a futuro ( No olvidarse )
     private var nombreDistri: String?=null
     private var entregaid: Long?=null
+    private var pedidoid: Long?=null
+    private var cantidad: Int?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +43,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         supportActionBar?.hide()
 
         FindEntrega()
+        ViewModelDetallePedido()
         FindProductForId()
         ViewModelEntrega()
         ViewModelProducto()
@@ -59,6 +60,16 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         binding.btnConfirmPedido.setOnClickListener {
             RegistrarPedido()
         }
+    }
+    private fun RegistrarDetaPedido(){
+        val intent = this.intent
+        val extra = intent.extras
+        val id = extra?.getLong("idProduct")
+        val pedido = Pedido( pedidoid, null, null, null, null, null )
+        val producto = Producto( id, null, null, null, null, null, null, null )
+        val personalizacion = Personalizacion( 0, null, null, null, null, null, null )
+        val detallePedi = DetallePedido( 0, pedido, producto, personalizacion, cantidad, 0.0 )
+        detalleViewModel.RegistrarDetallePedido( detallePedi )
     }
     private fun RegistrarPedido(){
         val cliente = Cliente( Preferences.constantes.getIDCliente(), null, null, null )
@@ -77,7 +88,11 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         productoviewModel.ListForIdProduct( id!! )
     }
     private fun FindEntrega(){
-        entregaViewModel.FindEntregaById( Preferences.constantes.getIdEntrega() + 1L )
+        val intent = this.intent
+        val extra = intent.extras
+        val id = extra?.getLong("id")
+        //entregaViewModel.FindEntregaById( Preferences.constantes.getIdEntrega() + 1L )
+        entregaViewModel.FindEntregaById( id!! )
         //entregaViewModel.FindEntregaById(  1L )
     }
     private fun InitRecyclerView( rv: RecyclerView ){
@@ -107,6 +122,15 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         )
         return monthNames[ month - 1 ]
     }
+    private fun ViewModelDetallePedido(){
+        detalleViewModel.responseDePedido.observe( this, Observer {
+            if( it != null ){
+                val intent = Intent( this, PasarelaActivity::class.java )
+                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
+                startActivity( intent )
+            }
+        } )
+    }
     private fun ViewModelPedido(){
         pedidoViewModel.responseMessage.observe( this, Observer {
             if( it != null ) {
@@ -115,9 +139,8 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         } )
         pedidoViewModel.responsePedidoLiveData.observe( this, Observer {
             if( it != null ){
-                val intent = Intent( this, PasarelaActivity::class.java )
-                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
-                startActivity( intent )
+                pedidoid = it.id
+                RegistrarDetaPedido()
             }
         } )
     }
@@ -159,10 +182,10 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
             }
         } )
     }
-    override fun ProductoDetail(precioTotal: Double) {
+    override fun ProductoDetail(precioTotal: Double, cant:Int) {
         binding.tvSubtotal.text = precioTotal.toString()
         //var envio = binding.tvEnvio.text.toString()
-
+        cantidad = cant
         var envio = 0.0
         envio = if (isNumeric(binding.tvEnvio.text.toString())) binding.tvEnvio.text.toString().toDouble() else 0.0
         val total = precioTotal + envio
