@@ -22,17 +22,17 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
         binding.ivPluscant.setOnClickListener {
             Incrementar( productoDeail )
             if( binding.tvCantorder.text == "1" ){
-                productoDeail.ProductoDetail( producto.precio )
+                productoDeail.ProductoDetail( producto.precio, 1 )
             }else{
-                productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
+                productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble(), valor )
             }
         }
         binding.ivMinuscant.setOnClickListener {
             Decrementar( productoDeail )
             if( binding.tvCantorder.text == "1" ){
-                productoDeail.ProductoDetail( producto.precio )
+                productoDeail.ProductoDetail( producto.precio, 1 )
             }else{
-                productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
+                productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble(), valor )
             }
         }
 
@@ -41,10 +41,10 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
         if( categoria == "Tortas" ){
             binding.ivPluscant.visibility = View.INVISIBLE
             binding.ivMinuscant.visibility = View.INVISIBLE
-            productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
+            productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble(), valor )
         }else{
             binding.ivPluscant.visibility = View.VISIBLE
-            productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble() )
+            productoDeail.ProductoDetail( binding.tvPrecio.text.toString().toDouble(), valor )
         }
     }
     private fun ValiPrecio( precioOther: Double, precioNow: Double ){
@@ -78,7 +78,7 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
             val superTotal = total.toDouble() * valor
             binding.tvPrecio.text = superTotal.toString()
 
-            productoDeail.ProductoDetail( superTotal )
+            productoDeail.ProductoDetail( superTotal, valor )
         }
     }
     private fun Decrementar( productoDeail: ProductoDetailListener ){
@@ -97,7 +97,7 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
             val superTotal = total.toDouble() - precio.toDouble()
             binding.tvPrecio.text = superTotal.toString()
 
-            productoDeail.ProductoDetail( superTotal )
+            productoDeail.ProductoDetail( superTotal, valor )
         }
     }
 }

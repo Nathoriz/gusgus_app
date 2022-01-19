@@ -5,7 +5,6 @@ import android.content.Context
 class Constantes( val context: Context ) {
     val SHARED_NAME = "Mydtb"
 
-    val SHARED_DNI = "SHARED_DNI"
     val SHARED_ADMIN_NAME = "SHARED_ADMIN_NAME"
     val SHARED_CLIENT_WHOLENAME = "SHARED_CLIENT_WHOLENAME"
     val SHARED_CLIENT_NAME = "SHARED_CLIENT_NAME"
@@ -17,15 +16,14 @@ class Constantes( val context: Context ) {
     val SHARED_TELEFONO_USER = "SHARED_TELEFONO_USER"
     val SHARED_DIRECCION = "SHARED_DIRECCION"
     val SHARED_IDCLIENTE = "SHARED_IDCLIENTE"
-    val SHARED_DISTRITO = "SHARED_DISTRITO"
+    val SHARED_IDENTREGAA = "SHARED_IDENTREGAA"
 
     val storage = context.getSharedPreferences( SHARED_NAME, 0 )
-
-    fun saveDistrito( distrito: String ){
-        storage.edit().putString( SHARED_DISTRITO, distrito ).apply()
+    fun saveIdEntrega( id: Long ){
+        storage.edit().putLong( SHARED_IDENTREGAA, id ).apply()
     }
-    fun getDistrito(): String{
-        return storage.getString( SHARED_DISTRITO, "" )!!
+    fun getIdEntrega(): Long{
+        return storage.getLong( SHARED_IDENTREGAA, 0L )
     }
     fun saveIDCliente( id: Long ){
         storage.edit().putLong( SHARED_IDCLIENTE, id ).apply()
@@ -50,12 +48,6 @@ class Constantes( val context: Context ) {
     }
     fun getIdProduct(): Long{
         return storage.getLong( SHARED_PRODUCT_ID, 0L )
-    }
-    fun saveDNI( dni: String ){
-        storage.edit().putString( SHARED_DNI, dni ).apply()
-    }
-    fun getDNI(): String{
-        return storage.getString( SHARED_DNI, "" )!!
     }
     fun saveBoolean( exist: Boolean ){
         storage.edit().putBoolean( SHARED_EXIST, exist ).apply()

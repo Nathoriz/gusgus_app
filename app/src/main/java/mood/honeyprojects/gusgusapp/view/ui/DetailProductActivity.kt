@@ -45,13 +45,13 @@ class DetailProductActivity : AppCompatActivity() {
         if( producto?.categoria?.nombre == "Tortas" ){
             intent.putExtra( "precio", "0.0" )
             intent.putExtra( "cantidad", "0" )
+            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
             startActivity( intent )
-            finish()
         }else{
             intent.putExtra( "precio", binding.tvTotal.text.toString() )
             intent.putExtra( "cantidad", binding.tvCantidad.text.toString() )
+            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
             startActivity( intent )
-            finish()
         }
     }
     private fun InitViewModel(){

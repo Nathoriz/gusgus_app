@@ -19,6 +19,7 @@ import mood.honeyprojects.gusgusapp.databinding.FragmentGusGusBinding
 import mood.honeyprojects.gusgusapp.listeners.CategoriaListener
 import mood.honeyprojects.gusgusapp.model.entity.Categoria
 import mood.honeyprojects.gusgusapp.model.entity.Producto
+import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.view.adapter.CategoriaAdapter
 import mood.honeyprojects.gusgusapp.view.adapter.ProductoAdapter
 import mood.honeyprojects.gusgusapp.viewModel.CategoriaViewModel

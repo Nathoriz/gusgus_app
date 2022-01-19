@@ -66,7 +66,6 @@ class ProductoViewModel: ViewModel() {
                 }
             }
             override fun onFailure(call: Call<List<Producto>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
     }

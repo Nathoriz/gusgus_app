@@ -7,6 +7,6 @@ class Pedido (
     @SerializedName("cliente") val cliente: Cliente?,
     @SerializedName("entrega") val entrega: Entrega?,
     @SerializedName("fechaPedido") val fechaCreacion: String?,
-    @SerializedName( "detalle" ) val detalle: Detalle?,
-    @SerializedName("estado") val estado: Estado?
+    @SerializedName("estado") val estado: Estado?,
+    @SerializedName( "monto" ) val monto: Double?
     )
