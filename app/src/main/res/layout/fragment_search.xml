@@ -11,9 +11,15 @@
 
     <SearchView
         android:id="@+id/sv_productos_search"
+        style="@style/RoundedLigthSearchView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_searchview"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Buscar"
+        android:showDividers="end|none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,12 +28,12 @@
         android:id="@+id/rv_productos_search"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_productos_search" >
+        app:layout_constraintTop_toBottomOf="@+id/sv_productos_search">
 
     </androidx.recyclerview.widget.RecyclerView>
 

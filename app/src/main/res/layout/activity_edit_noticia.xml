@@ -65,12 +65,10 @@
 
             <Button
                 android:id="@+id/btn_editar_editnoticia"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_button_corner"
+                style="@style/RoundedLigthButton"
                 android:text="@string/tx_edit"
-                android:textStyle="bold"
-                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -116,9 +114,9 @@
 
             <EditText
                 android:id="@+id/et_nombre_editnoticia"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="@string/tx_name"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,16 +125,15 @@
 
             <EditText
                 android:id="@+id/et_descripcion_editnoticia"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/tx_description"
                 android:inputType="textMultiLine"
                 android:lines="5"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_nombre_editnoticia" />
@@ -153,12 +150,10 @@
 
             <Button
                 android:id="@+id/btn_guardar_editnoticia"
-                android:layout_width="wrap_content"
+                style="@style/RoundedLigthButton"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_button_corner"
                 android:text="@string/tx_save"
-                android:textStyle="bold"
-                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
