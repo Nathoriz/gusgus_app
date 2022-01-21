@@ -44,6 +44,8 @@
     <!-- Transparent -->
     <color name="dkblue">#0D2D8C</color>
     <color name="ltblue">#ECF2FF</color>
+    <color name="card_piso">#F8EDEB</color>
+
 
     <color name="transpink">#59F0A2AA</color>
     <color name="pink">#F5AEB0</color>

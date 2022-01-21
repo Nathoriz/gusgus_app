@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/contain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,36 +15,117 @@
     android:transitionName="go"
     tools:context=".view.ui.PersonalizarActivity">
 
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_check"
+        app:tint="@color/white"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <TextView
-        android:id="@+id/btnregresar"
+        android:id="@+id/iv_back_personalizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_sinopcion"
-        android:layout_width="229dp"
-        android:layout_height="273dp"
-        android:layout_marginTop="12dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/tortacuatro"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_cake_personalizacion"
+        android:layout_width="0dp"
+        android:layout_height="345dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnregresar" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_back_personalizar">
 
-    <TextView
-        android:id="@+id/tv_sinopcion"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/img_sinopcion_personalizar"
+            android:layout_width="229dp"
+            android:layout_height="273dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tortacuatro"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_sinopcion_personalizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tx_noOptionSelected"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#696969"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_sinopcion_personalizar" />
+
+        <LinearLayout
+            android:id="@+id/ll_cake3_personalizar"
+            android:layout_width="170dp"
+            android:layout_height="80dp"
+            android:background="@drawable/rounded_top_shape"
+            android:backgroundTint="@color/dkgreen"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/ll_cake2_personalizar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_cake2_personalizar"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:background="@drawable/rounded_top_shape"
+            android:backgroundTint="@color/dkgreen"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/ll_cake1_personalizar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_cake1_personalizar"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:background="@drawable/rounded_top_shape"
+            android:backgroundTint="@color/dkgreen"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_opcionpiso_personalizar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tx_noOptionSelected"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#696969"
-        android:textSize="16sp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_sinopcion" />
+        app:layout_constraintTop_toBottomOf="@+id/cl_cake_personalizacion" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pisos_personalizar"
+        android:layout_width="0dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_opcionpiso_personalizar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
