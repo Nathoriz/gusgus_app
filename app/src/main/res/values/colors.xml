@@ -42,7 +42,8 @@
     <color name="ico_gray">#3F4859</color>
 
     <!-- Transparent -->
-
+    <color name="dkblue">#0D2D8C</color>
+    <color name="ltblue">#ECF2FF</color>
 
     <color name="transpink">#59F0A2AA</color>
     <color name="pink">#F5AEB0</color>

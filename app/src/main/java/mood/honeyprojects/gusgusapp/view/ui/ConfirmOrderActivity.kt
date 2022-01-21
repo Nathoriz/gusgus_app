@@ -9,9 +9,14 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.layout_modal_detalle.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.classes.DatePickerFragment
 import mood.honeyprojects.gusgusapp.classes.TimePickerFragment
@@ -34,8 +39,9 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     private val detalleCumpleViewModel: DetalleViewModel by viewModels()
 
     private val productos = mutableListOf<Producto>()
-    private var distrito: Distrito?=null //NO esta en uso Para registrar el distrito a futuro ( No olvidarse )
+    private var precioTotal: Double?=null
     private var nombreCatego: String?=null
+    private var nombreCliente: String?=null
     private var entregaid: Long?=null
     private var pedidoid: Long?=null
     private var cantidad: Int?=null
@@ -66,8 +72,10 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
             startActivity( intent )
         }
         binding.btnConfirmPedido.setOnClickListener {
-            RegistrarPedido()
-            if( ok == true ){ BuildModalDeatalle() }
+            lifecycleScope.launch {
+                val response = async( Dispatchers.IO ){ RegistrarPedido() }
+                if( response.await() ){ BuildModalDeatalle() }
+            }
         }
     }
     private fun BuildModalDeatalle(){
@@ -97,6 +105,8 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
             detalleCumpleViewModel.RegistrarDetalle( detalle )
             //dialog.dismiss()
             val intent = Intent( this, PasarelaActivity::class.java )
+            intent.putExtra( "keyprecio", precioTotal )
+            intent.putExtra( "keynombre", nombreCliente )
             intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
             startActivity( intent )
         }
@@ -112,15 +122,18 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         val detallePedi = DetallePedido( 0, pedido, producto, personalizacion, cantidad, 0.0 )
         detalleViewModel.RegistrarDetallePedido( detallePedi )
     }
-    private fun RegistrarPedido(){
+    private fun RegistrarPedido(): Boolean {
+        Thread.sleep( 2000 )
         val cliente = Cliente( Preferences.constantes.getIDCliente(), null, null, null )
         val entrega = Entrega( entregaid, null, null, null, null, null )
         val sdf = SimpleDateFormat("yyyy/MM/dd")
         val currentDate = sdf.format(Date())
         val estado = Estado( 2L, null )
         val monto: Double = binding.tvConfirmorderTotal.text.toString().toDouble()
+        precioTotal = monto
         val pedido = Pedido( null, cliente, entrega, currentDate.toString(), estado, monto )
         pedidoViewModel.RegistrarPedido( pedido )
+        return true
     }
     private fun FindProductForId(){
         val intent = this.intent
@@ -175,6 +188,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         detalleViewModel.responseDePedido.observe( this, Observer {
             if( it != null ){
                 ok = true
+                nombreCliente = "${it.pedido?.cliente?.nombre} ${it.pedido?.cliente?.apellido}"
                 nombreCatego = it.producto?.categoria?.nombre
             }
         } )

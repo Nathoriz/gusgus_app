@@ -49,7 +49,8 @@
 
     <EditText
         android:id="@+id/et_usuario_signup2"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthEditText"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/tx_user"
@@ -60,7 +61,8 @@
 
     <EditText
         android:id="@+id/et_contrasenia_signup2"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthEditText"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="@string/tx_password"
@@ -71,7 +73,8 @@
 
     <EditText
         android:id="@+id/et_confcontrasenia_signup2"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthEditText"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="@string/tx_confirmPassword"
@@ -82,12 +85,10 @@
 
     <Button
         android:id="@+id/btn_registrar_signup2"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthButton"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button_corner"
         android:text="@string/tx_signup"
-        app:backgroundTint="@null"
-        app:iconGravity="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

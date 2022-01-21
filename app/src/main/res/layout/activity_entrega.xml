@@ -140,13 +140,13 @@
 
             <EditText
                 android:id="@+id/et_datedelvery_entrega"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:clickable="false"
                 android:drawableStart="@drawable/ic_calendario"
                 android:drawablePadding="30dp"
-                android:ems="10"
                 android:focusable="false"
                 android:hint="@string/tx_date"
                 android:inputType="date"
@@ -156,13 +156,13 @@
 
             <EditText
                 android:id="@+id/et_timedelivery_entrega"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:clickable="false"
                 android:drawableStart="@drawable/ic_tiempo"
                 android:drawablePadding="30dp"
-                android:ems="10"
                 android:focusable="false"
                 android:hint="@string/tx_time"
                 android:inputType="time"
@@ -181,9 +181,9 @@
 
             <EditText
                 android:id="@+id/et_direcciondelivery_entrega"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="@string/tx_address"
                 android:inputType="text"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -192,17 +192,14 @@
 
     <Button
         android:id="@+id/btn_delivery_entrega"
+        style="@style/RectangleLightBuuton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/custom_button_rectangulo"
         android:text="@string/tx_next"
-        android:textStyle="bold"
         android:visibility="gone"
-        app:backgroundTint="@null"
         app:icon="@drawable/ic_next"
         app:iconGravity="end"
-
         app:layout_constraintEnd_toEndOf="@+id/cv_delivery_entrega"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/cv_delivery_entrega"
@@ -236,11 +233,11 @@
 
             <EditText
                 android:id="@+id/et_datestore_entrega"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:clickable="false"
-                android:ems="10"
                 android:focusable="false"
                 android:hint="@string/tx_date"
                 android:inputType="date"
@@ -256,11 +253,11 @@
 
             <EditText
                 android:id="@+id/et_timestore_entrega"
+                style="@style/RoundedLigthEditText"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:clickable="false"
-                android:ems="10"
                 android:focusable="false"
                 android:hint="@string/tx_time"
                 android:inputType="time"
@@ -271,14 +268,12 @@
 
     <Button
         android:id="@+id/btn_store_entrega"
+        style="@style/RectangleLightBuuton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/custom_button_rectangulo"
         android:text="@string/tx_next"
-        android:textStyle="bold"
         android:visibility="gone"
-        app:backgroundTint="@null"
         app:icon="@drawable/ic_next"
         app:iconGravity="end"
         app:layout_constraintEnd_toEndOf="@+id/cv_store_entrega"

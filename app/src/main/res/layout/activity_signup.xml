@@ -46,7 +46,8 @@
 
     <EditText
         android:id="@+id/et_nombre_signup"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthEditText"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/tx_name"
@@ -57,7 +58,8 @@
 
     <EditText
         android:id="@+id/et_apellido_signup"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthEditText"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="@string/tx_lastname"
@@ -68,7 +70,8 @@
 
     <EditText
         android:id="@+id/et_telefono_signup"
-        android:layout_width="wrap_content"
+        style="@style/RoundedLigthEditText"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="@string/tx_phone"
@@ -79,11 +82,10 @@
 
     <Button
         android:id="@+id/btn_next_signup"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button_corner"
         android:text="@string/tx_next"
-        app:backgroundTint="@null"
+        style="@style/RoundedLigthButton"
         app:icon="@drawable/ic_next"
         app:iconGravity="end"
         app:layout_constraintBottom_toBottomOf="parent"

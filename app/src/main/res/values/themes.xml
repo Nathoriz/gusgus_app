@@ -3,7 +3,7 @@
     <style name="Theme.GusGusApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -11,15 +11,17 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Font -->
-        <item name="android:fontFamily">@font/montserrat</item>
+<!--        <item name="android:fontFamily">@font/montserrat</item>-->
         <!--  EditText      -->
-        <item name="editTextStyle">@style/EditTextStyle</item>
+<!--        <item name="editTextStyle">@style/EditTextStyle</item>-->
         <!--  TextView      -->
-        <item name="android:textViewStyle">@style/TextViewStyle</item>
-        <!--  Button      -->
-<!--        <item name="buttonStyle">@style/ButtonStyle</item>-->
+<!--        <item name="android:textViewStyle">@style/TextViewStyle</item>-->
     </style>
+<!--    <style name="AppTheme" parent="android:Theme.Material.Light">-->
+<!--        <item name="android:windowLightStatusBar">true</item>-->
+<!--    </style>-->
     <style name="datePickerTheme" parent="android:Theme.Material.Dialog">
         <item name="android:colorAccent">@color/purple_700</item>
     </style>
@@ -34,25 +36,61 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="EditTextStyle" parent="@android:style/Widget.EditText">
-        <item name="android:textSize">16sp</item>
+    <style name="RoundedLigthEditText" parent="@android:style/Widget.EditText">
         <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">150dp</item>
+        <item name="android:maxHeight">50dp</item>
+        <item name="android:maxWidth">270dp</item>
+        <item name="android:textSize">16sp</item>
+<!--        <item name="android:autoLink">all</item>-->
+        <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:drawablePadding">12dp</item>
-        <item name="android:width">250dp</item>
         <item name="android:ems">10</item>
         <item name="android:background">@drawable/custom_field</item>
     </style>
 
-    <style name="TextViewStyle" parent="@android:style/Widget.TextView">
+    <style name="RoundedTextInputLayout">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="android:background">@drawable/custom_field</item>
+    </style>
+
+    <style name="RoundedLigthButton" >
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/custom_button_corner</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="RectangleLightBuuton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/custom_button_rectangulo</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="RoundedLigthSearchView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/custom_searchview</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:layout_height">57dp</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="iconSize">20dp</item>
+        <item name="android:searchIcon">@drawable/ic_search</item>
+    </style>
+
+    <style name="TextStyle" parent="@android:style/Widget.TextView">
         <item name="android:textSize">14sp</item>
         <item name="android:color">@color/text</item>
     </style>
-
-<!--    <style name="ButtonStyle" parent="@android:style/Widget.Button">-->
-<!--        <item name="android:textStyle">bold</item>-->
-<!--        <item name="android:background">@drawable/custom_button</item>-->
-<!--        <item name="android:backgroundTint">@null</item>-->
-<!--    </style>-->
 
     <style name="BigTitleStyle">
         <item name="android:textColor">@color/title_subtitles</item>

@@ -81,7 +81,7 @@ class GusGusFragment : Fragment(), CategoriaListener {
 
     private fun InitRecyclerView( rv: RecyclerView ){
         adapter = ProductoAdapter( productos )
-        rv.layoutManager = GridLayoutManager( context, 2 )
+        rv.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false )
         rv.adapter = adapter
     }
 

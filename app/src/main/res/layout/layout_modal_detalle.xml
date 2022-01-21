@@ -19,26 +19,27 @@
             android:ems="10"
             android:hint="@string/tx_detalle_mensaje"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/txtprecioPagar"
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/txtnombreUserPago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:text="Ingrese su"
             android:textColor="@color/title_subtitles"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/txtprecioPagar"
             app:layout_constraintTop_toBottomOf="@+id/iv_close_detalle" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtprecioPagar"
             style="@style/SubtitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
             android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/txtnombreUserPago" />
 
         <ImageView
             android:id="@+id/iv_close_detalle"
@@ -60,10 +61,10 @@
 
         <EditText
             android:id="@+id/et_observacion_detalle"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:ems="10"
+            style="@style/RoundedLigthEditText"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             android:lines="5"
