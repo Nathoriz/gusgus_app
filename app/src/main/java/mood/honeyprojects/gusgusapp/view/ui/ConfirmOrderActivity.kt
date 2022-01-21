@@ -101,9 +101,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
             startActivity( intent )
         }
     }
-    private fun RegistrarDetalle(){//Aún pensando en esto
 
-    }
     private fun RegistrarDetaPedido(){
         val intent = this.intent
         val extra = intent.extras
@@ -119,7 +117,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         val entrega = Entrega( entregaid, null, null, null, null, null )
         val sdf = SimpleDateFormat("yyyy/MM/dd")
         val currentDate = sdf.format(Date())
-        val estado = Estado( 3L, null )
+        val estado = Estado( 2L, null )
         val monto: Double = binding.tvConfirmorderTotal.text.toString().toDouble()
         val pedido = Pedido( null, cliente, entrega, currentDate.toString(), estado, monto )
         pedidoViewModel.RegistrarPedido( pedido )

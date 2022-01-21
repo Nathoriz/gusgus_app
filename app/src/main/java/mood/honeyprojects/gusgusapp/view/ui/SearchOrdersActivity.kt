@@ -2,6 +2,7 @@ package mood.honeyprojects.gusgusapp.view.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
@@ -26,6 +27,7 @@ class SearchOrdersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchOrdersBinding.inflate( layoutInflater )
+        binding.noorder.visibility = View.GONE
         setContentView( binding.root )
         val intent = this.intent
         val extra = intent.extras
@@ -35,15 +37,24 @@ class SearchOrdersActivity : AppCompatActivity() {
         supportActionBar?.hide()
         ListarByNombreAndId()
         PedidoViewModel()
-        SearchPedidos()
         RecyclerView( binding.rvSearcordersSorder )
+        SearchPedidos()
     }
     private fun SearchPedidos(){
         binding.svOrdersSorder.setOnQueryTextListener( object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.svOrdersSorder.clearFocus()
+                if( query != null ){
+                    val idClient = Preferences.constantes.getIDCliente()
+                    pedidoViewModel.FindPedidosClientsById( idClient, nombreEstado!!, query )
+                }
                return false
             }
             override fun onQueryTextChange(newText: String?): Boolean {
+                if( newText != null ){
+                    val idClient = Preferences.constantes.getIDCliente()
+                    pedidoViewModel.FindPedidosClientsById( idClient, nombreEstado!!, newText )
+                }
                 return false
             }
         })
@@ -60,9 +71,17 @@ class SearchOrdersActivity : AppCompatActivity() {
     private fun PedidoViewModel(){
         pedidoViewModel.ListaPedidos.observe( this, Observer {
             if( it != null ){
+                binding.noorder.visibility = View.GONE
+                binding.rvSearcordersSorder.visibility = View.VISIBLE
                 listaPedidos.clear()
                 listaPedidos.addAll( it )
                 adapter.notifyDataSetChanged()
+            }
+        } )
+        pedidoViewModel.responseMessage.observe( this, Observer {
+            if( it != null ){
+                binding.rvSearcordersSorder.visibility = View.INVISIBLE
+                binding.noorder.visibility = View.VISIBLE
             }
         } )
     }
