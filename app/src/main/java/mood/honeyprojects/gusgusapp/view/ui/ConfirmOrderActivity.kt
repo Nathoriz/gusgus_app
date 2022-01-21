@@ -3,12 +3,16 @@ package mood.honeyprojects.gusgusapp.view.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.layout_modal_detalle.view.*
+import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.classes.DatePickerFragment
 import mood.honeyprojects.gusgusapp.classes.TimePickerFragment
 import mood.honeyprojects.gusgusapp.databinding.ActivityConfirmOrderBinding
@@ -27,13 +31,15 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     private val productoviewModel: ProductoViewModel by viewModels()
     private val entregaViewModel: EntregaViewModel by viewModels()
     private val pedidoViewModel: PedidoViewModel by viewModels()
+    private val detalleCumpleViewModel: DetalleViewModel by viewModels()
 
     private val productos = mutableListOf<Producto>()
     private var distrito: Distrito?=null //NO esta en uso Para registrar el distrito a futuro ( No olvidarse )
-    private var nombreDistri: String?=null
+    private var nombreCatego: String?=null
     private var entregaid: Long?=null
     private var pedidoid: Long?=null
     private var cantidad: Int?=null
+    private var ok: Boolean?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +51,8 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         FindEntrega()
         ViewModelDetallePedido()
         FindProductForId()
+
+        ViewModelDetalleCumple()
         ViewModelEntrega()
         ViewModelProducto()
         ViewModelPedido()
@@ -59,7 +67,42 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         }
         binding.btnConfirmPedido.setOnClickListener {
             RegistrarPedido()
+            if( ok == true ){ BuildModalDeatalle() }
         }
+    }
+    private fun BuildModalDeatalle(){
+        val smallbinding = layoutInflater.inflate( R.layout.layout_modal_detalle, null )
+        val builder = AlertDialog.Builder( this@ConfirmOrderActivity )
+        builder.setView( smallbinding )
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource( android.R.color.transparent )
+        dialog.setCancelable( false )
+        var frase = "vacio"
+        if( nombreCatego == "Muñecos" ){
+            smallbinding.et_frase_detalle.visibility = View.GONE
+        }
+
+        smallbinding.btn_enviar_detalle.setOnClickListener {
+            if( nombreCatego != "Muñecos" ){
+                frase = smallbinding.et_frase_detalle.text.toString()
+            }
+            val pedido = Pedido( pedidoid, null, null, null, null, null )
+            val detalle = Detalle(
+                0,
+                frase,
+                smallbinding.et_observacion_detalle.text.toString(),
+                pedido )
+            detalleCumpleViewModel.RegistrarDetalle( detalle )
+            //dialog.dismiss()
+            val intent = Intent( this, PasarelaActivity::class.java )
+            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
+            startActivity( intent )
+        }
+    }
+    private fun RegistrarDetalle(){//Aún pensando en esto
+
     }
     private fun RegistrarDetaPedido(){
         val intent = this.intent
@@ -122,12 +165,19 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         )
         return monthNames[ month - 1 ]
     }
+
+    private fun ViewModelDetalleCumple(){
+        detalleCumpleViewModel.MessageDetalle.observe( this,  Observer {
+            if( it != null ){
+                toast( it )
+            }
+        } )
+    }
     private fun ViewModelDetallePedido(){
         detalleViewModel.responseDePedido.observe( this, Observer {
             if( it != null ){
-                val intent = Intent( this, PasarelaActivity::class.java )
-                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
-                startActivity( intent )
+                ok = true
+                nombreCatego = it.producto?.categoria?.nombre
             }
         } )
     }

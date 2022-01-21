@@ -110,7 +110,7 @@ class ClienteViewModel: ViewModel() {
             }
         })
     }
-    fun getErrorMessage(raw: String): String{
+    private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")
     }

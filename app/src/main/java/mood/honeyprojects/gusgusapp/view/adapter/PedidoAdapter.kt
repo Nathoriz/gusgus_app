@@ -1,5 +1,6 @@
 package mood.honeyprojects.gusgusapp.view.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +13,7 @@ import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ItemCardOrdersBinding
 import mood.honeyprojects.gusgusapp.model.entity.Pedido
 import java.util.ArrayList
-
-
-
+import java.util.stream.Collectors
 
 class PedidoAdapter( private val pedidos: List<Pedido> ): RecyclerView.Adapter<PedidoAdapter.viewHolder>() {
 

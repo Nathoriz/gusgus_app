@@ -14,17 +14,24 @@ import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.view.adapter.PedidoAdapter
 import mood.honeyprojects.gusgusapp.viewModel.PedidoViewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 class SearchOrdersActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchOrdersBinding
     private lateinit var adapter: PedidoAdapter
     private val pedidoViewModel: PedidoViewModel by viewModels()
     private val listaPedidos = mutableListOf<Pedido>()
+    private var nombreEstado:String?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchOrdersBinding.inflate( layoutInflater )
         setContentView( binding.root )
+        val intent = this.intent
+        val extra = intent.extras
+        val nombre = extra?.getString("key")
+        nombreEstado = nombre
+
         supportActionBar?.hide()
         ListarByNombreAndId()
         PedidoViewModel()
@@ -42,10 +49,8 @@ class SearchOrdersActivity : AppCompatActivity() {
         })
     }
     private fun ListarByNombreAndId(){
-        val intent = this.intent
-        val extra = intent.extras
-        val nombre = extra?.getString("key")
-        pedidoViewModel.ListarByEstadoAndID( nombre!!, Preferences.constantes.getIDCliente() )
+        binding.tvStateorderSorder.text = nombreEstado
+        pedidoViewModel.ListarByEstadoAndID( nombreEstado!!, Preferences.constantes.getIDCliente() )
     }
     private fun RecyclerView( rv: RecyclerView ){
         adapter = PedidoAdapter( listaPedidos )
