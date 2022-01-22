@@ -64,6 +64,25 @@ class PedidoViewModel: ViewModel() {
             }
         })
     }
+    fun FindPedidosClientsById( id: Long, estado: String, pedidoId: String ){
+        val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).FindPedidosClientsById( id, estado, pedidoId )
+        response.enqueue( object: Callback<List<Pedido>> {
+            override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        ListaPedidos.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 404 ){
+                        responseMessage.postValue( getErrorMessage( it.string() ) )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Pedido>>, t: Throwable) {
+            }
+        })
+    }
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")

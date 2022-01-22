@@ -27,13 +27,23 @@ class PasarelaActivity : AppCompatActivity() {
         binding = ActivityPasarelaBinding.inflate( layoutInflater )
         setContentView( binding.root )
         supportActionBar?.hide()
+        SettingDataPrecio()
         startPayment()
         Listener()
     }
     private fun Listener(){
         binding.btnpagar.setOnClickListener {
             paymentWidget.pay()
+
         }
+    }
+    private fun SettingDataPrecio(){
+        val intent = this.intent
+        val extra = intent.extras
+        val id = extra?.getDouble( "keyprecio" )
+        val nombre = extra?.getString( "keynombre" )
+        binding.txtnombreUserPago.text = nombre.toString()
+        binding.txtprecioPagar.text = "S/${id.toString()}"
     }
     private fun startPayment(){
         //binding.ivpresentacion.visibility = View.GONE
@@ -317,6 +327,7 @@ class PasarelaActivity : AppCompatActivity() {
                 //binding.ivpresentacion.visibility = View.VISIBLE
                 binding.btnpagar.visibility = View.VISIBLE
                 //binding.btniniciar.visibility = View.VISIBLE
+                startPayment()
             }
             dialog.cancel()
         }
