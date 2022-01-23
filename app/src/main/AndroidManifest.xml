@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mood.honeyprojects.gusgusapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -15,8 +15,20 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.ui.MantDistritoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.ManRellenoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.MantCubiertaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.MantDiametroActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ui.MantAlturaActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -84,9 +96,7 @@
             android:exported="false" />
         <activity
             android:name=".view.ui.SplashActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".view.ui.LoginActivity"
             android:exported="false" />
