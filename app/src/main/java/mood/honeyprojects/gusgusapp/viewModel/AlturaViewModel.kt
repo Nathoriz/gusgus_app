@@ -58,7 +58,7 @@ class AlturaViewModel : ViewModel(){
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
-                        messageResponse.postValue( "OK" )
+                        messageResponse.postValue( "Altura actualizada" )
                     }
                 }
             }
@@ -87,7 +87,7 @@ class AlturaViewModel : ViewModel(){
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
                     if(response.code()==200){
-                        messageResponse.postValue("Eliminado")
+                        messageResponse.postValue("Altura eliminada")
                     }
                 }
             }
