@@ -118,7 +118,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         val id = extra?.getLong("idProduct")
         val pedido = Pedido( pedidoid, null, null, null, null, null )
         val producto = Producto( id, null, null, null, null, null, null, null )
-        val personalizacion = Personalizacion( 0, null, null, null, null, null, null )
+        val personalizacion = Personalizacion( 0, null, null, null, null )
         val detallePedi = DetallePedido( 0, pedido, producto, personalizacion, cantidad, 0.0 )
         detalleViewModel.RegistrarDetallePedido( detallePedi )
     }

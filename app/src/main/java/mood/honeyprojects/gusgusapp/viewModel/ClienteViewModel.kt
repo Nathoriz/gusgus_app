@@ -63,7 +63,7 @@ class ClienteViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
         })
     }

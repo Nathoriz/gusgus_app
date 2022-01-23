@@ -126,7 +126,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         }
     }
     private fun BuscarDistrito( nombre: String ){
-        distritoViewModel.BuscarDistrito( nombre )
+        distritoViewModel.BuscarDistritoPorNombre( nombre )
     }
     private fun ShowDatePickerForm(){
         val datePicker = DatePickerFragment { anio, mes, dia -> onDateSelected( anio, mes, dia ) }

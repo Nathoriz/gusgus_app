@@ -36,6 +36,7 @@ class DetailProductActivity : AppCompatActivity() {
         binding.disminuir.setOnClickListener { DecrementPrecio() }
         binding.btnRealizarpedido.setOnClickListener { Pedido() }
     }
+
     private fun GetDetalleProducto(){
         detalleProducto.DetalleProducto( Preferences.constantes.getIdProduct() )
     }

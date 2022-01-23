@@ -48,7 +48,7 @@ class UsuarioViewModel: ViewModel() {
                 }
             }
             override fun onFailure(call: Call<UsuarioResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
         } )
     }
@@ -87,7 +87,7 @@ class UsuarioViewModel: ViewModel() {
                 }
             }
             override fun onFailure(call: Call<ValiPassword>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
         })
     }

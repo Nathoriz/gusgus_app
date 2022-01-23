@@ -32,8 +32,8 @@ class DistritoViewModel: ViewModel() {
             }
         })
     }
-    fun BuscarDistrito( nombre: String ){
-        val response = RetrofitHelper.getRetrofit().create( DistritoAPI::class.java ).BuscarDistrito( nombre )
+    fun BuscarDistritoPorNombre( nombre: String ){
+        val response = RetrofitHelper.getRetrofit().create( DistritoAPI::class.java ).buscarDistritoPorNombre( nombre )
         response.enqueue( object:Callback<Distrito> {
             override fun onResponse(call: Call<Distrito>, response: Response<Distrito>) {
                 response.body()?.let {

@@ -37,6 +37,7 @@ class SignupActivity : AppCompatActivity(), ValiRegisterClient {
             RegistrarClient()
         }
     }
+
     private fun RegistrarClient(){
         val cliente = Cliente(
             null,

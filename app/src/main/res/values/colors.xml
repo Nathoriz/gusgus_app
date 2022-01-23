@@ -50,4 +50,8 @@
     <color name="transpink">#59F0A2AA</color>
     <color name="pink">#F5AEB0</color>
 
+    <color name="delete">#F24452</color>
+    <color name="update">#FFC31C</color>
+    <color name="add">#04BF9D</color>
+
 </resources>

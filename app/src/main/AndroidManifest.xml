@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mood.honeyprojects.gusgusapp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".sharedPreferences.Preferences"
@@ -13,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.ui.MantAlturaActivity"
+            android:exported="false" />
         <activity
             android:name=".view.ui.PasarelaActivity"
             android:exported="false" />

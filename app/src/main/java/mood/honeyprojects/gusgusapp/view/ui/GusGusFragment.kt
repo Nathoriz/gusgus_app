@@ -114,6 +114,7 @@ class GusGusFragment : Fragment(), CategoriaListener {
     private fun GetProducto(){
         productoviewModel.ListarProducts()
     }
+
     private fun GetUrlNoticias(){
         noticiaViewModel.FindNoticiasbyVisibilidad( true )
     }
