@@ -16,7 +16,7 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/tv_pisonombre_piso"
+            android:id="@+id/txtnombrepiso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rancho"
@@ -34,10 +34,10 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/tx_diametro"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pisonombre_piso" />
+            app:layout_constraintTop_toBottomOf="@+id/txtnombrepiso" />
 
         <Spinner
-            android:id="@+id/sp_diametro_piso"
+            android:id="@+id/spdiametropiso"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -55,10 +55,10 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/tx_sabor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sp_diametro_piso" />
+            app:layout_constraintTop_toBottomOf="@+id/spdiametropiso" />
 
         <Spinner
-            android:id="@+id/sp_sabor_piso"
+            android:id="@+id/spsaborpiso"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -76,10 +76,10 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/tx_relleno"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sp_sabor_piso" />
+            app:layout_constraintTop_toBottomOf="@+id/spsaborpiso" />
 
         <Spinner
-            android:id="@+id/sp_relleno_piso"
+            android:id="@+id/sprellenopiso"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
