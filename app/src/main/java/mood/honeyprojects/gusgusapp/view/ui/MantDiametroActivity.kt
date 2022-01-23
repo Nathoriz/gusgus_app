@@ -7,11 +7,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import mood.honeyprojects.gusgusapp.databinding.ActivityDiametroBinding
 import mood.honeyprojects.gusgusapp.databinding.ActivityMantDiametroBinding
-import mood.honeyprojects.gusgusapp.model.entity.Altura
 import mood.honeyprojects.gusgusapp.model.entity.Diametro
-import mood.honeyprojects.gusgusapp.view.adapter.AlturaAdapter
 import mood.honeyprojects.gusgusapp.view.adapter.DiametroAdapter
 import mood.honeyprojects.gusgusapp.viewModel.DiametroViewModel
 
@@ -44,11 +41,11 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
                 listaDiametro.addAll(it)
                 adapter.notifyDataSetChanged()
                 if(accion=="añadio"){
-                    showMessage("Altura agregada")
+                    showMessage("Diametro agregado")
                 }else if(accion=="actualizo"){
-                    showMessage("Altura actualizada")
+                    showMessage("Diametro actualizado")
                 }else if(accion=="elimino"){
-                    showMessage("Altura eliminada")
+                    showMessage("Diametro eliminado")
                 }
             }
         })
@@ -75,7 +72,7 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
         diametroViewModel.listarDiametro()
     }
     private fun listener() {
-        binding.ibDeleteMantdiametro.setOnClickListener{addDiametro()}
+        binding.ibAddMantdiametro.setOnClickListener{addDiametro()}
         binding.ibUpdateMantdiametro.setOnClickListener{updateDiametro()}
         binding.ibDeleteMantdiametro.setOnClickListener{deleteDiametro()}
     }
@@ -119,6 +116,4 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
         idObtenida = id
         searchDiametro()
     }
-
-
 }

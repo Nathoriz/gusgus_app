@@ -15,6 +15,9 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.ui.MantSaborActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ui.MantDistritoActivity"
             android:exported="false" />
         <activity
