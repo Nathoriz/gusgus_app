@@ -12,7 +12,7 @@ object RetrofitHelper {
         logging.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder()
         client.addInterceptor( logging )
-
+        // IP_MELISSA = http://192.168.1.9:8080/
         return Retrofit.Builder().baseUrl("http://192.168.1.9:8080/")
             .client( client.build() )
             .addConverterFactory( GsonConverterFactory.create() )
