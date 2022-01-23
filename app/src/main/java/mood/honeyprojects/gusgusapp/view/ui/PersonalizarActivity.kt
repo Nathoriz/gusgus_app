@@ -97,7 +97,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
     }
 
     private fun GetAllDiametros(){
-        diametroViewModel.GetAllDiametro()
+        diametroViewModel.listarNombreDiametro()
     }
     private fun GetListPisos(){
         pisosViewModel.getPisos()
@@ -109,7 +109,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
     }
 
     private fun ViewModelSabor(){
-        saborViewModel.responseNombre.observe( this, Observer {
+        saborViewModel.listaNombreSabor.observe( this, Observer {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -129,7 +129,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         } )
     }
     private fun ViewModelDiametro(){
-        diametroViewModel.responseDescripcion.observe( this, Observer {
+        diametroViewModel.listaNombreDiametro.observe( this, Observer {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

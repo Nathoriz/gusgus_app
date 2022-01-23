@@ -3,62 +3,60 @@ package mood.honeyprojects.gusgusapp.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
-import mood.honeyprojects.gusgusapp.model.entity.Altura
-import mood.honeyprojects.gusgusapp.model.entity.Diametro
-import mood.honeyprojects.gusgusapp.model.serviceAPI.AlturaAPI
-import mood.honeyprojects.gusgusapp.model.serviceAPI.DiametroAPI
+import mood.honeyprojects.gusgusapp.model.entity.Cubierta
+import mood.honeyprojects.gusgusapp.model.serviceAPI.CubiertaAPI
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DiametroViewModel: ViewModel() {
-    val listaNombreDiametro = MutableLiveData<List<String>>()
-    val listaDiametroLiveData = MutableLiveData<List<Diametro>>()
-    val diametroLiveData = MutableLiveData<Diametro>()
+class CubiertaViewModel:ViewModel() {
+    val listaNombreCubierta = MutableLiveData<List<String>>()
+    val listaCubiertaLiveData = MutableLiveData<List<Cubierta>>()
+    val cubiertaLiveData = MutableLiveData<Cubierta>()
     val messageResponse = MutableLiveData<String>()
 
     fun listarNombreDiametro(){
-        val response = RetrofitHelper.getRetrofit().create( DiametroAPI::class.java ).listarDiametro()
-        response.enqueue( object: Callback<List<Diametro>> {
-            override fun onResponse(call: Call<List<Diametro>>, response: Response<List<Diametro>>) {
+        val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).listarCubierta()
+        response.enqueue( object: Callback<List<Cubierta>> {
+            override fun onResponse(call: Call<List<Cubierta>>, response: Response<List<Cubierta>>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
                         var lista = mutableListOf<String>()
                         for( dark in it ){
-                            lista.add( dark.descripcion.toString() )
+                            lista.add( dark.nombre.toString() )
                         }
-                        listaNombreDiametro.postValue( lista )
+                        listaNombreCubierta.postValue( lista )
                     }
                 }
             }
-            override fun onFailure(call: Call<List<Diametro>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Cubierta>>, t: Throwable) {
             }
         })
     }
     fun listarDiametro(){
-        val response = RetrofitHelper.getRetrofit().create( DiametroAPI::class.java ).listarDiametro()
-        response.enqueue( object: Callback<List<Diametro>> {
-            override fun onResponse(call: Call<List<Diametro>>, response: Response<List<Diametro>>) {
+        val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).listarCubierta()
+        response.enqueue( object: Callback<List<Cubierta>> {
+            override fun onResponse(call: Call<List<Cubierta>>, response: Response<List<Cubierta>>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
-                        listaDiametroLiveData.postValue( it )
+                        listaCubiertaLiveData.postValue( it )
                     }
                 }
             }
 
-            override fun onFailure(call: Call<List<Diametro>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Cubierta>>, t: Throwable) {
 
             }
         })
     }
-    fun guardarDiametro( diametro: Diametro){
-        val response = RetrofitHelper.getRetrofit().create( DiametroAPI::class.java ).guardarDiametro( diametro )
-        response.enqueue( object: Callback<Diametro> {
-            override fun onResponse(call: Call<Diametro>, response: Response<Diametro>) {
+    fun guardarDiametro( cubierta: Cubierta){
+        val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).guardarCubierta( cubierta )
+        response.enqueue( object: Callback<Cubierta> {
+            override fun onResponse(call: Call<Cubierta>, response: Response<Cubierta>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
-                        diametroLiveData.postValue( it )
+                        cubiertaLiveData.postValue( it )
                     }
                 }
                 response.errorBody()?.let {
@@ -68,13 +66,13 @@ class DiametroViewModel: ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<Diametro>, t: Throwable) {
+            override fun onFailure(call: Call<Cubierta>, t: Throwable) {
 
             }
         })
     }
-    fun actualizarDiametro( diametro: Diametro){
-        val response = RetrofitHelper.getRetrofit().create( DiametroAPI::class.java ).actualizarDiametro( diametro )
+    fun actualizarDiametro( cubierta: Cubierta){
+        val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).actualizarCubierta( cubierta )
         response.enqueue( object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
@@ -88,22 +86,22 @@ class DiametroViewModel: ViewModel() {
         })
     }
     fun buscarDiametro( id: Long ){
-        val response = RetrofitHelper.getRetrofit().create( DiametroAPI::class.java ).buscarDiametro( id )
-        response.enqueue( object: Callback<Diametro> {
-            override fun onResponse(call: Call<Diametro>, response: Response<Diametro>) {
+        val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).buscarCubierta( id )
+        response.enqueue( object: Callback<Cubierta> {
+            override fun onResponse(call: Call<Cubierta>, response: Response<Cubierta>) {
                 response.body()?.let {
                     if(response.code()==200){
-                        diametroLiveData.postValue(it)
+                        cubiertaLiveData.postValue(it)
                     }
                 }
             }
 
-            override fun onFailure(call: Call<Diametro>, t: Throwable) {
+            override fun onFailure(call: Call<Cubierta>, t: Throwable) {
 
             }
         }) }
     fun eliminarDiametro( id:Long ){
-        val response = RetrofitHelper.getRetrofit().create(DiametroAPI::class.java).eliminarDiametro(id)
+        val response = RetrofitHelper.getRetrofit().create(CubiertaAPI::class.java).eliminarCubierta(id)
         response.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {

@@ -126,7 +126,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         }
     }
     private fun BuscarDistrito( nombre: String ){
-        distritoViewModel.BuscarDistritoPorNombre( nombre )
+        distritoViewModel.buscarDistritoPorNombre( nombre )
     }
     private fun ShowDatePickerForm(){
         val datePicker = DatePickerFragment { anio, mes, dia -> onDateSelected( anio, mes, dia ) }
@@ -182,7 +182,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         binding.ivImgEntrega.setImageResource( R.drawable.motorcycle )
     }
     private fun ListDistrito(){
-        distritoViewModel.ListDistrito()
+        distritoViewModel.listarNombreDistrito()
     }
 
     private fun InvisibleOpcionRecogerTienda( int: Int ){
@@ -195,7 +195,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
     }
 
     private fun ViewModelDitrito(){
-        distritoViewModel.responseString.observe( this, Observer {
+        distritoViewModel.listaNombreDistrito.observe( this, Observer {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -213,7 +213,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
                 }
             }
         } )
-        distritoViewModel.responseDistritoMutableLiveData.observe( this, Observer {
+        distritoViewModel.distritoLiveData.observe( this, Observer {
             if( it != null ){
                 distrito = it
             }

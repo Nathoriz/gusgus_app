@@ -3,60 +3,60 @@ package mood.honeyprojects.gusgusapp.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
-import mood.honeyprojects.gusgusapp.model.entity.Sabor
-import mood.honeyprojects.gusgusapp.model.serviceAPI.SaborAPI
+import mood.honeyprojects.gusgusapp.model.entity.Relleno
+import mood.honeyprojects.gusgusapp.model.serviceAPI.RellenoAPI
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SaborViewModel: ViewModel() {
-    val listaNombreSabor = MutableLiveData<List<String>>()
-    val listaSaborLiveData = MutableLiveData<List<Sabor>>()
-    val saborLiveData = MutableLiveData<Sabor>()
+class RellenoViewModel: ViewModel() {
+    val listaDescripcionRelleno = MutableLiveData<List<String>>()
+    val listaRellenoLiveData = MutableLiveData<List<Relleno>>()
+    val rellenoLiveData = MutableLiveData<Relleno>()
     val messageResponse = MutableLiveData<String>()
 
-    fun listarNombreSabor(){
-        val response = RetrofitHelper.getRetrofit().create( SaborAPI::class.java ).listarSabor()
-        response.enqueue( object: Callback<List<Sabor>> {
-            override fun onResponse(call: Call<List<Sabor>>, response: Response<List<Sabor>>) {
+    fun listarNombreRelleno(){
+        val response = RetrofitHelper.getRetrofit().create( RellenoAPI::class.java ).listarRelleno()
+        response.enqueue( object: Callback<List<Relleno>> {
+            override fun onResponse(call: Call<List<Relleno>>, response: Response<List<Relleno>>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
                         var lista = mutableListOf<String>()
                         for( dark in it ){
-                            lista.add( dark.nombre.toString() )
+                            lista.add( dark.descripcion.toString() )
                         }
-                        listaNombreSabor.postValue( lista )
+                        listaDescripcionRelleno.postValue( lista )
                     }
                 }
             }
-            override fun onFailure(call: Call<List<Sabor>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Relleno>>, t: Throwable) {
             }
         })
     }
-    fun listarSabor(){
-        val response = RetrofitHelper.getRetrofit().create( SaborAPI::class.java ).listarSabor()
-        response.enqueue( object: Callback<List<Sabor>> {
-            override fun onResponse(call: Call<List<Sabor>>, response: Response<List<Sabor>>) {
+    fun listarRelleno(){
+        val response = RetrofitHelper.getRetrofit().create( RellenoAPI::class.java ).listarRelleno()
+        response.enqueue( object: Callback<List<Relleno>> {
+            override fun onResponse(call: Call<List<Relleno>>, response: Response<List<Relleno>>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
-                        listaSaborLiveData.postValue( it )
+                        listaRellenoLiveData.postValue( it )
                     }
                 }
             }
 
-            override fun onFailure(call: Call<List<Sabor>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Relleno>>, t: Throwable) {
 
             }
         })
     }
-    fun guardarSabor( sabor: Sabor){
-        val response = RetrofitHelper.getRetrofit().create( SaborAPI::class.java ).guardarSabor( sabor )
-        response.enqueue( object: Callback<Sabor> {
-            override fun onResponse(call: Call<Sabor>, response: Response<Sabor>) {
+    fun guardarRelleno( relleno: Relleno){
+        val response = RetrofitHelper.getRetrofit().create( RellenoAPI::class.java ).guardarRelleno( relleno )
+        response.enqueue( object: Callback<Relleno> {
+            override fun onResponse(call: Call<Relleno>, response: Response<Relleno>) {
                 response.body()?.let {
                     if( response.code() == 200 ){
-                        saborLiveData.postValue( it )
+                        rellenoLiveData.postValue( it )
                     }
                 }
                 response.errorBody()?.let {
@@ -66,13 +66,13 @@ class SaborViewModel: ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<Sabor>, t: Throwable) {
+            override fun onFailure(call: Call<Relleno>, t: Throwable) {
 
             }
         })
     }
-    fun actualizarSabor( sabor: Sabor){
-        val response = RetrofitHelper.getRetrofit().create( SaborAPI::class.java ).actualizarSabor( sabor )
+    fun actualizarRelleno( relleno: Relleno){
+        val response = RetrofitHelper.getRetrofit().create( RellenoAPI::class.java ).actualizarRelleno( relleno )
         response.enqueue( object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
@@ -85,23 +85,23 @@ class SaborViewModel: ViewModel() {
             }
         })
     }
-    fun buscarSabor( id: Long ){
-        val response = RetrofitHelper.getRetrofit().create( SaborAPI::class.java ).buscarSabor( id )
-        response.enqueue( object: Callback<Sabor> {
-            override fun onResponse(call: Call<Sabor>, response: Response<Sabor>) {
+    fun buscarRelleno( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( RellenoAPI::class.java ).buscarRelleno( id )
+        response.enqueue( object: Callback<Relleno> {
+            override fun onResponse(call: Call<Relleno>, response: Response<Relleno>) {
                 response.body()?.let {
                     if(response.code()==200){
-                        saborLiveData.postValue(it)
+                        rellenoLiveData.postValue(it)
                     }
                 }
             }
 
-            override fun onFailure(call: Call<Sabor>, t: Throwable) {
+            override fun onFailure(call: Call<Relleno>, t: Throwable) {
 
             }
         }) }
-    fun eliminarSabor( id:Long ){
-        val response = RetrofitHelper.getRetrofit().create(SaborAPI::class.java).eliminarSabor(id)
+    fun eliminarRelleno( id:Long ){
+        val response = RetrofitHelper.getRetrofit().create(RellenoAPI::class.java).eliminarRelleno(id)
         response.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
@@ -122,6 +122,4 @@ class SaborViewModel: ViewModel() {
         val objects = JSONObject(raw)
         return objects.getString("message")
     }
-
-
 }
