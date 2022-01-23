@@ -41,18 +41,4 @@ class AlturaAdapter (private val alturas:List<Altura>, private val itemClickList
             } }
         }
     }
-
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlturaViewHolder {
-//        val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
-//        return AlturaViewHolder(layoutInflater.inflate(R.layout.item_card_design, parent, false))
-//    }
-//
-//    override fun onBindViewHolder(holder: AlturaViewHolder, position: Int) {
-//        val item:Altura = alturas[position]
-//        holder.bind(item)
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return alturas.size
-//    }
 }
