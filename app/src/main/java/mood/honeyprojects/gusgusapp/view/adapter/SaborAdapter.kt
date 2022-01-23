@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ItemCardDesignBinding
 import mood.honeyprojects.gusgusapp.model.entity.Altura
+import mood.honeyprojects.gusgusapp.model.entity.Sabor
 
-class AlturaAdapter (private val alturas:List<Altura>, private val itemClickListener:OnClickAlturaListener): RecyclerView.Adapter<AlturaAdapter.ViewHolder>(){
-
-    interface OnClickAlturaListener{
-        fun onAlturaClick(id: Long)
+class SaborAdapter(private val sabores:List<Sabor>, private  val itemClickListener:OnClickSaborListener) : RecyclerView.Adapter<SaborAdapter.ViewHolder>(){
+    interface OnClickSaborListener{
+        fun onSaborClick(id: Long)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,22 +20,22 @@ class AlturaAdapter (private val alturas:List<Altura>, private val itemClickList
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item:Altura = alturas[position]
+        val item:Sabor = sabores[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return alturas.size
+        return sabores.size
     }
 
-    inner class ViewHolder(itemView:View) :RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(altura:Altura){
+        fun bind(sabor: Sabor){
             binding.cvContainerDesign.visibility = View.GONE
-            binding.tvTextDesign.text = altura.descripcion
-            binding.root.setOnClickListener{ altura.id?.let { it1 ->
-                itemClickListener.onAlturaClick(
+            binding.tvTextDesign.text = sabor.nombre
+            binding.root.setOnClickListener{ sabor.id?.let { it1 ->
+                itemClickListener.onSaborClick(
                     it1
                 )
             } }

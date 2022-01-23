@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ItemCardDesignBinding
-import mood.honeyprojects.gusgusapp.model.entity.Altura
+import mood.honeyprojects.gusgusapp.model.entity.Relleno
 
-class AlturaAdapter (private val alturas:List<Altura>, private val itemClickListener:OnClickAlturaListener): RecyclerView.Adapter<AlturaAdapter.ViewHolder>(){
-
-    interface OnClickAlturaListener{
-        fun onAlturaClick(id: Long)
+class RellenoAdapter(private val rellenos:List<Relleno>,private val itemClickListener: OnClickRellenoListener) : RecyclerView.Adapter<RellenoAdapter.ViewHolder>(){
+    interface OnClickRellenoListener{
+        fun onRellenoClick(id: Long)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,22 +19,22 @@ class AlturaAdapter (private val alturas:List<Altura>, private val itemClickList
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item:Altura = alturas[position]
+        val item: Relleno = rellenos[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return alturas.size
+        return rellenos.size
     }
 
-    inner class ViewHolder(itemView:View) :RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(altura:Altura){
+        fun bind(relleno:Relleno){
             binding.cvContainerDesign.visibility = View.GONE
-            binding.tvTextDesign.text = altura.descripcion
-            binding.root.setOnClickListener{ altura.id?.let { it1 ->
-                itemClickListener.onAlturaClick(
+            binding.tvTextDesign.text = relleno.descripcion
+            binding.root.setOnClickListener{ relleno.id?.let { it1 ->
+                itemClickListener.onRellenoClick(
                     it1
                 )
             } }

@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ItemCardDesignBinding
-import mood.honeyprojects.gusgusapp.model.entity.Altura
 
-class AlturaAdapter (private val alturas:List<Altura>, private val itemClickListener:OnClickAlturaListener): RecyclerView.Adapter<AlturaAdapter.ViewHolder>(){
+import mood.honeyprojects.gusgusapp.model.entity.Diametro
 
-    interface OnClickAlturaListener{
-        fun onAlturaClick(id: Long)
+class DiametroAdapter(private val diametros:List<Diametro>, private val itemClickListener:OnClickDiametroListener):RecyclerView.Adapter<DiametroAdapter.ViewHolder>() {
+
+    interface OnClickDiametroListener{
+        fun onDiametroClick(id: Long)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,22 +21,22 @@ class AlturaAdapter (private val alturas:List<Altura>, private val itemClickList
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item:Altura = alturas[position]
+        val item: Diametro = diametros[position]
         holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return alturas.size
+        return diametros.size
     }
 
-    inner class ViewHolder(itemView:View) :RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(altura:Altura){
+        fun bind(diametro: Diametro){
             binding.cvContainerDesign.visibility = View.GONE
-            binding.tvTextDesign.text = altura.descripcion
-            binding.root.setOnClickListener{ altura.id?.let { it1 ->
-                itemClickListener.onAlturaClick(
+            binding.tvTextDesign.text = diametro.descripcion
+            binding.root.setOnClickListener{ diametro.id?.let { it1 ->
+                itemClickListener.onDiametroClick(
                     it1
                 )
             } }

@@ -13,7 +13,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Altura
 import mood.honeyprojects.gusgusapp.view.adapter.AlturaAdapter
 import mood.honeyprojects.gusgusapp.viewModel.AlturaViewModel
 
-class MantAlturaActivity : AppCompatActivity(),AlturaAdapter.OnClickListener {
+class MantAlturaActivity : AppCompatActivity(),AlturaAdapter.OnClickAlturaListener {
     private lateinit var binding: ActivityMantAlturaBinding
     private lateinit var adapter: AlturaAdapter
     private val alturaViewModel:AlturaViewModel by viewModels()
