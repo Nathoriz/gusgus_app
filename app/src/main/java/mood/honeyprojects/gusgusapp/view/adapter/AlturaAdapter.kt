@@ -11,7 +11,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Altura
 class AlturaAdapter (private val alturas:List<Altura>, private val itemClickListener:OnClickAlturaListener): RecyclerView.Adapter<AlturaAdapter.ViewHolder>(){
 
     interface OnClickAlturaListener{
-        fun onAlturaClick(id: Long)
+        fun onAlturaClick(id: Long,position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,7 +21,7 @@ class AlturaAdapter (private val alturas:List<Altura>, private val itemClickList
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item:Altura = alturas[position]
-        holder.bind(item)
+        holder.bind(item,position)
     }
 
     override fun getItemCount(): Int {
@@ -31,12 +31,12 @@ class AlturaAdapter (private val alturas:List<Altura>, private val itemClickList
     inner class ViewHolder(itemView:View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(altura:Altura){
+        fun bind(altura:Altura,position: Int){
             binding.cvContainerDesign.visibility = View.GONE
             binding.tvTextDesign.text = altura.descripcion
             binding.root.setOnClickListener{ altura.id?.let { it1 ->
                 itemClickListener.onAlturaClick(
-                    it1
+                    it1,position
                 )
             } }
         }

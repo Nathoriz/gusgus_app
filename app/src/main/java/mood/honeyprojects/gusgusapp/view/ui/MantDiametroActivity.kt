@@ -2,7 +2,6 @@ package mood.honeyprojects.gusgusapp.view.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +19,7 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
     private val listaDiametro = mutableListOf<Diametro>()
     private var accion:String = ""
     private var idObtenida:Long = 0
+    private var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,22 +36,20 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
     private fun initViewModel() {
         diametroViewModel.listaDiametroLiveData.observe(this,{
             if(it !=null){
-                binding.rvDiametroMantdiametro.visibility = View.VISIBLE
                 listaDiametro.clear()
                 listaDiametro.addAll(it)
                 adapter.notifyDataSetChanged()
-                if(accion=="añadio"){
-                    showMessage("Diametro agregado")
-                }else if(accion=="actualizo"){
-                    showMessage("Diametro actualizado")
-                }else if(accion=="elimino"){
-                    showMessage("Diametro eliminado")
-                }
             }
         })
 
         diametroViewModel.diametroLiveData.observe(this,{
             if(it!=null){
+                if(accion=="añadio"){
+                    listaDiametro.add(it)
+                    adapter.notifyItemInserted(listaDiametro.size-1)
+                    showMessage("Diametro agregado")
+                    accion=""
+                }
                 binding.etNombreMantdiametro.setText(it.descripcion.toString())
                 binding.etPrecioMantdiametro.setText(it.precio.toString())
             }
@@ -80,15 +78,13 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
         diametroViewModel.buscarDiametro(idObtenida)
     }
     private fun addDiametro() {
+        accion = "añadio"
         val diametro = Diametro(
             null,
             binding.etNombreMantdiametro.text.toString(),
             binding.etPrecioMantdiametro.text.toString()
         )
         diametroViewModel.guardarDiametro(diametro)
-        accion = "añadio"
-        getListaDiametro()
-        fillRecyclerView(binding.rvDiametroMantdiametro)
     }
     private fun updateDiametro() {
         val diametro = Diametro(
@@ -97,23 +93,24 @@ class MantDiametroActivity : AppCompatActivity(),DiametroAdapter.OnClickDiametro
             binding.etPrecioMantdiametro.text.toString()
         )
         diametroViewModel.actualizarDiametro(diametro)
-        accion = "actualizo"
-        getListaDiametro()
-        fillRecyclerView(binding.rvDiametroMantdiametro)
+        listaDiametro[position] = diametro
+        adapter.notifyItemChanged(position)
+        showMessage("Diametro actualizado")
     }
     private fun deleteDiametro() {
         diametroViewModel.eliminarDiametro(idObtenida)
-        accion = "elimino"
-        getListaDiametro()
-        fillRecyclerView(binding.rvDiametroMantdiametro)
+        listaDiametro.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        showMessage("Diametro eliminado")
     }
 
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
 
-    override fun onDiametroClick(id: Long) {
+    override fun onDiametroClick(id: Long,p:Int) {
         idObtenida = id
+        position=p
         searchDiametro()
     }
 }

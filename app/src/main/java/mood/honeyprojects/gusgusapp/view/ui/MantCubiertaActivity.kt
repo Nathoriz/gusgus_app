@@ -19,6 +19,7 @@ class MantCubiertaActivity : AppCompatActivity(), CubiertaAdapter.OnClickCubiert
     private val listaCubierta = mutableListOf<Cubierta>()
     private var accion:String = ""
     private var idObtenida:Long = 0
+    private var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,18 +40,17 @@ class MantCubiertaActivity : AppCompatActivity(), CubiertaAdapter.OnClickCubiert
                 listaCubierta.clear()
                 listaCubierta.addAll(it)
                 adapter.notifyDataSetChanged()
-                if(accion=="añadio"){
-                    showMessage("Cubierta agregada")
-                }else if(accion=="actualizo"){
-                    showMessage("Cubierta actualizada")
-                }else if(accion=="elimino"){
-                    showMessage("Cubierta eliminada")
-                }
             }
         })
 
         cubiertaViewModel.cubiertaLiveData.observe(this,{
             if(it!=null){
+                if(accion=="añadio"){
+                    listaCubierta.add(it)
+                    adapter.notifyItemInserted(listaCubierta.size-1)
+                    showMessage("Cubierta agregada")
+                    accion=""
+                }
                 binding.etNombreMantcubierta.setText(it.nombre.toString())
             }
         })
@@ -61,62 +61,54 @@ class MantCubiertaActivity : AppCompatActivity(), CubiertaAdapter.OnClickCubiert
             }
         })
     }
-
     private fun fillRecyclerView(rv: RecyclerView) {
         adapter = CubiertaAdapter(listaCubierta,this)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = adapter
     }
-
     private fun getListaCubierta() {
         cubiertaViewModel.listarCubierta()
     }
-
     private fun listener() {
         binding.ibAddMantcubierta.setOnClickListener{addCubierta()}
         binding.ibUpdateMantcubierta.setOnClickListener{updateCubierta()}
         binding.ibDeleteMantcubierta.setOnClickListener{deleteCubierta()}
     }
-
     private fun searchCubierta(){
         cubiertaViewModel.buscarCubierta(idObtenida)
     }
-
     private fun addCubierta() {
+        accion = "añadio"
         val cubierta = Cubierta(
             null,
             binding.etNombreMantcubierta.text.toString()
         )
         cubiertaViewModel.guardarCubierta(cubierta)
-        accion = "añadio"
-        getListaCubierta()
-        fillRecyclerView(binding.rvCubiertaMantcubierta)
     }
-
     private fun updateCubierta() {
         val cubierta = Cubierta(
             idObtenida,
             binding.etNombreMantcubierta.text.toString()
         )
         cubiertaViewModel.actualizarCubierta(cubierta)
-        accion = "actualizo"
-        getListaCubierta()
-        fillRecyclerView(binding.rvCubiertaMantcubierta)
+        listaCubierta[position] = cubierta
+        adapter.notifyItemChanged(position)
+        showMessage("Cubierta actualizada")
     }
-
     private fun deleteCubierta() {
         cubiertaViewModel.eliminarCubierta(idObtenida)
-        accion="elimino"
-        getListaCubierta()
-        fillRecyclerView(binding.rvCubiertaMantcubierta)
+        listaCubierta.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        showMessage("Cubierta eliminada")
     }
 
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
 
-    override fun onCubiertaClick(id: Long) {
+    override fun onCubiertaClick(id: Long,p:Int) {
         idObtenida = id
+        position=p
         searchCubierta()
     }
 }

@@ -10,7 +10,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Relleno
 
 class RellenoAdapter(private val rellenos:List<Relleno>,private val itemClickListener: OnClickRellenoListener) : RecyclerView.Adapter<RellenoAdapter.ViewHolder>(){
     interface OnClickRellenoListener{
-        fun onRellenoClick(id: Long)
+        fun onRellenoClick(id: Long,position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,7 +20,7 @@ class RellenoAdapter(private val rellenos:List<Relleno>,private val itemClickLis
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: Relleno = rellenos[position]
-        holder.bind(item)
+        holder.bind(item,position)
     }
 
     override fun getItemCount(): Int {
@@ -30,12 +30,12 @@ class RellenoAdapter(private val rellenos:List<Relleno>,private val itemClickLis
     inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(relleno:Relleno){
+        fun bind(relleno:Relleno,position: Int){
             binding.cvContainerDesign.visibility = View.GONE
             binding.tvTextDesign.text = relleno.descripcion
             binding.root.setOnClickListener{ relleno.id?.let { it1 ->
                 itemClickListener.onRellenoClick(
-                    it1
+                    it1,position
                 )
             } }
         }

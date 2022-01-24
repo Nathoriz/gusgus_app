@@ -27,6 +27,7 @@ class ManRellenoActivity : AppCompatActivity(), RellenoAdapter.OnClickRellenoLis
     private val listaRelleno = mutableListOf<Relleno>()
     private var accion:String = ""
     private var idObtenida:Long = 0
+    private var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,18 +48,17 @@ class ManRellenoActivity : AppCompatActivity(), RellenoAdapter.OnClickRellenoLis
                 listaRelleno.clear()
                 listaRelleno.addAll(it)
                 adapter.notifyDataSetChanged()
-                if(accion=="añadio"){
-                    showMessage("Relleno agregado")
-                }else if(accion=="actualizo"){
-                    showMessage("Relleno actualizado")
-                }else if(accion=="elimino"){
-                    showMessage("Relleno eliminado")
-                }
             }
         })
 
         rellenoViewModel.rellenoLiveData.observe(this,{
             if(it!=null){
+                if(accion=="añadio"){
+                    listaRelleno.add(it)
+                    adapter.notifyItemInserted(listaRelleno.size-1)
+                    showMessage("Relleno agregado")
+                    accion=""
+                }
                 binding.etNombreMantrelleno.setText(it.descripcion.toString())
             }
         })
@@ -69,62 +69,54 @@ class ManRellenoActivity : AppCompatActivity(), RellenoAdapter.OnClickRellenoLis
             }
         })
     }
-
     private fun fillRecyclerView(rv: RecyclerView) {
         adapter = RellenoAdapter(listaRelleno,this)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = adapter
     }
-
     private fun getListaRelleno() {
         rellenoViewModel.listarRelleno()
     }
-
     private fun listener() {
         binding.ibAddMantrelleno.setOnClickListener{addRelleno()}
         binding.ibUpdateMantrelleno.setOnClickListener{updateRelleno()}
         binding.ibDeleteMantrelleno.setOnClickListener{deleteRelleno()}
     }
-
     private fun searchRelleno(){
         rellenoViewModel.buscarRelleno(idObtenida)
     }
-
     private fun addRelleno() {
+        accion = "añadio"
         val relleno = Relleno(
             null,
             binding.etNombreMantrelleno.text.toString()
         )
         rellenoViewModel.guardarRelleno(relleno)
-        accion = "añadio"
-        getListaRelleno()
-        fillRecyclerView(binding.rvRellenosMantrelleno)
     }
-
     private fun updateRelleno() {
         val relleno = Relleno(
             idObtenida,
             binding.etNombreMantrelleno.text.toString()
         )
         rellenoViewModel.actualizarRelleno(relleno)
-        accion = "actualizo"
-        getListaRelleno()
-        fillRecyclerView(binding.rvRellenosMantrelleno)
+        listaRelleno[position] = relleno
+        adapter.notifyItemChanged(position)
+        showMessage("Relleno actualizado")
     }
-
     private fun deleteRelleno() {
         rellenoViewModel.eliminarRelleno(idObtenida)
-        accion = "elimino"
-        getListaRelleno()
-        fillRecyclerView(binding.rvRellenosMantrelleno)
+        listaRelleno.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        showMessage("Relleno eliminado")
     }
 
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
 
-    override fun onRellenoClick(id: Long) {
+    override fun onRellenoClick(id: Long,p:Int) {
         idObtenida = id
+        position = p
         searchRelleno()
     }
 }

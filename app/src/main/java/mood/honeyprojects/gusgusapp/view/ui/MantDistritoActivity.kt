@@ -24,6 +24,7 @@ class MantDistritoActivity : AppCompatActivity(),DistritoAdapter.OnClickDistrito
     private val listaDistrito = mutableListOf<Distrito>()
     private var accion:String = ""
     private var idObtenida:Long = 0
+    private var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,18 +45,17 @@ class MantDistritoActivity : AppCompatActivity(),DistritoAdapter.OnClickDistrito
                 listaDistrito.clear()
                 listaDistrito.addAll(it)
                 adapter.notifyDataSetChanged()
-                if(accion=="añadio"){
-                    showMessage("Distrito agregado")
-                }else if(accion=="actualizo"){
-                    showMessage("Distrito actualizado")
-                }else if(accion=="elimino"){
-                    showMessage("Distrito eliminado")
-                }
             }
         })
 
         distritoViewModel.distritoLiveData.observe(this,{
             if(it!=null){
+                if(accion=="añadio"){
+                    listaDistrito.add(it)
+                    adapter.notifyItemInserted(listaDistrito.size-1)
+                    showMessage("Distrito agregado")
+                    accion=""
+                }
                 binding.etNombreMantdistrito.setText(it.nombre.toString())
                 binding.etPrecioMantdistrito.setText(it.precio.toString())
             }
@@ -84,15 +84,13 @@ class MantDistritoActivity : AppCompatActivity(),DistritoAdapter.OnClickDistrito
         distritoViewModel.buscarDistrito(idObtenida)
     }
     private fun addDistrito() {
+        accion = "añadio"
         val distrito = Distrito(
             null,
             binding.etNombreMantdistrito.text.toString(),
             binding.etPrecioMantdistrito.text.toString()
         )
         distritoViewModel.guardarDistrito(distrito)
-        accion = "añadio"
-        getListaDistrito()
-        fillRecyclerView(binding.rvDistritoMantdistrito)
     }
     private fun updateDistrito() {
         val distrito = Distrito(
@@ -101,23 +99,24 @@ class MantDistritoActivity : AppCompatActivity(),DistritoAdapter.OnClickDistrito
             binding.etPrecioMantdistrito.text.toString()
         )
         distritoViewModel.actualizarDistrito(distrito)
-        accion = "actualizo"
-        getListaDistrito()
-        fillRecyclerView(binding.rvDistritoMantdistrito)
+        listaDistrito[position] = distrito
+        adapter.notifyItemChanged(position)
+        showMessage("Distrito actualizado")
     }
     private fun deleteDistrito() {
         distritoViewModel.eliminarDistrito(idObtenida)
-        accion = "elimino"
-        getListaDistrito()
-        fillRecyclerView(binding.rvDistritoMantdistrito)
+        listaDistrito.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        showMessage("Distrito eliminado")
     }
 
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
 
-    override fun onDistritoClick(id: Long) {
+    override fun onDistritoClick(id: Long,p:Int) {
         idObtenida = id
+        position = p
         searchDistrito()
     }
 }

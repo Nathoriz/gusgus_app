@@ -11,7 +11,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Sabor
 
 class SaborAdapter(private val sabores:List<Sabor>, private  val itemClickListener:OnClickSaborListener) : RecyclerView.Adapter<SaborAdapter.ViewHolder>(){
     interface OnClickSaborListener{
-        fun onSaborClick(id: Long)
+        fun onSaborClick(id: Long,position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,7 +21,7 @@ class SaborAdapter(private val sabores:List<Sabor>, private  val itemClickListen
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item:Sabor = sabores[position]
-        holder.bind(item)
+        holder.bind(item,position)
     }
 
     override fun getItemCount(): Int {
@@ -31,12 +31,12 @@ class SaborAdapter(private val sabores:List<Sabor>, private  val itemClickListen
     inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(sabor: Sabor){
+        fun bind(sabor: Sabor,position: Int){
             binding.cvContainerDesign.visibility = View.GONE
             binding.tvTextDesign.text = sabor.nombre
             binding.root.setOnClickListener{ sabor.id?.let { it1 ->
                 itemClickListener.onSaborClick(
-                    it1
+                    it1,position
                 )
             } }
         }

@@ -24,6 +24,7 @@ class MantSaborActivity : AppCompatActivity(), SaborAdapter.OnClickSaborListener
     private val listaSabor = mutableListOf<Sabor>()
     private var accion:String = ""
     private var idObtenida:Long = 0
+    private var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,21 +45,20 @@ class MantSaborActivity : AppCompatActivity(), SaborAdapter.OnClickSaborListener
                 listaSabor.clear()
                 listaSabor.addAll(it)
                 adapter.notifyDataSetChanged()
-                if(accion=="añadio"){
-                    showMessage("Sabor agregado")
-                }else if(accion=="actualizo"){
-                    showMessage("Sabor actualizado")
-                }else if(accion=="elimino"){
-                    showMessage("Sabor eliminado")
-                }
             }
         })
 
         saborViewModel.saborLiveData.observe(this,{
             if(it!=null){
+                if(accion=="añadio"){
+                    listaSabor.add(it)
+                    adapter.notifyItemInserted(listaSabor.size-1)
+                    showMessage("Sabor agregado")
+                    accion=""
+                }
                 binding.etNombreMantsabor.setText(it.nombre.toString())
                 binding.etColorMantsabor.setText(it.color.toString())
-                binding.vwBgcolorMantsabor.setBackgroundColor(Color.parseColor(it.color.toString()))
+                binding.vwBgcolorMantsabor.setBackgroundColor(Color.parseColor("#${it.color.toString()}"))
             }
         })
 
@@ -85,15 +85,13 @@ class MantSaborActivity : AppCompatActivity(), SaborAdapter.OnClickSaborListener
         saborViewModel.buscarSabor(idObtenida)
     }
     private fun addSabor() {
+        accion = "añadio"
         val sabor = Sabor(
             null,
             binding.etNombreMantsabor.text.toString(),
             binding.etColorMantsabor.text.toString()
         )
         saborViewModel.guardarSabor(sabor)
-        accion = "añadio"
-        getListaSabor()
-        fillRecyclerView(binding.rvSaborMantsabor)
     }
     private fun updateSabor() {
         val sabor = Sabor(
@@ -102,23 +100,24 @@ class MantSaborActivity : AppCompatActivity(), SaborAdapter.OnClickSaborListener
             binding.etColorMantsabor.text.toString()
         )
         saborViewModel.actualizarSabor(sabor)
-        accion = "actualizo"
-        getListaSabor()
-        fillRecyclerView(binding.rvSaborMantsabor)
+        listaSabor[position] = sabor
+        adapter.notifyItemChanged(position)
+        showMessage("Sabor actualizado")
     }
     private fun deleteSabor() {
         saborViewModel.eliminarSabor(idObtenida)
-        accion = "elimino"
-        getListaSabor()
-        fillRecyclerView(binding.rvSaborMantsabor)
+        listaSabor.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        showMessage("Sabor eliminado")
     }
 
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
 
-    override fun onSaborClick(id: Long) {
+    override fun onSaborClick(id: Long,p:Int) {
         idObtenida = id
+        position = p
         searchSabor()
     }
 

@@ -12,7 +12,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Diametro
 class DiametroAdapter(private val diametros:List<Diametro>, private val itemClickListener:OnClickDiametroListener):RecyclerView.Adapter<DiametroAdapter.ViewHolder>() {
 
     interface OnClickDiametroListener{
-        fun onDiametroClick(id: Long)
+        fun onDiametroClick(id: Long,position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,7 +22,7 @@ class DiametroAdapter(private val diametros:List<Diametro>, private val itemClic
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: Diametro = diametros[position]
-        holder.bind(item)
+        holder.bind(item,position)
     }
 
     override fun getItemCount(): Int {
@@ -32,14 +32,15 @@ class DiametroAdapter(private val diametros:List<Diametro>, private val itemClic
     inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(diametro: Diametro){
+        fun bind(diametro: Diametro,position: Int){
             binding.cvContainerDesign.visibility = View.GONE
             binding.tvTextDesign.text = diametro.descripcion
-            binding.root.setOnClickListener{ diametro.id?.let { it1 ->
-                itemClickListener.onDiametroClick(
-                    it1
-                )
+            binding.root.setOnClickListener{
+                diametro.id?.let { it1 ->
+                    itemClickListener.onDiametroClick(
+                        it1,position
+                    )
+                }
             } }
         }
-    }
 }

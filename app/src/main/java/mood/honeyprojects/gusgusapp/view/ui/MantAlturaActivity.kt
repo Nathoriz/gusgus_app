@@ -20,6 +20,7 @@ class MantAlturaActivity : AppCompatActivity(),AlturaAdapter.OnClickAlturaListen
     private val listaAltura = mutableListOf<Altura>()
     private var accion:String = ""
     private var idObtenida:Long = 0
+    private var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,18 +41,17 @@ class MantAlturaActivity : AppCompatActivity(),AlturaAdapter.OnClickAlturaListen
                 listaAltura.clear()
                 listaAltura.addAll(it)
                 adapter.notifyDataSetChanged()
-                if(accion=="añadio"){
-                    showMessage("Altura agregada")
-                }else if(accion=="actualizo"){
-                    showMessage("Altura actualizada")
-                }else if(accion=="elimino"){
-                    showMessage("Altura eliminada")
-                }
             }
         })
 
         alturaViewModel.alturaLiveData.observe(this,{
             if(it!=null){
+                if(accion=="añadio"){
+                    listaAltura.add(it)
+                    adapter.notifyItemInserted(listaAltura.size-1)
+                    showMessage("Altura agregado")
+                    accion=""
+                }
                 binding.etNombreMantaltura.setText(it.descripcion.toString())
                 binding.etPrecioMantaltura.setText(it.precio.toString())
             }
@@ -81,15 +81,13 @@ class MantAlturaActivity : AppCompatActivity(),AlturaAdapter.OnClickAlturaListen
         alturaViewModel.buscarAltura(idObtenida)
     }
     private fun addAltura() {
+        accion = "añadio"
         val altura = Altura(
             null,
             binding.etNombreMantaltura.text.toString(),
             binding.etPrecioMantaltura.text.toString()
         )
         alturaViewModel.guardarAltura(altura)
-        accion = "añadio"
-        getListaAltura()
-        fillRecyclerView(binding.rvAlturasMantaltura)
     }
     private fun updateAltura() {
         val altura = Altura(
@@ -98,23 +96,24 @@ class MantAlturaActivity : AppCompatActivity(),AlturaAdapter.OnClickAlturaListen
            binding.etPrecioMantaltura.text.toString()
         )
         alturaViewModel.actualizarAltura(altura)
-        accion = "actualizo"
-        getListaAltura()
-        fillRecyclerView(binding.rvAlturasMantaltura)
+        listaAltura[position] = altura
+        adapter.notifyItemChanged(position)
+        showMessage("Altura actualizado")
     }
     private fun deleteAltura() {
         alturaViewModel.eliminarAltura(idObtenida)
-        accion = "elimino"
-        getListaAltura()
-        fillRecyclerView(binding.rvAlturasMantaltura)
+        listaAltura.removeAt(position)
+        adapter.notifyItemRemoved(position)
+        showMessage("Altura eliminado")
     }
 
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
 
-    override fun onAlturaClick(id: Long) {
+    override fun onAlturaClick(id: Long,p:Int) {
         idObtenida = id
+        position=p
         searchAltura()
     }
 }

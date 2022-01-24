@@ -16,21 +16,6 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".view.ui.MantSaborActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.MantDistritoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.ManRellenoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.MantCubiertaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.MantDiametroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.MantAlturaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,22 +24,35 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".view.ui.MantDistritoActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".view.ui.ManRellenoActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".view.ui.MantCubiertaActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".view.ui.MantDiametroActivity"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name=".view.ui.MantAlturaActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name=".view.ui.PasarelaActivity"
             android:exported="false" />
         <activity
             android:name=".view.ui.EntregaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.DiametroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.EditSaborActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.AddSaborActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ui.SaborActivity"
             android:exported="false" />
         <activity
             android:name=".view.ui.EditNoticiaActivity"

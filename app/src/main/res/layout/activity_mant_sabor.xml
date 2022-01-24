@@ -62,13 +62,14 @@
             <EditText
                 android:id="@+id/et_color_mantsabor"
                 style="@style/RoundedLigthEditText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:ems="10"
                 android:hint="@string/tx_color"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="@+id/vw_bgcolor_mantsabor"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/vw_bgcolor_mantsabor"
                 app:layout_constraintTop_toTopOf="@+id/vw_bgcolor_mantsabor" />
 

@@ -11,7 +11,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Cubierta
 class CubiertaAdapter(private val cubiertas:List<Cubierta>,private val itemClickListener:OnClickCubiertaListener): RecyclerView.Adapter<CubiertaAdapter.ViewHolder>(){
 
     interface OnClickCubiertaListener{
-        fun onCubiertaClick(id: Long)
+        fun onCubiertaClick(id: Long,position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,7 +21,7 @@ class CubiertaAdapter(private val cubiertas:List<Cubierta>,private val itemClick
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item:Cubierta = cubiertas[position]
-        holder.bind(item)
+        holder.bind(item,position)
     }
 
     override fun getItemCount(): Int {
@@ -31,12 +31,12 @@ class CubiertaAdapter(private val cubiertas:List<Cubierta>,private val itemClick
     inner class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val binding = ItemCardDesignBinding.bind(itemView)
 
-        fun bind(cubierta: Cubierta){
+        fun bind(cubierta: Cubierta,position: Int){
             binding.cvContainerDesign.visibility = View.GONE
             binding.tvTextDesign.text = cubierta.nombre
             binding.root.setOnClickListener{ cubierta.id?.let { it1 ->
                 itemClickListener.onCubiertaClick(
-                    it1
+                    it1,position
                 )
             } }
         }
