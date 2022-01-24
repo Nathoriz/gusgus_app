@@ -39,8 +39,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_cake_personalizacion"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="318dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_back_personalizar">
@@ -66,7 +66,6 @@
             android:textColor="#696969"
             android:textSize="16sp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_sinopcion_personalizar" />
@@ -78,8 +77,8 @@
             android:background="@drawable/rounded_top_shape"
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
-            android:visibility="gone"
             android:scaleType="centerCrop"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/ll_cake2_personalizar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,11 +114,24 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/ivpresentation"
+        android:layout_width="340dp"
+        android:layout_height="386dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/tortasfiesta"
+        tools:visibility="gone" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_opcionpiso_personalizar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_cake_personalizacion" />
 

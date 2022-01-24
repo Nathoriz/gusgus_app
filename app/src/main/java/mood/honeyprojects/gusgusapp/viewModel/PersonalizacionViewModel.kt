@@ -11,6 +11,7 @@ import retrofit2.Response
 
 class PersonalizacionViewModel: ViewModel() {
     val responsePersonalizacion = MutableLiveData<Personalizacion>()
+    val responseMessage = MutableLiveData<String>()
 
     fun RegistrarPeronalizacion( personali: Personalizacion ){
         val response = RetrofitHelper.getRetrofit().create( PersonalizacionAPI::class.java ).RegistrarPersonalizacion( personali )
@@ -23,6 +24,20 @@ class PersonalizacionViewModel: ViewModel() {
                 }
             }
             override fun onFailure(call: Call<Personalizacion>, t: Throwable) {
+            }
+        })
+    }
+    fun ActualizarPrecio( id: Long, precio: Double ){
+        val response = RetrofitHelper.getRetrofit().create( PersonalizacionAPI::class.java ).UpdatePrecio( id, precio )
+        response.enqueue( object: Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responseMessage.value = it
+                    }
+                }
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
             }
         })
     }

@@ -55,6 +55,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
     private var personali: Personalizacion?=null
 
     private val listapisos = mutableListOf<Piso>()
+    private val listprecios = mutableListOf<Double>()
     private var idpiso: Long?=null
     private var i = 1
 
@@ -69,6 +70,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         window.sharedElementExitTransition = configTransition()
         window.sharedElementReenterTransition = configTransition()
 
+        binding.ivpresentation.visibility = View.GONE
         GetListPisos()
         ViewModelPiso()
         RecyclerViewPiso( binding.rvOpcionpisoPersonalizar )
@@ -131,7 +133,10 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
                  lifecycleScope.launch {
                      val response = async( Dispatchers.IO ) { RegistrarPersPiso() }
                      if( response.await() ){
+                         val id = personali?.id
+                         val precio = listprecios.sum()
                          toast( "Fue el ultimo paso, Piso Registrado." )
+                         personalizacionViewModel.ActualizarPrecio( id!!, precio )
                          binding.btnenviardatos.visibility = View.GONE
                          binding.btnterminar.visibility = View.VISIBLE
                          binding.rvOpcionpisoPersonalizar.visibility = View.GONE
@@ -146,6 +151,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         val piso = Piso( idpiso, null )
         val persPiso = PersonalizacionPiso( 0, personali, piso, sabor, relleno, diametro, diametro?.precio?.toDouble() )
         personalizacionPisoViewModel.RegistrarPersPiso( persPiso )
+        listprecios.add( diametro?.precio?.toDouble()!! )
         return true
     }
     private fun ValidarPersPiso(): Boolean {
@@ -231,7 +237,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
     }
     private fun ViewModelPersonalizacion(){
         personalizacionViewModel.responsePersonalizacion.observe( this, Observer {
-            if( it != null ){
+            if( it != null ) {
                 personali = it
             }
         } )
@@ -346,6 +352,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         binding.ivBackPersonalizar.setOnClickListener {
             val bundle = ActivityOptions.makeSceneTransitionAnimation( this, binding.ivBackPersonalizar, "go" ).toBundle()
             val intent = Intent( this, ClientMainActivity::class.java )
+            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
             startActivity( intent, bundle )
         }
     }
@@ -362,6 +369,8 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
             binding.tvSinopcionPersonalizar.visibility = View.GONE
             binding.cardpiso.visibility = View.VISIBLE
             binding.btnenviardatos.visibility = View.VISIBLE
+            binding.ivpresentation.visibility = View.VISIBLE
+            toast( "Seleccionó $idpiso pisos" )
             i = 1
             StepsPisos( idpiso?.toInt()!! )
         }
