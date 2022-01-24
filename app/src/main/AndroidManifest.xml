@@ -15,6 +15,9 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.ui.DetallePersonalizacionActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ui.ProveedorInsumoActivity"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
         </activity>
         <activity
             android:name=".view.ui.MantInsumoActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".view.ui.MantCategoriaActivity"
             android:exported="false" />
