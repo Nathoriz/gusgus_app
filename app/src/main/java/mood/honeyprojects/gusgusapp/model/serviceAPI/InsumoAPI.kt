@@ -17,7 +17,7 @@ interface InsumoAPI {
     fun actualizarInsumo( @Body insumo: InsumoUpdate): Call<String>
 
     @GET( "insumo/{id}" )
-    fun buscarInsumo( @Query( "id" ) id: Long ): Call<Insumo>
+    fun buscarInsumo( @Path( "id" ) id: Long ): Call<Insumo>
 
     @DELETE( "insumo/eliminar/{id}" )
     fun eliminarInsumo( @Path( "id" ) id: Long ): Call<String>

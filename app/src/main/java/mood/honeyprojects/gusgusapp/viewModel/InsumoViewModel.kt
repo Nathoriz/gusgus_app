@@ -1,6 +1,7 @@
 package mood.honeyprojects.gusgusapp.viewModel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Insumo
 import mood.honeyprojects.gusgusapp.model.requestEntity.InsumoResponse
@@ -11,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class InsumoViewModel {
+class InsumoViewModel: ViewModel(){
     val listaInsumoLiveData = MutableLiveData<List<Insumo>>()
     val insumoLiveDate = MutableLiveData<Insumo>()
     val messageResponse = MutableLiveData<String>()
