@@ -101,5 +101,14 @@
             app:layout_constraintEnd_toEndOf="@+id/iv_img_detallepersonalizacion"
             app:layout_constraintStart_toStartOf="@+id/iv_img_detallepersonalizacion"
             app:layout_constraintTop_toBottomOf="@+id/iv_img_detallepersonalizacion" />
+
+        <ImageView
+            android:id="@+id/iv_hide_detallepersonalizadas"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_cantpisos_detallepersonalizacion"
+            app:layout_constraintEnd_toEndOf="@+id/iv_show_detallepersonalizacion"
+            app:layout_constraintTop_toTopOf="@+id/rv_cantpisos_detallepersonalizacion"
+            app:srcCompat="@drawable/ic_up" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
