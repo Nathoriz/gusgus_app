@@ -117,6 +117,20 @@ class RellenoViewModel: ViewModel() {
 
         })
     }
+    fun GetRellenoByDescrip( descrip: String ){
+        val response = RetrofitHelper.getRetrofit().create( RellenoAPI::class.java ).getByDescripcion( descrip )
+        response.enqueue( object: Callback<Relleno> {
+            override fun onResponse(call: Call<Relleno>, response: Response<Relleno>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        rellenoLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Relleno>, t: Throwable) {
+            }
+        })
+    }
 
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)

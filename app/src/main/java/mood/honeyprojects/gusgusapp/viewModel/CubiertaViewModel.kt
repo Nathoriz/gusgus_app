@@ -117,7 +117,20 @@ class CubiertaViewModel:ViewModel() {
 
         })
     }
-
+    fun GetCubiertaByNombre( nombre: String ){
+        val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).GetCubiertaByNombre( nombre )
+        response.enqueue( object: Callback<Cubierta> {
+            override fun onResponse(call: Call<Cubierta>, response: Response<Cubierta>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        cubiertaLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Cubierta>, t: Throwable) {
+            }
+        })
+    }
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")

@@ -19,4 +19,7 @@ interface RellenoAPI {
 
     @DELETE( "relleno/eliminar/{id}" )
     fun eliminarRelleno( @Path( "id" ) id: Long ): Call<String>
+
+    @GET( "relleno/list" )
+    fun getByDescripcion( @Query( "descripcion" ) descripcion: String ): Call<Relleno>
 }

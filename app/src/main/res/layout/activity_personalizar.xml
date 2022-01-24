@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_sinopcion_personalizar" />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/ll_cake3_personalizar"
             android:layout_width="170dp"
             android:layout_height="80dp"
@@ -79,35 +79,39 @@
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
             android:visibility="gone"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/ll_cake2_personalizar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="gone" />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/ll_cake2_personalizar"
             android:layout_width="220dp"
             android:layout_height="80dp"
             android:background="@drawable/rounded_top_shape"
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
+            android:scaleType="centerCrop"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/ll_cake1_personalizar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="gone" />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/ll_cake1_personalizar"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="80dp"
             android:background="@drawable/rounded_top_shape"
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
+            android:scaleType="centerCrop"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -228,7 +232,6 @@
         android:id="@+id/cv_creacionperso_personalizacion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="20dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -238,7 +241,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="clip_horizontal|center_vertical">
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/textView41"
@@ -255,7 +258,7 @@
                 style="@style/RoundedLigthEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:ems="10"
                 android:hint="Torta para Papá"
                 android:inputType="textPersonName"
@@ -270,26 +273,12 @@
                 style="@style/RectangleLightBuuton"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="#FFDFD9"
                 android:text="FONDAM"
                 android:textColor="#686868"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView42" />
-
-            <Button
-                android:id="@+id/btn_chantilly_personalizacion"
-                style="@style/RectangleLightBuuton"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="#EAEAEA"
-                android:text="CHANTILLY"
-                android:textColor="#686868"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.42"
-                app:layout_constraintStart_toEndOf="@+id/btn_fondam_personalizacion"
                 app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
             <TextView
@@ -307,13 +296,50 @@
                 style="@style/RoundedLigthButton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="50dp"
                 android:text="CREAR"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_chantilly_personalizacion" />
+
+            <Button
+                android:id="@+id/btn_chantilly_personalizacion"
+                style="@style/RectangleLightBuuton"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="#EAEAEA"
+                android:text="CHANTILLY"
+                android:textColor="#686868"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+            <TextView
+                android:id="@+id/txtcubierta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_chantilly_personalizacion" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnterminar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#F0A1AA"
+        android:text="Terminar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/btnenviardatos"
+        app:layout_constraintTop_toBottomOf="@+id/cardpiso" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

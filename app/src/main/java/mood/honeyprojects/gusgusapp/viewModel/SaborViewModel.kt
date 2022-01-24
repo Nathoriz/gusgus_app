@@ -117,6 +117,20 @@ class SaborViewModel: ViewModel() {
 
         })
     }
+    fun BuscarSaborNombre( nombre: String ){
+        val response = RetrofitHelper.getRetrofit().create( SaborAPI::class.java ).FindByNombre( nombre )
+        response.enqueue( object: Callback<Sabor> {
+            override fun onResponse(call: Call<Sabor>, response: Response<Sabor>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        saborLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Sabor>, t: Throwable) {
+            }
+        })
+    }
 
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)

@@ -7,5 +7,6 @@ class Personalizacion (
         @SerializedName("nombre") val nombre: String?,
         @SerializedName("urlimg") val urlimg: String?,
         @SerializedName("cubierta") val cubierta: Cubierta?,
-        @SerializedName("precio") val precio: Double?
+        @SerializedName("precio") val precio: Double?,
+        @SerializedName( "cliente" ) val cliente: Cliente?
         )
