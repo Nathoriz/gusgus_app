@@ -6,6 +6,7 @@ import mood.honeyprojects.gusgusapp.model.entity.Visibilidad
 class Categoria(
         @SerializedName("id") val id: Long?,
         @SerializedName("nombre") val nombre: String,
+        @SerializedName("imgnombre") val imgnombre: String,
         @SerializedName("urlimg") val urlimg: String,
         @SerializedName("visibilidad") val visibilidad: Visibilidad?
 )

@@ -7,7 +7,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface CategoriaAPI {
-
     @GET( "categoria/listar" )
     fun listarCategoria(): Call<List<Categoria>>
 
@@ -18,7 +17,7 @@ interface CategoriaAPI {
     fun actualizarCategoria( @Body categoria: CategoriaUpdate): Call<String>
 
     @GET( "categoria/{id}" )
-    fun buscarCategoria( @Query( "id" ) id: Long ): Call<Categoria>
+    fun buscarCategoria( @Path( "id" ) id: Long ): Call<Categoria>
 
     @DELETE( "categoria/eliminar/{id}" )
     fun eliminarCategoria( @Path( "id" ) id: Long ): Call<String>

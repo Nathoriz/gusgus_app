@@ -3,11 +3,9 @@ package mood.honeyprojects.gusgusapp.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
-import mood.honeyprojects.gusgusapp.model.entity.Altura
 import mood.honeyprojects.gusgusapp.model.entity.Categoria
 import mood.honeyprojects.gusgusapp.model.requestEntity.CategoriaResponse
 import mood.honeyprojects.gusgusapp.model.requestEntity.CategoriaUpdate
-import mood.honeyprojects.gusgusapp.model.serviceAPI.AlturaAPI
 import mood.honeyprojects.gusgusapp.model.serviceAPI.CategoriaAPI
 import org.json.JSONObject
 import retrofit2.Call
@@ -75,7 +73,7 @@ class CategoriaViewModel: ViewModel() {
         })
     }
     fun buscarCategoria( id: Long ){
-        val response = RetrofitHelper.getRetrofit().create( CategoriaAPI::class.java ).buscarCategoria( id )
+        val response = RetrofitHelper.getRetrofit().create( CategoriaAPI::class.java ).buscarCategoria(id)
         response.enqueue( object: Callback<Categoria> {
             override fun onResponse(call: Call<Categoria>, response: Response<Categoria>) {
                 response.body()?.let {
@@ -84,7 +82,6 @@ class CategoriaViewModel: ViewModel() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<Categoria>, t: Throwable) {
 
             }
@@ -96,7 +93,7 @@ class CategoriaViewModel: ViewModel() {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 response.body()?.let {
                     if(response.code()==200){
-                        messageResponse.postValue("Altura eliminada")
+                        messageResponse.postValue("Categoria eliminada")
                     }
                 }
             }
@@ -107,7 +104,6 @@ class CategoriaViewModel: ViewModel() {
 
         })
     }
-
     fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")

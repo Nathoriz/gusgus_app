@@ -188,6 +188,7 @@ class EditNoticiaActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun GetDataFotoIDFirebase(){
         imgreferences.child( "FotoProducto" ).addValueEventListener( object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -204,6 +205,7 @@ class EditNoticiaActivity : AppCompatActivity() {
             }
         } )
     }
+
     private fun SubirFotoIntoStorage(){
         val nombre = binding.etNombreEditnoticia.text.toString()
         val descripcion = binding.etDescripcionEditnoticia.text.toString()

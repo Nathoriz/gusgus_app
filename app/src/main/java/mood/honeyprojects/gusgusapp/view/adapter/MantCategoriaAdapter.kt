@@ -33,14 +33,10 @@ class MantCategoriaAdapter(private val categorias:List<Categoria>, private val i
         val binding = ItemCardDesignBinding.bind(itemView)
 
         fun bind(categoria: Categoria, position: Int){
-            binding.cvContainerDesign.setBackgroundColor(ContextCompat.getColor(binding.root.context,R.color.ltpink))
             Picasso.get().load( categoria.urlimg ).into( binding.ivImageDesign )
             binding.tvTextDesign.text = categoria.nombre
-            binding.root.setOnClickListener{ categoria.id?.let { it1 ->
-                itemClickListener.onCategoriaClick(
-                    it1,position
-                )
+            binding.root.setOnClickListener{
+                categoria.id?.let { it1 -> itemClickListener.onCategoriaClick(it1,position) }
             } }
         }
-    }
 }
