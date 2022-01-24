@@ -2,6 +2,7 @@ package mood.honeyprojects.gusgusapp.view.ui
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,10 +26,12 @@ import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityPersonalizarBinding
 import mood.honeyprojects.gusgusapp.listeners.PisoListener
 import mood.honeyprojects.gusgusapp.model.entity.Piso
+import mood.honeyprojects.gusgusapp.model.entity.Sabor
 import mood.honeyprojects.gusgusapp.view.adapter.CategoriaAdapter
 import mood.honeyprojects.gusgusapp.view.adapter.PisoAdapter
 import mood.honeyprojects.gusgusapp.viewModel.DiametroViewModel
 import mood.honeyprojects.gusgusapp.viewModel.PisoViewModel
+import mood.honeyprojects.gusgusapp.viewModel.RellenoViewModel
 import mood.honeyprojects.gusgusapp.viewModel.SaborViewModel
 
 class PersonalizarActivity : AppCompatActivity(), PisoListener {
@@ -38,12 +41,16 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
 
     private val diametroViewModel: DiametroViewModel by viewModels()
     private val saborViewModel: SaborViewModel by viewModels()
+    private val rellenoViewModel: RellenoViewModel by viewModels()
 
     private var diametroDescri: String?=null
     private var saborNombre: String?=null
+    private var saborColor: String?=null
+    private var rellenoNombre: String?=null
 
     private val listapisos = mutableListOf<Piso>()
     private var idpiso:Long?=null
+    private var i = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.requestFeature( Window.FEATURE_ACTIVITY_TRANSITIONS )
@@ -61,34 +68,54 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         RecyclerViewPiso( binding.rvOpcionpisoPersonalizar )
         GetAllDiametros()
         ViewModelDiametro()
+        GetAllSabor()
+        ViewModelSabor()
+        GetAllRelleno()
+        ViewModelRelleno()
         regresar()
     }
 
     private fun StepsPisos( numeroPisos: Int ){
-        var i = 1
-        while ( i <= numeroPisos ) {
-            binding.llCake1Personalizar.visibility = View.VISIBLE
-            binding.txtnombrepiso.text = "Piso $i"
-            toast( i.toString() )
-            i++
-            break
-        }
         do {
             var again = false
+            MostrarPiso( i )
+            binding.txtnombrepiso.text = "Piso $i"
+            i++
             binding.btnenviardatos.setOnClickListener {
              if( i <= numeroPisos ){
-                 MostrarPiso( i )
                  binding.txtnombrepiso.text = "Piso $i"
+                 MostrarPiso( i )
                  again = true
                  toast( "enviado" )
                  i++
              }else{
                  again = false
                  toast( "Fue el ultimo paso" )
+                 i = 1
              }
          }
         } while ( again )
 
+    }
+    private fun ShowDiametroPisos(){
+
+    }
+    private fun ShowColorPisos( colors: String ){
+        val sabor = "#$colors"
+        var ty = i - 1
+        val color = Color.parseColor( sabor )
+        if( ty ==  1 ){
+            binding.llCake1Personalizar.setImageResource(R.drawable.ic_colo_sabo)
+            binding.llCake1Personalizar.setColorFilter( color )
+        }else if ( ty == 2 ){
+            binding.llCake2Personalizar.setImageResource(R.drawable.ic_colo_sabo)
+            binding.llCake2Personalizar.setColorFilter( color )
+        }else if( ty == 3 ){
+            binding.llCake3Personalizar.setImageResource(R.drawable.ic_colo_sabo)
+            binding.llCake3Personalizar.setColorFilter( color )
+        }else{
+            binding.llCake1Personalizar.setColorFilter( R.color.dkgreen )
+        }
     }
     private fun MostrarPiso( numero: Int ){
         if( numero == 1 ){ binding.llCake1Personalizar.visibility = View.VISIBLE }
@@ -96,6 +123,12 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         if( numero == 3 ){ binding.llCake3Personalizar.visibility = View.VISIBLE }
     }
 
+    private fun GetAllRelleno(){
+        rellenoViewModel.listarNombreRelleno()
+    }
+    private fun GetAllSabor(){
+        saborViewModel.listarNombreSabor()
+    }
     private fun GetAllDiametros(){
         diametroViewModel.listarNombreDiametro()
     }
@@ -108,6 +141,26 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
         rv.adapter = adapterpiso
     }
 
+    private fun ViewModelRelleno(){
+        rellenoViewModel.listaDescripcionRelleno.observe( this, Observer {
+            if( it != null ){
+                val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.sprellenopiso.adapter = adapter
+
+                binding.sprellenopiso.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        val int = adapter.getPosition( it[position] )
+                        rellenoNombre = it[ int ]
+                        toast( rellenoNombre!! )
+                        //Falta Buscar el diametro completo.
+                    }
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                    }
+                }
+            }
+        } )
+    }
     private fun ViewModelSabor(){
         saborViewModel.listaNombreSabor.observe( this, Observer {
             if( it != null ){
@@ -120,11 +173,18 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
                         val int = adapter.getPosition( it[position] )
                         saborNombre = it[ int ]
                         toast( saborNombre!! )
-                        //Falta Buscar el diametro completo.
+                        saborViewModel.BuscarSaborNombre( saborNombre!! )
+
                     }
                     override fun onNothingSelected(parent: AdapterView<*>?) {
                     }
                 }
+            }
+        } )
+        saborViewModel.saborLiveData.observe( this, Observer {
+            if( it != null ){
+                saborColor = it.color
+                ShowColorPisos( saborColor!! )
             }
         } )
     }
@@ -140,7 +200,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
                         val int = adapter.getPosition( it[position] )
                         diametroDescri = it[ int ]
                         toast( diametroDescri!! )
-                        //Falta Buscar el diametro completo.
+
                     }
                     override fun onNothingSelected(parent: AdapterView<*>?) {
                     }
@@ -187,6 +247,7 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
             binding.tvSinopcionPersonalizar.visibility = View.GONE
             binding.cardpiso.visibility = View.VISIBLE
             binding.btnenviardatos.visibility = View.VISIBLE
+            i = 1
             StepsPisos( idpiso?.toInt()!! )
         }
     }

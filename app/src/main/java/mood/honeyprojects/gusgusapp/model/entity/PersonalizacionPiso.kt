@@ -9,6 +9,5 @@ class PersonalizacionPiso (
     @SerializedName("sabor" ) val sabor: Sabor?,
     @SerializedName("relleno" ) val relleno: Relleno?,
     @SerializedName("diametro" ) val diametro: Diametro?,
-    @SerializedName("cubierta" ) val cubierta: Cubierta?,
     @SerializedName("precio" ) val precio: Double?
     )

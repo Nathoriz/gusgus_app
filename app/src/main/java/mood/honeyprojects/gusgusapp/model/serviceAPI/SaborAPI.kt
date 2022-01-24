@@ -20,4 +20,7 @@ interface SaborAPI {
 
     @DELETE("sabor/eliminar/{id}")
     fun eliminarSabor(@Path("id") id: Long): Call<String>
+
+    @GET( "sabor/list" )
+    fun FindByNombre( @Query( "nombre" ) nombre: String ): Call<Sabor>
 }

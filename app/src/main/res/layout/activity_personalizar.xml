@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_sinopcion_personalizar" />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/ll_cake3_personalizar"
             android:layout_width="170dp"
             android:layout_height="80dp"
@@ -79,35 +79,39 @@
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
             android:visibility="gone"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/ll_cake2_personalizar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="gone" />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/ll_cake2_personalizar"
             android:layout_width="220dp"
             android:layout_height="80dp"
             android:background="@drawable/rounded_top_shape"
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
+            android:scaleType="centerCrop"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/ll_cake1_personalizar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="gone" />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/ll_cake1_personalizar"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="80dp"
             android:background="@drawable/rounded_top_shape"
             android:backgroundTint="@color/dkgreen"
             android:orientation="vertical"
+            android:scaleType="centerCrop"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
