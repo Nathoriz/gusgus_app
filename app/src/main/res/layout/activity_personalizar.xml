@@ -232,7 +232,6 @@
         android:id="@+id/cv_creacionperso_personalizacion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="20dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -242,7 +241,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="clip_horizontal|center_vertical">
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/textView41"
@@ -259,7 +258,7 @@
                 style="@style/RoundedLigthEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:ems="10"
                 android:hint="Torta para Papá"
                 android:inputType="textPersonName"
@@ -274,26 +273,12 @@
                 style="@style/RectangleLightBuuton"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="#FFDFD9"
                 android:text="FONDAM"
                 android:textColor="#686868"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView42" />
-
-            <Button
-                android:id="@+id/btn_chantilly_personalizacion"
-                style="@style/RectangleLightBuuton"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="#EAEAEA"
-                android:text="CHANTILLY"
-                android:textColor="#686868"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.42"
-                app:layout_constraintStart_toEndOf="@+id/btn_fondam_personalizacion"
                 app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
             <TextView
@@ -311,12 +296,26 @@
                 style="@style/RoundedLigthButton"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="32dp"
                 android:text="CREAR"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_chantilly_personalizacion" />
+
+            <Button
+                android:id="@+id/btn_chantilly_personalizacion"
+                style="@style/RectangleLightBuuton"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="#EAEAEA"
+                android:text="CHANTILLY"
+                android:textColor="#686868"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView42" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
