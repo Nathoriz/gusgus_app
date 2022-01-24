@@ -19,4 +19,7 @@ interface CubiertaAPI {
 
     @DELETE( "cubierta/eliminar/{id}" )
     fun eliminarCubierta( @Path( "id" ) id: Long ): Call<String>
+
+    @GET( "cubierta/list" )
+    fun GetCubiertaByNombre( @Query( "nombre" ) nombre: String ): Call<Cubierta>
 }

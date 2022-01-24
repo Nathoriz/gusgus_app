@@ -20,4 +20,7 @@ interface DiametroAPI {
 
     @DELETE("diametro/eliminar/{id}")
     fun eliminarDiametro(@Path("id") id: Long): Call<String>
+
+    @GET( "diametro/list" )
+    fun getByDescripcion( @Query( "descrip" ) descrip: String ): Call<Diametro>
 }

@@ -119,6 +119,20 @@ class DiametroViewModel: ViewModel() {
 
         })
     }
+    fun GetDiametroByDescrip( descripcion: String ){
+        val response = RetrofitHelper.getRetrofit().create( DiametroAPI::class.java ).getByDescripcion( descripcion )
+        response.enqueue( object: Callback<Diametro> {
+            override fun onResponse(call: Call<Diametro>, response: Response<Diametro>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        diametroLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Diametro>, t: Throwable) {
+            }
+        })
+    }
 
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
