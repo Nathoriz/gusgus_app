@@ -16,7 +16,7 @@ class CubiertaViewModel:ViewModel() {
     val cubiertaLiveData = MutableLiveData<Cubierta>()
     val messageResponse = MutableLiveData<String>()
 
-    fun listarNombreDiametro(){
+    fun listarNombreCubierta(){
         val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).listarCubierta()
         response.enqueue( object: Callback<List<Cubierta>> {
             override fun onResponse(call: Call<List<Cubierta>>, response: Response<List<Cubierta>>) {
@@ -34,7 +34,7 @@ class CubiertaViewModel:ViewModel() {
             }
         })
     }
-    fun listarDiametro(){
+    fun listarCubierta(){
         val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).listarCubierta()
         response.enqueue( object: Callback<List<Cubierta>> {
             override fun onResponse(call: Call<List<Cubierta>>, response: Response<List<Cubierta>>) {
@@ -50,7 +50,7 @@ class CubiertaViewModel:ViewModel() {
             }
         })
     }
-    fun guardarDiametro( cubierta: Cubierta){
+    fun guardarCubierta( cubierta: Cubierta){
         val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).guardarCubierta( cubierta )
         response.enqueue( object: Callback<Cubierta> {
             override fun onResponse(call: Call<Cubierta>, response: Response<Cubierta>) {
@@ -71,7 +71,7 @@ class CubiertaViewModel:ViewModel() {
             }
         })
     }
-    fun actualizarDiametro( cubierta: Cubierta){
+    fun actualizarCubierta( cubierta: Cubierta){
         val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).actualizarCubierta( cubierta )
         response.enqueue( object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -85,7 +85,7 @@ class CubiertaViewModel:ViewModel() {
             }
         })
     }
-    fun buscarDiametro( id: Long ){
+    fun buscarCubierta( id: Long ){
         val response = RetrofitHelper.getRetrofit().create( CubiertaAPI::class.java ).buscarCubierta( id )
         response.enqueue( object: Callback<Cubierta> {
             override fun onResponse(call: Call<Cubierta>, response: Response<Cubierta>) {
@@ -100,7 +100,7 @@ class CubiertaViewModel:ViewModel() {
 
             }
         }) }
-    fun eliminarDiametro( id:Long ){
+    fun eliminarCubierta( id:Long ){
         val response = RetrofitHelper.getRetrofit().create(CubiertaAPI::class.java).eliminarCubierta(id)
         response.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {

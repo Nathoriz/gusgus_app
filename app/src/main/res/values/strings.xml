@@ -91,6 +91,7 @@
     <string name="tx_time">0:00pm</string>
     <string name="tx_detalle_mensaje">Feliz Cumpleaños</string>
     <string name="tx_precio">Precio</string>
+    <string name="tx_color">Color</string>
 
 
 </resources>
