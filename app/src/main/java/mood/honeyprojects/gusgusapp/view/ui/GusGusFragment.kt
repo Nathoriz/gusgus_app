@@ -86,7 +86,7 @@ class GusGusFragment : Fragment(), CategoriaListener {
     }
 
     private fun GetCategoria(){
-        categoriaViewModel.ListarCategoria()
+        categoriaViewModel.listarCategoria()
     }
 
     private fun MostrarHora(){
