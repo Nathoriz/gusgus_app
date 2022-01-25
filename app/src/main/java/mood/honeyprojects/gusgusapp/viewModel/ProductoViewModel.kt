@@ -59,6 +59,7 @@ class ProductoViewModel: ViewModel() {
             }
         } )
     }
+
     fun ListForIdProduct( id: Long ){
         val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).ListForIdProduct( id )
         response.enqueue( object: Callback<List<Producto>> {
@@ -73,7 +74,6 @@ class ProductoViewModel: ViewModel() {
             }
         })
     }
-
     fun listarTodosProducto(){
         val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).listarTodosProducto()
         response.enqueue( object: Callback<List<Producto>> {

@@ -1,308 +1,586 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/adminMain"
-    android:paddingTop="20dp"
-    tools:context=".view.ui.AdminMainActivity">
+    android:fillViewport="true"
+    tools:context=".view.ui.AdminMainActivity"
+    tools:ignore="SpeakableTextPresentCheck">
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/imagesPerfil"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:elevation="5dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/imagepreviewadmin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:riv_corner_radius="40dp" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#7D8E9E"
+    android:paddingTop="20dp">
 
-    <TextView
-        android:id="@+id/txtNameAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView17"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Hola ..."
-        android:textColor="#FBFBFB"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagesPerfil" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/custom_admin"
-        app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/tv_siglas_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="AP"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/iv_logout_admin"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView17"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvhora"
-        app:layout_constraintVertical_bias="0.0">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="@+id/cardView17"
+        app:srcCompat="@drawable/ic_powerof"
+        app:tint="@color/update" />
 
     <TextView
         android:id="@+id/tvhora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Buenos Días"
-        android:textColor="@color/adminSaludoColor"
-        android:textSize="20sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="64dp"
+        android:fontFamily="@font/rancho"
+        android:text="SIGAMOS"
+        android:textColor="@color/white"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNameAdmin" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView17" />
 
     <TextView
-        android:id="@+id/txtlogout"
+        android:id="@+id/txtNameAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:text="Log out"
-        android:textColor="#FFFFFF"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Hola, Alex Emilio"
+        android:textColor="#FBFBFB"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/cardView17"
+        app:layout_constraintStart_toEndOf="@+id/cardView17"
+        app:layout_constraintTop_toTopOf="@+id/cardView17" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+    <TextView
+        android:id="@+id/textView58"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="200dp" />
+        android:layout_marginEnd="40dp"
+        android:text="TRABAJANDO"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvhora"
+        app:layout_constraintTop_toBottomOf="@+id/tvhora" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="200dp" />
+        android:background="@drawable/custom_admin"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="MANTENIMIENTO"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUsuarios"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cvInsumos">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_usuariosadmin"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/nombreUsuariosAdmin"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCategorias"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvProducto">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/imageView24"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:tint="#7D8E9E"
+                    app:srcCompat="@drawable/ic_dashboard_black_24dp" />
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Categorias"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPedidos"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cvPublicidad"
+            app:layout_constraintStart_toEndOf="@+id/cvProducto"
+            app:layout_constraintTop_toTopOf="@+id/cvProducto">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_pedidoadmin"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/nombrePedidosAdmin"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvInsumos"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cvUsuarios"
+            app:layout_constraintStart_toEndOf="@+id/cvCategorias"
+            app:layout_constraintTop_toTopOf="@+id/cvCategorias">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/imageView28"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_insumo"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Insumos"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvProducto"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView51">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_productadmin"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/nombreProductAdmin"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPublicidad"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cvPedidos">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_image"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/nombrePublicidadAdmin"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvProveedores"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvCategorias">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_hand"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView62"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Proveedores"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSabores"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cvCubiertas"
+            app:layout_constraintStart_toEndOf="@+id/cvProveedores"
+            app:layout_constraintTop_toTopOf="@+id/cvProveedores">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView30"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_sabores"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView63"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Sabores"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCubiertas"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cvSabores">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView31"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_cubierta"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Cubiertas"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvDiametros"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvCubiertas">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_diametro"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView65"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Diametros"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvTamaños"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cv_Rellenos">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView34"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_altura"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView67"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Tamaños"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_Rellenos"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/viewAdmincolorbox"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/cvDiametros"
+            app:layout_constraintStart_toEndOf="@+id/cvTamaños"
+            app:layout_constraintTop_toTopOf="@+id/cvDiametros">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_relleno"
+                    app:tint="#7D8E9E" />
+
+                <TextView
+                    android:id="@+id/textView66"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Rellenos"
+                    android:textAlignment="center"
+                    android:textColor="#7D8E9E"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="205dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="10dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="10dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="370dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="540dp" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/viewAdmincolorbox"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline4">
-
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_productadmin" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:text="@string/nombreProductAdmin"
-                android:textAlignment="center"
-                android:textColor="@color/viewAdmincolor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvPedidos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/viewAdmincolorbox"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/guideline4">
-
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_pedidoadmin" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:text="@string/nombrePedidosAdmin"
-                android:textAlignment="center"
-                android:textColor="@color/viewAdmincolor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvPublicidad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/viewAdmincolorbox"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline7">
-
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_publicidadadmin" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:text="@string/nombrePublicidadAdmin"
-                android:textAlignment="center"
-                android:textColor="@color/viewAdmincolor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvUsuarios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/viewAdmincolorbox"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/guideline7">
-
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_usuariosadmin" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:text="@string/nombreUsuariosAdmin"
-                android:textAlignment="center"
-                android:textColor="@color/viewAdmincolor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/viewAdmincolorbox"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline9">
-
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:gravity="center"
-            android:orientation="vertical" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/viewAdmincolorbox"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/guideline9">
-
-        <LinearLayout
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:gravity="center"
-            android:orientation="vertical"></LinearLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintGuide_percent="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

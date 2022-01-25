@@ -4,7 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Altura
+import mood.honeyprojects.gusgusapp.model.entity.Receta
+import mood.honeyprojects.gusgusapp.model.entity.Relleno
+import mood.honeyprojects.gusgusapp.model.entity.Sabor
 import mood.honeyprojects.gusgusapp.model.serviceAPI.AlturaAPI
+import mood.honeyprojects.gusgusapp.model.serviceAPI.RecetaAPI
+import mood.honeyprojects.gusgusapp.model.serviceAPI.RellenoAPI
+import mood.honeyprojects.gusgusapp.model.serviceAPI.SaborAPI
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,6 +20,27 @@ class AlturaViewModel : ViewModel(){
     val listaAlturaLiveData = MutableLiveData<List<Altura>>()
     val alturaLiveData = MutableLiveData<Altura>()
     val messageResponse = MutableLiveData<String>()
+
+    val listaNombreAltura = MutableLiveData<List<String>>()
+
+    fun listarNombreAltura(){
+        val response = RetrofitHelper.getRetrofit().create( AlturaAPI::class.java ).listarAltura()
+        response.enqueue( object: Callback<List<Altura>>{
+            override fun onResponse(call: Call<List<Altura>>, response: Response<List<Altura>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        var list = mutableListOf<String>()
+                        for( dart in it ){
+                            list.add(dart.descripcion.toString())
+                        }
+                        listaNombreAltura.postValue( list )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Altura>>, t: Throwable) {
+            }
+        } )
+    }
 
     fun listarAltura(){
         val response = RetrofitHelper.getRetrofit().create( AlturaAPI::class.java ).listarAltura()
@@ -98,6 +125,21 @@ class AlturaViewModel : ViewModel(){
 
         })
     }
+    fun buscarPorNombreAltura( nombre: String ){
+        val response = RetrofitHelper.getRetrofit().create( AlturaAPI::class.java ).buscarPorNombreAltura( nombre )
+        response.enqueue( object: Callback<Altura> {
+            override fun onResponse(call: Call<Altura>, response: Response<Altura>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        alturaLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Altura>, t: Throwable) {
+            }
+        })
+    }
+
 
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)

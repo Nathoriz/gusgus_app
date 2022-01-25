@@ -19,4 +19,7 @@ interface AlturaAPI {
 
     @DELETE( "altura/eliminar/{id}" )
     fun eliminarAltura( @Path( "id" ) id: Long ): Call<String>
+
+    @GET( "altura/buscar" )
+    fun buscarPorNombreAltura(@Query( "nombre" ) nombre: String): Call<Altura>
 }

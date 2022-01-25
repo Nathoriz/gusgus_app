@@ -33,7 +33,7 @@ class AdminMainActivity : AppCompatActivity() {
         animation()
     }
     private fun Listener(){
-        binding.txtlogout.setOnClickListener { LogOut() }
+        binding.ivLogoutAdmin.setOnClickListener { LogOut() }
     }
     private fun MostrarHora(){
         lifecycleScope.launch{
