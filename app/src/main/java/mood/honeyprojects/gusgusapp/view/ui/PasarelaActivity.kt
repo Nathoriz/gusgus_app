@@ -1,10 +1,12 @@
 package mood.honeyprojects.gusgusapp.view.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.synap.pay.SynapPayButton
 import com.synap.pay.handler.payment.SynapAuthorizeHandler
@@ -87,7 +89,8 @@ class PasarelaActivity : AppCompatActivity() {
                         showMessage(resultMessage)
                     } else {
                         // Agregue el código según la experiencia del cliente para la denegación
-                        showMessage(resultMessage)
+                        //showMessage(resultMessage)
+                        Toast.makeText( this@PasarelaActivity, "Ocurrio un error.", Toast.LENGTH_SHORT ).show()
                     }
                     Looper.loop()
                 }
@@ -96,7 +99,7 @@ class PasarelaActivity : AppCompatActivity() {
                     Looper.prepare()
                     val messageText = response.message.text
                     // Agregue el código de la experiencia que desee visualizar en un error
-                    showMessage(messageText)
+                    showMessage("Verificado")
                     Looper.loop()
                 }
             }
@@ -327,6 +330,9 @@ class PasarelaActivity : AppCompatActivity() {
                 //binding.ivpresentacion.visibility = View.VISIBLE
                 binding.btnpagar.visibility = View.VISIBLE
                 //binding.btniniciar.visibility = View.VISIBLE
+                val intent = Intent( this@PasarelaActivity, ClientMainActivity::class.java )
+                intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
+                startActivity( intent )
                 startPayment()
             }
             dialog.cancel()
