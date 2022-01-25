@@ -11,12 +11,11 @@
         android:id="@+id/iv_hide_mantproveedorinsumo"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:src="@tools:sample/avatars"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/textView45"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView45"
-        app:srcCompat="@drawable/ic_up" />
+        android:src="@drawable/ic_up" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_proveedorinsumo_mantproveedorinsumo"

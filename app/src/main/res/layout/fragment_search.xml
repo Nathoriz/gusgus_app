@@ -49,4 +49,5 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/notfound"
         tools:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

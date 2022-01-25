@@ -69,9 +69,6 @@
             android:name=".view.ui.NoticiaActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ui.DetailTortaPersonalizadaActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.ui.TortasPersonalizadasActivity"
             android:exported="false" />
         <activity

@@ -19,12 +19,7 @@ class Constantes( val context: Context ) {
     val SHARED_IDENTREGAA = "SHARED_IDENTREGAA"
 
     val storage = context.getSharedPreferences( SHARED_NAME, 0 )
-    fun saveIdEntrega( id: Long ){
-        storage.edit().putLong( SHARED_IDENTREGAA, id ).apply()
-    }
-    fun getIdEntrega(): Long{
-        return storage.getLong( SHARED_IDENTREGAA, 0L )
-    }
+
     fun saveIDCliente( id: Long ){
         storage.edit().putLong( SHARED_IDCLIENTE, id ).apply()
     }

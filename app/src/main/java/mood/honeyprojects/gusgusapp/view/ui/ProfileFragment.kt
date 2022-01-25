@@ -33,6 +33,8 @@ class ProfileFragment : Fragment() {
         binding.ivSmileProfile.setOnClickListener { GoPerfil() }
         binding.tvPasswordProfile.setOnClickListener { ChangePassword() }
         binding.ivKeyProfile.setOnClickListener { ChangePassword() }
+        binding.ivListProfile.setOnClickListener { GoTortasPersonalizadas() }
+        binding.tvCreationsProfile.setOnClickListener { GoTortasPersonalizadas() }
     }
     private fun LogOut(){
         Preferences.constantes.saveBoolean( false )
@@ -44,9 +46,12 @@ class ProfileFragment : Fragment() {
         Preferences.constantes.saveTelefonoUser( "" )
         Preferences.constantes.saveClientWholeName( "" )
         Preferences.constantes.saveClientLastname( "" )
-        Preferences.constantes.saveIdEntrega( 0L )
         val intent = Intent( context, LoginActivity::class.java)
         intent.flags = ( Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK )
+        startActivity( intent )
+    }
+    private fun GoTortasPersonalizadas(){
+        val intent = Intent( context, TortasPersonalizadasActivity::class.java )
         startActivity( intent )
     }
     private fun GoPerfil(){
