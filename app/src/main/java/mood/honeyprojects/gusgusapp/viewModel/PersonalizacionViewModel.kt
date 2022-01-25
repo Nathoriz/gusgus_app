@@ -12,6 +12,7 @@ import retrofit2.Response
 class PersonalizacionViewModel: ViewModel() {
     val responsePersonalizacion = MutableLiveData<Personalizacion>()
     val responseMessage = MutableLiveData<String>()
+    val responsePersList = MutableLiveData<List<Personalizacion>>()
 
     fun RegistrarPeronalizacion( personali: Personalizacion ){
         val response = RetrofitHelper.getRetrofit().create( PersonalizacionAPI::class.java ).RegistrarPersonalizacion( personali )
@@ -38,6 +39,39 @@ class PersonalizacionViewModel: ViewModel() {
                 }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
+            }
+        })
+    }
+    fun GetListCakePersByIdClient( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( PersonalizacionAPI::class.java ).GetAllMyCakePers( id )
+        response.enqueue( object: Callback<List<Personalizacion>> {
+            override fun onResponse(call: Call<List<Personalizacion>>, response: Response<List<Personalizacion>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responsePersList.value = it
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Personalizacion>>, t: Throwable) {
+            }
+        })
+    }
+    fun SearchNombreTorta( id: Long, nombre: String ) {
+        val response = RetrofitHelper.getRetrofit().create( PersonalizacionAPI::class.java ).findByIdClientAndNombreTorta( id, nombre )
+        response.enqueue( object: Callback<List<Personalizacion>> {
+            override fun onResponse(call: Call<List<Personalizacion>>, response: Response<List<Personalizacion>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responsePersList.value = it
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 400 ){
+                        responseMessage.value = "400"
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Personalizacion>>, t: Throwable) {
             }
         })
     }
