@@ -5,6 +5,239 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".view.ui.MantRecetaInsumoActivity">
+    tools:context=".view.ui.MantRecetaActivity"
+    tools:ignore="SpeakableTextPresentCheck">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_layout">
+
+        <ImageView
+            android:id="@+id/iv_back_mantreceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back2" />
+
+        <TextView
+            android:id="@+id/textView47"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="RECETA"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_back_mantreceta"
+            app:layout_constraintStart_toEndOf="@+id/iv_back_mantreceta"
+            app:layout_constraintTop_toTopOf="@+id/iv_back_mantreceta" />
+
+        <ImageButton
+            android:id="@+id/ib_list_mantreceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/dkmorado"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_back_mantreceta"
+            app:layout_constraintTop_toBottomOf="@+id/textView47"
+            app:srcCompat="@drawable/ic_list"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/ib_delete_mantreceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/delete"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/ib_update_mantreceta"
+            app:layout_constraintTop_toTopOf="@+id/ib_update_mantreceta"
+            app:srcCompat="@drawable/ic_delete"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/ib_update_mantreceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/update"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/ib_add_mantreceta"
+            app:layout_constraintTop_toTopOf="@+id/ib_add_mantreceta"
+            app:srcCompat="@drawable/ic_update"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/ib_add_mantreceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/add"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/ib_list_mantreceta"
+            app:layout_constraintTop_toTopOf="@+id/ib_list_mantreceta"
+            app:srcCompat="@drawable/ic_add"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_guardar_mantreceta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ib_add_mantreceta">
+
+            <EditText
+                android:id="@+id/et_descropcion_mantreceta"
+                style="@style/RoundedLigthEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/tx_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_precio_mantreceta"
+                style="@style/RoundedLigthEditText"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/tx_precio"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_descropcion_mantreceta" />
+
+            <EditText
+                android:id="@+id/et_tiempo_mantreceta"
+                style="@style/RoundedLigthEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:hint="@string/tx_time"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_precio_mantreceta"
+                app:layout_constraintTop_toTopOf="@+id/et_precio_mantreceta" />
+
+            <Button
+                android:id="@+id/btn_inusmo_mantreceta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/dkskyblue"
+                android:text="AGREGAR"
+                app:layout_constraintBottom_toBottomOf="@+id/textView49"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView49" />
+
+            <TextView
+                android:id="@+id/textView49"
+                style="@style/SubtitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="INSUMOS"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_precio_mantreceta" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recetainsumo_mantreceta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_inusmo_mantreceta" />
+
+            <Button
+                android:id="@+id/btn_guardar_mantreceta"
+                style="@style/RectangleLightBuuton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="GUARDAR"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_recetainsumo_mantreceta" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_eliminar_mantreceta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ib_add_mantreceta">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_descripcion_mantreceta"
+                    style="@style/SubtitleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_precio_mantreceta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_descripcion_mantreceta" />
+
+                <TextView
+                    android:id="@+id/tv_tiempo_mantreceta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="TextView"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_precio_mantreceta"
+                    app:layout_constraintStart_toEndOf="@+id/tv_precio_mantreceta"
+                    app:layout_constraintTop_toTopOf="@+id/tv_precio_mantreceta" />
+
+                <Button
+                    android:id="@+id/btn_eliminar_mantreceta"
+                    style="@style/RectangleLightBuuton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="Eliminar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tiempo_mantreceta" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_receta_mantreceta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_eliminar_mantreceta" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

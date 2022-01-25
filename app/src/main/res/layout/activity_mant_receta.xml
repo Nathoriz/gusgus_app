@@ -5,6 +5,118 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".view.ui.MantRecetaActivity">
+    tools:context=".view.ui.MantRecetaInsumoActivity"
+    tools:ignore="SpeakableTextPresentCheck">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_layout">
+
+        <ImageView
+            android:id="@+id/iv_back_mantrectainsumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back2" />
+
+        <Spinner
+            android:id="@+id/sp_insumos_mantrecetainsumo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_spinner"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_back_mantrectainsumo"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/et_cantidad_mantrecetainsumo"
+            style="@style/RoundedLigthEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_insumos_mantrecetainsumo"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/ib_add_mantrecetainsumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/add"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_cantidad_mantrecetainsumo"
+            app:srcCompat="@drawable/ic_add"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/ib_delete_mantrecetainsumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/delete"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toStartOf="@+id/ib_update_mantrecetainsumo"
+            app:layout_constraintTop_toTopOf="@+id/ib_update_mantrecetainsumo"
+            app:srcCompat="@drawable/ic_delete"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/ib_update_mantrecetainsumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/update"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toStartOf="@+id/ib_add_mantrecetainsumo"
+            app:layout_constraintTop_toTopOf="@+id/ib_add_mantrecetainsumo"
+            app:srcCompat="@drawable/ic_update"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView50"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="INSUMOS DE LA RECETA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ib_delete_mantrecetainsumo" />
+
+        <ImageView
+            android:id="@+id/iv_hide_mantrecetainsumo"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView50"
+            app:srcCompat="@drawable/ic_up" />
+
+        <ImageView
+            android:id="@+id/iv_show_mantrecetainsumo"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView50"
+            app:srcCompat="@drawable/ic_down" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recetainsumo_mantrecetainsumo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView50" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

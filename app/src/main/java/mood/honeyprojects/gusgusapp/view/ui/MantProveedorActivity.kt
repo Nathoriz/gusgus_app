@@ -220,6 +220,6 @@ class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickPr
     }
 
     override fun onProveedorInsumoClick(id: Long, position: Int) {
-        showMessage("insumo")
+//        showMessage("insumo")
     }
 }
