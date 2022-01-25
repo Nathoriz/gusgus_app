@@ -6,5 +6,5 @@ class RecetaInsumo (
     @SerializedName("id") val id: Long?,
     @SerializedName("receta") val receta: Receta?,
     @SerializedName("insumo") val insumo: Insumo?,
-    @SerializedName("cantidadUso") val cantidadUso: Int?
+    @SerializedName("cantidadUso") val cantidadUso: String?
 )
