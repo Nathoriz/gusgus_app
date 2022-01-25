@@ -15,6 +15,15 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.ui.MantRecetaInsumoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.MantRecetaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.DetallePedidoActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ui.DetallePersonalizacionActivity"
             android:exported="false" />
         <activity

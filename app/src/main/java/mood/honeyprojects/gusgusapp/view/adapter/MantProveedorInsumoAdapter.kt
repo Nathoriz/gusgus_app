@@ -31,7 +31,6 @@ class MantProveedorInsumoAdapter(private val insumoproveedores:List<ProveedorIns
         val binding = ItemCardMantenimientoBinding.bind(itemView)
 
         fun bind(proveedorinsumo: ProveedorInsumo, position: Int){
-            binding.cvContainer.visibility = View.GONE
             binding.tvNombreMantenimietno.text = proveedorinsumo.insumo?.nombre
             binding.tvDetalleMantenimiento.text = proveedorinsumo.precio.toString()
             binding.root.setOnClickListener{ proveedorinsumo.id?.let { it1 ->

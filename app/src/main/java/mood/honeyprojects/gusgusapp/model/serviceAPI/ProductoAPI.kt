@@ -1,21 +1,20 @@
 package mood.honeyprojects.gusgusapp.model.serviceAPI
 
 import mood.honeyprojects.gusgusapp.model.entity.Producto
+import mood.honeyprojects.gusgusapp.model.entity.Proveedor
 import mood.honeyprojects.gusgusapp.model.requestEntity.DetalleProductoResponse
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ProductoAPI {
 
-    @GET( "producto/listarAll" )
+    @GET( "producto/true/listar" )
     fun ListProducto(): Call<List<Producto>>
 
-    @GET( "producto/listar" )
+    @GET( "producto/treu/categoria/listar" )
     fun ListarProductPorCategoria( @Query("categoria") categoria: String ): Call<List<Producto>>
 
-    @GET( "producto/filtro" )
+    @GET( "producto/true/filtro" )
     fun FiltroProducto( @Query("nombre") nombre: String ): Call<List<Producto>>
 
     @GET( "producto/{id}" )
@@ -23,4 +22,17 @@ interface ProductoAPI {
 
     @GET( "producto/find/{id}" )
     fun ListForIdProduct( @Path( "id" ) id: Long? ): Call<List<Producto>>
+
+
+    @GET( "producto/listar" )
+    fun listarTodosProducto(): Call<List<Producto>>
+
+    @POST( "producto/registrar" )
+    fun guardarProducto( @Body producto: Producto): Call<Producto>
+
+    @PUT( "producto/actualizar" )
+    fun actualizarProducto( @Body producto: Producto): Call<String>
+
+    @DELETE( "producto/eliminar/{id}" )
+    fun eliminarProducto( @Path( "id" ) id: Long ): Call<String>
 }

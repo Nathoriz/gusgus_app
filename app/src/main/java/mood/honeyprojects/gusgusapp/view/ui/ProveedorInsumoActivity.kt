@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.R
@@ -38,21 +39,22 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
     private var idObtenida:Long = 0L
     private var position:Int = 0
 
-    private var idProveedor:Long = 0L
+    private var idProveedor: Long = 0L
     private var nombreInsumo:String = ""
 
-    private var proveedor: Proveedor?=null
-    private var insumo: Insumo?=null
+    private var proveedor: Proveedor? = null
+    private var insumo: Insumo? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProveedorInsumoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.hide()
         idProveedor = intent.getLongExtra("id",0L)
 
         initViewModel()
         fillRecyclerView(binding.rvProveedorinsumoMantproveedorinsumo)
+        searchProveedor()
         getListaProveedorInsumo()
         getListaInsumo()
         listener()
@@ -62,6 +64,7 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
         //Insumo
         insumoViewModel.listaNombreInsumo.observe(this,{
             if(it !=null){
+                listaNombreInsumo.addAll(it)
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 binding.spInsumosMantproveedorinsumos.adapter = adapter
@@ -83,6 +86,12 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
                 insumo = it
             }
         })
+        //Proveedor
+        proveedorViewModel.proveedorLiveData.observe(this,{
+            if(it!=null){
+                proveedor = it
+            }
+        })
         //ProveedorInsumo
         proveedorInsumoViewModel.listaProveedorInsumoLiveData.observe(this,{
             if(it !=null){
@@ -102,7 +111,9 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
                     clear()
                 }else{
                     binding.etPrecioMantproveedorinsumo.setText(it.precio.toString())
-                    getListaInsumo()
+                    var nombreInsumo = it.insumo?.nombre.toString()
+                    var int = listaNombreInsumo.indexOf(nombreInsumo)
+                    binding.spInsumosMantproveedorinsumos.setSelection(int)
                 }
             }
         })
@@ -137,15 +148,17 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
             val intent = Intent( this, MantProveedorActivity::class.java );
             intent.putExtra("id",idProveedor);
             showMessage(idProveedor.toString());
-            showMessage(accion);
-
-//            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
-//            startActivity( intent )
+            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
+            startActivity( intent )
         }
         binding.ivHideMantproveedorinsumo.setOnClickListener{
+            binding.ivHideMantproveedorinsumo.visibility = View.GONE
             binding.rvProveedorinsumoMantproveedorinsumo.visibility = View.GONE
+            binding.ivShowMantproveedorinsumo.visibility = View.VISIBLE
         }
         binding.ivShowMantproveedorinsumo.setOnClickListener{
+            binding.ivShowMantproveedorinsumo.visibility = View.GONE
+            binding.ivHideMantproveedorinsumo.visibility = View.VISIBLE
             binding.rvProveedorinsumoMantproveedorinsumo.visibility = View.VISIBLE
         }
     }
@@ -153,10 +166,16 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
     private fun searchProveedorInsumo(){
         proveedorInsumoViewModel.buscarProveedorInsumo(idObtenida)
     }
+    private fun searchProveedor(){
+        proveedorViewModel.buscarProveedor(idProveedor)
+    }
     private fun searchInsumo(nombreInsumo: String) {
         insumoViewModel.buscarInsumoPorNombre(nombreInsumo)
     }
     private fun addInsumo() {
+        accion="añadio"
+        showMessage(proveedor?.id.toString())
+        showMessage(insumo?.id.toString())
         val proveedorInsumo = ProveedorInsumo(
             null,
                 proveedor,
@@ -165,7 +184,6 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
         )
         proveedorInsumoViewModel.guardarProveedorInsumo(proveedorInsumo)
     }
-
     private fun updateInsumo() {
         val proveedorInsumo = ProveedorInsumo(
             idObtenida,
@@ -179,27 +197,23 @@ class ProveedorInsumoActivity : AppCompatActivity(), MantProveedorInsumoAdapter.
         showMessage("Insumo actualizado")
         clear()
     }
-
     private fun deleteInusmo() {
         proveedorInsumoViewModel.eliminarProveedorInsumo(idObtenida)
         listaProveedorInsumo.removeAt(position)
         adapter.notifyItemRemoved(position)
-        showMessage("Proveedor eliminado")
+        showMessage("Insumo eliminado")
         clear()
     }
 
     private fun clear() {
         binding.etPrecioMantproveedorinsumo.setText("")
         getListaInsumo()
-
         idObtenida = 0L
         position = 0
     }
-
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_SHORT ).show()
     }
-
     override fun onProveedorInsumoClick(id: Long, p: Int) {
         idObtenida = id
         position = p
