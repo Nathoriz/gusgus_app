@@ -7,11 +7,9 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityTortasPersonalizadasBinding
 import mood.honeyprojects.gusgusapp.model.entity.Personalizacion
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
-import mood.honeyprojects.gusgusapp.view.adapter.PedidoAdapter
 import mood.honeyprojects.gusgusapp.view.adapter.TortasPersAdapter
 import mood.honeyprojects.gusgusapp.viewModel.PersonalizacionViewModel
 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.DetallePersonalizacionActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/iv_close_detallepersonalizacion"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close"
+            app:tint="@color/ico_gray" />
+
+        <TextView
+            android:id="@+id/tv_nombre_detallepersonalizacion7"
+            style="@style/BigTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_close_detallepersonalizacion" />
+
+        <ImageView
+            android:id="@+id/iv_img_detallepersonalizacion"
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nombre_detallepersonalizacion7"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <Button
+            android:id="@+id/btn_pedido_detallepersonalizacion"
+            style="@style/RoundedLigthButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:clickable="false"
+            android:text="Realizar Pedido"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_img_detallepersonalizacion"
+            app:layout_constraintTop_toBottomOf="@+id/tv_precio__detallepersonalizacion" />
+
+        <TextView
+            android:id="@+id/rv_cantpisos_detallepersonalizacion"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cubierta_detallepersonalizacion1" />
+
+        <ImageView
+            android:id="@+id/iv_show_detallepersonalizacion"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_cantpisos_detallepersonalizacion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rv_cantpisos_detallepersonalizacion"
+            app:srcCompat="@drawable/ic_down" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pisos_detallepersonalizacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_cantpisos_detallepersonalizacion" />
+
+        <TextView
+            android:id="@+id/tv_precio__detallepersonalizacion"
+            style="@style/SubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_img_detallepersonalizacion"
+            app:layout_constraintTop_toTopOf="@+id/iv_img_detallepersonalizacion" />
+
+        <TextView
+            android:id="@+id/tv_cubierta_detallepersonalizacion1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/iv_img_detallepersonalizacion"
+            app:layout_constraintStart_toStartOf="@+id/iv_img_detallepersonalizacion"
+            app:layout_constraintTop_toBottomOf="@+id/iv_img_detallepersonalizacion" />
+
+        <ImageView
+            android:id="@+id/iv_hide_detallepersonalizadas"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_cantpisos_detallepersonalizacion"
+            app:layout_constraintEnd_toEndOf="@+id/iv_show_detallepersonalizacion"
+            app:layout_constraintTop_toTopOf="@+id/rv_cantpisos_detallepersonalizacion"
+            app:srcCompat="@drawable/ic_up" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

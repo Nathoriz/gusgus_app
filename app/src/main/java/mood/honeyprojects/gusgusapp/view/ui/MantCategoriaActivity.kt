@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
@@ -18,21 +17,16 @@ import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ActivityMantCategoriaBinding
-import mood.honeyprojects.gusgusapp.databinding.ActivityMantInsumoBinding
-import mood.honeyprojects.gusgusapp.model.entity.Altura
 import mood.honeyprojects.gusgusapp.model.entity.Categoria
 import mood.honeyprojects.gusgusapp.model.entity.Visibilidad
 import mood.honeyprojects.gusgusapp.model.requestEntity.CategoriaResponse
 import mood.honeyprojects.gusgusapp.model.requestEntity.CategoriaUpdate
-import mood.honeyprojects.gusgusapp.model.requestEntity.NoticiaResponse
 import mood.honeyprojects.gusgusapp.view.adapter.MantCategoriaAdapter
-import mood.honeyprojects.gusgusapp.view.adapter.NoticiaAdapter
 import mood.honeyprojects.gusgusapp.viewModel.CategoriaViewModel
 import mood.honeyprojects.gusgusapp.viewModel.VisibilidadViewModel
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickCategoriaListener {
@@ -47,7 +41,8 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
     private lateinit var imgreferencesUpdate: DatabaseReference
     private lateinit var storageReference: StorageReference
     private lateinit var storageReferenceDelete: StorageReference
-    private var idnoticiafireb: String? = null
+
+    private var idCategoriafireb: String? = null
     private var encodeImage: ByteArray?=null
     private var url = ""
     private var oldurl=""
@@ -179,10 +174,9 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
         }
         showMessage(binding.swtVisibilidadMantcategoria.isChecked.toString())
     }
-    private fun openGaleria(): Boolean {
+    private fun openGaleria() {
         val galeria = Intent( Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI )
         startActivityForResult( galeria, 1001 )
-        return true
     }
 
     private fun saveImageIntoStorage(){
@@ -216,7 +210,7 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
         imgnombre = "$datetime$resultNombre.png"
 
         val ref = storageReference.child( imgnombre )
-        val referenceDatabase = imgreferencesUpdate.child("FotoCategoria").child(idnoticiafireb!!)
+        val referenceDatabase = imgreferencesUpdate.child("FotoCategoria").child(idCategoriafireb!!)
 
         val uploadTask = encodeImage?.let { ref.putBytes(it) }
         val uriTask = uploadTask?.continueWithTask { p0 ->
@@ -234,7 +228,6 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
             showMessage( url )
         }
     }
-
     private fun encodeImage(bitmap: Bitmap): ByteArray {
         val previewWidth = 100
         val previewHeight = 100
@@ -259,6 +252,31 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
             }
         }
     }
+    private fun getDataFotoIDFirebase(){
+        imgreferencesUpdate.child( "FotoCategoria" ).addValueEventListener( object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for( foto in snapshot.children ){
+                    val entidad = foto.getValue( CategoriaResponse::class.java )
+                    if( entidad?.urlimg == oldurl ){
+                        idCategoriafireb = foto.key.toString()
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        } )
+    }
+    private fun deleteFotoStorage() {
+        storageReferenceDelete= FirebaseStorage.getInstance().getReferenceFromUrl(oldurl)
+        val ref = storageReferenceDelete
+        ref.delete().addOnSuccessListener {
+            showMessage( "Eliminado en el storage" )
+        }.addOnFailureListener {
+            showMessage( "Ocurrió un error en el Storage al eliminar." )
+        }
+    }
+
     private fun addCategoria() {
         accion = "añadio"
         val categoriaResponse = CategoriaResponse(
@@ -268,21 +286,6 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
             visibilidad
         )
         categoriaViewModel.guardarCategoria(categoriaResponse)
-    }
-    private fun getDataFotoIDFirebase(){
-        imgreferencesUpdate.child( "FotoCategoria" ).addValueEventListener( object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for( foto in snapshot.children ){
-                    val entidad = foto.getValue( CategoriaResponse::class.java )
-                    if( entidad?.urlimg == oldurl ){
-                        idnoticiafireb = foto.key.toString()
-                    }
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        } )
     }
     private fun updateCategoria() {
         accion = "actualizo"
@@ -313,21 +316,26 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
 //            referenceDatabase.child( "nombre" ).setValue( nombre )
 //        }
 
-        categoriaViewModel.actualizarCategoria(categoriaUpdate)
-        listaCategoria[position] = categoria
-        adapter.notifyItemChanged(position)
-        clear()
-        showMessage("Categoria actualizada")
-    }
-
-    private fun deleteFotoStorage() {
-        storageReferenceDelete= FirebaseStorage.getInstance().getReferenceFromUrl(oldurl)
-        val ref = storageReferenceDelete
-        ref.delete().addOnSuccessListener {
-            showMessage( "Eliminado en el storage" )
-        }.addOnFailureListener {
-            showMessage( "Ocurrió un error en el Storage al eliminar." )
+        if(oldurl == url){
+            categoriaViewModel.actualizarCategoria(categoriaUpdate)
+            listaCategoria[position] = categoria
+            adapter.notifyItemChanged(position)
+            clear()
+            showMessage("Categoria actualizada")
+        }else{
+            deleteFotoStorage()
+            categoriaViewModel.actualizarCategoria(categoriaUpdate)
+            listaCategoria[position] = categoria
+            adapter.notifyItemChanged(position)
+            clear()
+            showMessage("Categoria actualizada")
         }
+
+//        categoriaViewModel.actualizarCategoria(categoriaUpdate)
+//        listaCategoria[position] = categoria
+//        adapter.notifyItemChanged(position)
+//        clear()
+//        showMessage("Categoria actualizada")
     }
     private fun deleteCategoria() {
         categoriaViewModel.eliminarCategoria(idObtenida)
@@ -340,7 +348,6 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
     private fun showMessage( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_LONG ).show()
     }
-
 
     private fun clear(){
         binding.etNombreMantcategoria.setText("")
@@ -358,7 +365,6 @@ class MantCategoriaActivity : AppCompatActivity(), MantCategoriaAdapter.OnClickC
         idObtenida = id
         position = p
         searchCategoria()
-
 //        getDataFotoIDFirebase()
     }
 }
