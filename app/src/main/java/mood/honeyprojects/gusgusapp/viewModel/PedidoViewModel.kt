@@ -83,6 +83,20 @@ class PedidoViewModel: ViewModel() {
             }
         })
     }
+    fun FindPedidoById( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).FindPedidoByID( id )
+        response.enqueue( object: Callback<Pedido> {
+            override fun onResponse(call: Call<Pedido>, response: Response<Pedido>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responsePedidoLiveData.value = it
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Pedido>, t: Throwable) {
+            }
+        })
+    }
     private fun getErrorMessage(raw: String): String{
         val objects = JSONObject(raw)
         return objects.getString("message")

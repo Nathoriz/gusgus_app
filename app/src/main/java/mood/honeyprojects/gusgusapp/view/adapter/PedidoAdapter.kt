@@ -1,5 +1,6 @@
 package mood.honeyprojects.gusgusapp.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.databinding.ItemCardOrdersBinding
 import mood.honeyprojects.gusgusapp.model.entity.Pedido
+import mood.honeyprojects.gusgusapp.view.ui.DetallePedidoActivity
 
 class PedidoAdapter( private val pedidos: List<Pedido> ): RecyclerView.Adapter<PedidoAdapter.viewHolder>() {
 
@@ -21,6 +23,11 @@ class PedidoAdapter( private val pedidos: List<Pedido> ): RecyclerView.Adapter<P
             if( pedido.estado?.nombre == "En espera" ){ binding.ivImgpedido.setImageResource( R.drawable.ic_espera ) }
             if( pedido.estado?.nombre == "Pendiente" ){ binding.ivImgpedido.setImageResource( R.drawable.ic_pedido ) }
             if( pedido.estado?.nombre == "Cancelado" ){ binding.ivImgpedido.setImageResource( R.drawable.ic_cancelado ) }
+            binding.root.setOnClickListener {
+                val intent = Intent( binding.root.context, DetallePedidoActivity::class.java )
+                intent.putExtra( "keyIdPedido", pedido.id )
+                binding.root.context.startActivity( intent )
+            }
         }
     }
 

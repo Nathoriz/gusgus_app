@@ -11,6 +11,7 @@ import retrofit2.Response
 
 class DetallePedidoViewModel: ViewModel() {
     val responseDePedido = MutableLiveData<DetallePedido>()
+    val responseDePedidoList = MutableLiveData<List<DetallePedido>>()
 
     fun RegistrarDetallePedido( detalePedi: DetallePedido ){
         val response = RetrofitHelper.getRetrofit().create( DetallePedidoAPI::class.java ).RegistrarDetaPedido( detalePedi )
@@ -22,8 +23,21 @@ class DetallePedidoViewModel: ViewModel() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<DetallePedido>, t: Throwable) {
+            }
+        })
+    }
+    fun GetListByPedidoId( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( DetallePedidoAPI::class.java ).GetDetalleByPedidoId( id )
+        response.enqueue( object: Callback<List<DetallePedido>> {
+            override fun onResponse(call: Call<List<DetallePedido>>, response: Response<List<DetallePedido>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responseDePedidoList.value = it
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<DetallePedido>>, t: Throwable) {
             }
         })
     }

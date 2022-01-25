@@ -14,7 +14,7 @@ object RetrofitHelper {
         client.addInterceptor( logging )
         // IP_MELISSA = http://192.168.1.9:8080/
         // IP_EMILIO = http://192.168.100.41:8080/
-        return Retrofit.Builder().baseUrl("http://192.168.1.9:8080/")
+        return Retrofit.Builder().baseUrl("http://192.168.100.41:8080/")
             .client( client.build() )
             .addConverterFactory( GsonConverterFactory.create() )
             .build()

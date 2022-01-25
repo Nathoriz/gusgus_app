@@ -20,4 +20,7 @@ interface PedidoAPI {
         @Path( "id" ) id: Long,
         @Path( "estado" ) estado: String,
         @Query( "pedidoid" ) pedidoid: String ): Call<List<Pedido>>
+
+    @GET( "pedidos/{id}" )
+    fun FindPedidoByID( @Path( "id" ) id: Long ): Call<Pedido>
 }
