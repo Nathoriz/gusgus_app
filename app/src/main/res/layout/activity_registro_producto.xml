@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".view.ui.RegistroProductoActivity"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_layout">
+
+        <ImageView
+            android:id="@+id/iv_back_registroproducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back2" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_registro_registroproducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_back_registroproducto">
+
+            <ImageView
+                android:id="@+id/iv_img_registroproducto"
+                android:layout_width="140dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_nombre_registroproducto"
+                app:srcCompat="@drawable/ic_image_notfound" />
+
+            <ImageButton
+                android:id="@+id/ib_upload_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_img_registroproducto"
+                app:layout_constraintStart_toStartOf="@+id/iv_img_registroproducto"
+                app:srcCompat="@drawable/ic_upload"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <EditText
+                android:id="@+id/et_nombre_registroproducto"
+                style="@style/RoundedLigthEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cl_registro_registroproducto"
+                app:layout_constraintTop_toBottomOf="@+id/swt_visibilidad_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <EditText
+                android:id="@+id/et_descripcion_registroproducto"
+                style="@style/RoundedLigthEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_img_registroproducto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_img_registroproducto"
+                app:layout_constraintTop_toTopOf="@+id/iv_img_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <EditText
+                android:id="@+id/et_precio_registroproducto"
+                style="@style/RoundedLigthEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toEndOf="@+id/textView52"
+                app:layout_constraintTop_toBottomOf="@+id/sp_receta_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S/"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/et_precio_registroproducto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/et_precio_registroproducto" />
+
+            <Spinner
+                android:id="@+id/sp_categoria_registroproducto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView54"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Categoria"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ib_upload_registroproducto" />
+
+            <Switch
+                android:id="@+id/swt_visibilidad_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Publicar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Receta"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_categoria_registroproducto" />
+
+            <Spinner
+                android:id="@+id/sp_receta_registroproducto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView56"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btn_registroproducto_registroproducto"
+                style="@style/RectangleLightBuuton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Siguiente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_precio_registroproducto" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_extra_registroproducto"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_back_registroproducto"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Spinner
+                android:id="@+id/sp_cubierta_registroproducto"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_cubierta_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/sp_relleno_registroproducto"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_relleno_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_cubierta_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Cubierta"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_relleno_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Relleno"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_cubierta_registroproducto" />
+
+            <TextView
+                android:id="@+id/tv_diametro_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Diametro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_relleno_registroproducto" />
+
+            <Spinner
+                android:id="@+id/sp_diametro_registroproducto"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_diametro_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_sabor_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Sabor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_diametro_registroproducto" />
+
+            <Spinner
+                android:id="@+id/sp_sabor_registroproducto"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sabor_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_altura_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Altura"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_sabor_registroproducto" />
+
+            <Spinner
+                android:id="@+id/sp_altura_registroproducto"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_spinner"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_altura_registroproducto"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/ib_addrelleno_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/add"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/sp_relleno_registroproducto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sp_relleno_registroproducto"
+                app:srcCompat="@drawable/ic_add"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/ib_adddiametro_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/add"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/sp_diametro_registroproducto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sp_diametro_registroproducto"
+                app:srcCompat="@drawable/ic_add"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/ib_addsabor_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/add"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/sp_sabor_registroproducto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sp_sabor_registroproducto"
+                app:srcCompat="@drawable/ic_add"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/ib_aaddaltura_registroproducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/add"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/sp_altura_registroproducto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sp_altura_registroproducto"
+                app:srcCompat="@drawable/ic_add"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btn_registrarextras_registroproducto"
+                style="@style/RectangleLightBuuton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Registrar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 package mood.honeyprojects.gusgusapp.model.serviceAPI
 
+import mood.honeyprojects.gusgusapp.model.entity.Altura
 import mood.honeyprojects.gusgusapp.model.entity.Categoria
 import mood.honeyprojects.gusgusapp.model.requestEntity.CategoriaResponse
 import mood.honeyprojects.gusgusapp.model.requestEntity.CategoriaUpdate
@@ -21,4 +22,7 @@ interface CategoriaAPI {
 
     @DELETE( "categoria/eliminar/{id}" )
     fun eliminarCategoria( @Path( "id" ) id: Long ): Call<String>
+
+    @GET( "categoria/buscar" )
+    fun buscarPorNombreCategoria(@Query( "nombre" ) nombre: String): Call<Categoria>
 }

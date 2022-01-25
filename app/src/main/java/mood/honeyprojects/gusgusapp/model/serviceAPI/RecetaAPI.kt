@@ -1,5 +1,6 @@
 package mood.honeyprojects.gusgusapp.model.serviceAPI
 
+import mood.honeyprojects.gusgusapp.model.entity.Altura
 import mood.honeyprojects.gusgusapp.model.entity.Receta
 import retrofit2.Call
 import retrofit2.http.*
@@ -19,4 +20,7 @@ interface RecetaAPI {
 
     @DELETE( "receta/eliminar/{id}" )
     fun eliminarReceta( @Path( "id" ) id: Long ): Call<String>
+
+    @GET( "receta/buscar" )
+    fun buscarPorNombreReceta(@Query( "nombre" ) nombre: String): Call<Receta>
 }
