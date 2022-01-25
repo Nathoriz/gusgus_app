@@ -256,9 +256,9 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.sprellenopiso.adapter = adapter
+                binding.sprellenopisos.adapter = adapter
 
-                binding.sprellenopiso.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                binding.sprellenopisos.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                         val int = adapter.getPosition( it[position] )
                         rellenoNombre = it[ int ]
@@ -281,9 +281,9 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.spsaborpiso.adapter = adapter
+                binding.spsaborpisos.adapter = adapter
 
-                binding.spsaborpiso.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                binding.spsaborpisos.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                         val int = adapter.getPosition( it[position] )
                         saborNombre = it[ int ]
@@ -309,9 +309,9 @@ class PersonalizarActivity : AppCompatActivity(), PisoListener {
             if( it != null ){
                 val adapter = ArrayAdapter( this, android.R.layout.simple_spinner_item, it )
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.spdiametropiso.adapter = adapter
+                binding.spdiametropisos.adapter = adapter
 
-                binding.spdiametropiso.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                binding.spdiametropisos.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                         val int = adapter.getPosition( it[position] )
                         diametroDescri = it[ int ]

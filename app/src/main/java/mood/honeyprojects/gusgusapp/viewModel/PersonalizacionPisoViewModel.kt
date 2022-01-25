@@ -11,6 +11,7 @@ import retrofit2.Response
 
 class PersonalizacionPisoViewModel: ViewModel() {
     val responseDataPersPiso = MutableLiveData<PersonalizacionPiso>()
+    val responseDataList = MutableLiveData<List<PersonalizacionPiso>>()
 
     fun RegistrarPersPiso( persPiso: PersonalizacionPiso ){
         val response = RetrofitHelper.getRetrofit().create( PersonalizacionPisoAPI::class.java ).RegistrarPersonalizacionPiso( persPiso )
@@ -23,6 +24,20 @@ class PersonalizacionPisoViewModel: ViewModel() {
                 }
             }
             override fun onFailure(call: Call<PersonalizacionPiso>, t: Throwable) {
+            }
+        })
+    }
+    fun ListByPersId( id: Long ){
+       val response = RetrofitHelper.getRetrofit().create( PersonalizacionPisoAPI::class.java ).GetListByPersId( id )
+        response.enqueue( object: Callback<List<PersonalizacionPiso>> {
+            override fun onResponse(call: Call<List<PersonalizacionPiso>>, response: Response<List<PersonalizacionPiso>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responseDataList.value = it
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<PersonalizacionPiso>>, t: Throwable) {
             }
         })
     }

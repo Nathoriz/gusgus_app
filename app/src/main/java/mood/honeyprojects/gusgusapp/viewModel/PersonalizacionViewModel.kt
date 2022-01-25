@@ -75,4 +75,18 @@ class PersonalizacionViewModel: ViewModel() {
             }
         })
     }
+    fun GetById( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( PersonalizacionAPI::class.java ).GetById( id )
+        response.enqueue( object: Callback<Personalizacion> {
+            override fun onResponse(call: Call<Personalizacion>, response: Response<Personalizacion>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responsePersonalizacion.value = it
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Personalizacion>, t: Throwable) {
+            }
+        })
+    }
 }

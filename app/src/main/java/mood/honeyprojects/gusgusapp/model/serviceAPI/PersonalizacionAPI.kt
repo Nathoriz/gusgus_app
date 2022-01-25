@@ -19,4 +19,7 @@ interface PersonalizacionAPI {
     fun findByIdClientAndNombreTorta(
         @Path( "id" ) id: Long,
         @Query( "nombre" ) nombre: String ): Call<List<Personalizacion>>
+
+    @GET( "personalizacion/{id}" )
+    fun GetById( @Path( "id" ) id: Long ): Call<Personalizacion>
 }

@@ -38,7 +38,6 @@
         <activity
             android:name=".view.ui.MantProveedorActivity"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".view.ui.MantInsumoActivity"
