@@ -19,6 +19,9 @@ interface InsumoAPI {
     @GET( "insumo/{id}" )
     fun buscarInsumo( @Path( "id" ) id: Long ): Call<Insumo>
 
+    @GET( "/insumo/buscar" )
+    fun buscarInsumoPorNombre( @Query( "nombre" ) nombre: String ): Call<Insumo>
+
     @DELETE( "insumo/eliminar/{id}" )
     fun eliminarInsumo( @Path( "id" ) id: Long ): Call<String>
 }

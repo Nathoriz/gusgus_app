@@ -219,6 +219,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
             }
         } )
     }
+
     private fun ViewModelEntrega(){
         entregaViewModel.messageLiveData.observe( this, Observer {
             if( it != null ){
