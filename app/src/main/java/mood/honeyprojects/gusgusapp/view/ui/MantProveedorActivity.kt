@@ -24,6 +24,7 @@ import mood.honeyprojects.gusgusapp.viewModel.ProveedorViewModel
 
 class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickProveedorListener,MantProveedorInsumoAdapter.OnClickProveedorInsumoListener {
     private lateinit var binding: ActivityMantProveedorBinding
+
     private lateinit var adapter: MantProveedorAdapter
     private val proveedorViewModel: ProveedorViewModel by viewModels()
     private val listaProveedor = mutableListOf<Proveedor>()
@@ -42,15 +43,16 @@ class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickPr
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        var intentID = intent.getLongExtra("id",0L)
-        var intentAccion = intent.getStringExtra("accion")
+
 
         initViewModel()
         fillRecyclerView(binding.rvProveedorMantproveedor)
         fillRecyclerViewProveedorInsumo(binding.rvProveedorinsumoMantproveedor)
         getListaProveedor()
+        getListaProveedorInsumo()
         listener()
 
+        var intentID = intent.getLongExtra("id",0L)
         if(intentID != 0L){
             fillRecyclerViewProveedorInsumo(binding.rvProveedorinsumoMantproveedor)
             getListaProveedorInsumo()
@@ -98,13 +100,13 @@ class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickPr
     }
     private fun fillRecyclerView(rv: RecyclerView) {
         adapter = MantProveedorAdapter(listaProveedor,this)
-        rv.layoutManager = LinearLayoutManager(this)
+        rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         rv.adapter = adapter
     }
     private fun fillRecyclerViewProveedorInsumo(rv: RecyclerView) {
         proveedorInsumoadapter = MantProveedorInsumoAdapter(listaProveedorInsumo,this)
-        rv.layoutManager = LinearLayoutManager(this)
-        rv.adapter = adapter
+        rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        rv.adapter = proveedorInsumoadapter
     }
     private fun getListaProveedor() {
         proveedorViewModel.listarProveedor()
@@ -124,21 +126,21 @@ class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickPr
             binding.rvProveedorMantproveedor.visibility = View.GONE
             binding.cvEliminarMantproveedor.visibility = View.GONE
             binding.clGuardarMantproveedor.visibility = View.VISIBLE
-//            getListaProveedorInsumo()
+            getListaProveedorInsumo()
         }
         binding.ibUpdateMantproveedor.setOnClickListener{
             accion = "actualizo"
             binding.rvProveedorMantproveedor.visibility = View.GONE
             binding.cvEliminarMantproveedor.visibility = View.GONE
             binding.clGuardarMantproveedor.visibility = View.VISIBLE
-//            getListaProveedorInsumo()
+            getListaProveedorInsumo()
         }
         binding.ibDeleteMantproveedor.setOnClickListener{
             accion = "elimino"
             binding.clGuardarMantproveedor.visibility = View.GONE
             binding.rvProveedorMantproveedor.visibility = View.VISIBLE
             binding.cvEliminarMantproveedor.visibility = View.VISIBLE
-//            getListaProveedorInsumo()
+            getListaProveedorInsumo()
         }
         binding.btnGuardarMantproveedor.setOnClickListener{
             if(accion=="añadio"){
@@ -161,12 +163,9 @@ class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickPr
         binding.btnInsumoMantproveedor.setOnClickListener{
             val intent = Intent( this, ProveedorInsumoActivity::class.java );
             intent.putExtra("id",idObtenida);
-            intent.putExtra("accion",accion);
             showMessage(idObtenida.toString());
-            showMessage(accion);
-
-//            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
-//            startActivity( intent )
+            intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
+            startActivity( intent )
         }
     }
 
@@ -218,7 +217,6 @@ class MantProveedorActivity : AppCompatActivity(),MantProveedorAdapter.OnClickPr
         idObtenida = id
         position= p
         searchProveedor()
-//        getListaProveedorInsumo()
     }
 
     override fun onProveedorInsumoClick(id: Long, position: Int) {
