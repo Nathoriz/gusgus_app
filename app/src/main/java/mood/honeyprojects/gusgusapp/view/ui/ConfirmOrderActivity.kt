@@ -21,24 +21,30 @@ import mood.honeyprojects.gusgusapp.R
 import mood.honeyprojects.gusgusapp.classes.DatePickerFragment
 import mood.honeyprojects.gusgusapp.classes.TimePickerFragment
 import mood.honeyprojects.gusgusapp.databinding.ActivityConfirmOrderBinding
+import mood.honeyprojects.gusgusapp.listeners.PedidoCategoNombre
+import mood.honeyprojects.gusgusapp.listeners.PersListener
 import mood.honeyprojects.gusgusapp.listeners.ProductoDetailListener
 import mood.honeyprojects.gusgusapp.model.entity.*
 import mood.honeyprojects.gusgusapp.sharedPreferences.Preferences
 import mood.honeyprojects.gusgusapp.view.adapter.ConfirmPedidoAdapter
+import mood.honeyprojects.gusgusapp.view.adapter.PersAdapter
 import mood.honeyprojects.gusgusapp.viewModel.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
+class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersListener, PedidoCategoNombre {
     private lateinit var binding: ActivityConfirmOrderBinding
     private lateinit var adapter: ConfirmPedidoAdapter
+    private lateinit var adapterPers: PersAdapter
     private val detalleViewModel: DetallePedidoViewModel by viewModels()
     private val productoviewModel: ProductoViewModel by viewModels()
     private val entregaViewModel: EntregaViewModel by viewModels()
     private val pedidoViewModel: PedidoViewModel by viewModels()
     private val detalleCumpleViewModel: DetalleViewModel by viewModels()
+    private val personalizacionViewModel: PersonalizacionViewModel by viewModels()
 
     private val productos = mutableListOf<Producto>()
+    private val listPers = mutableListOf<Personalizacion>()
     private var precioTotal: Double?=null
     private var nombreCatego: String?=null
     private var nombreCliente: String?=null
@@ -46,6 +52,9 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     private var pedidoid: Long?=null
     private var cantidad: Int?=null
     private var ok: Boolean?=null
+    private var idPerso: Long?= 0L
+    private var precienvi: Double?=0.0
+    private var precioPer: Double?= 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,16 +63,35 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         setContentView( binding.root )
         supportActionBar?.hide()
 
+        val intent = this.intent
+        val extra = intent.extras
+        val id = extra?.getLong("keyidPersonali")
+        idPerso = id
+        if( idPerso != 0L ){
+            toast( idPerso.toString() )
+            binding.rvPersonalizacionConfirmorder.visibility = View.VISIBLE
+            binding.rvOrderproduct.visibility = View.GONE
+            GetPersTorta( idPerso!! )
+            ViewModelPersonalizacion()
+            RecyclerViewPersonalizacion( binding.rvPersonalizacionConfirmorder )
+
+        }else{
+            FindProductForId()
+            InitRecyclerView( binding.rvOrderproduct )
+            ViewModelProducto()
+
+
+        }
         FindEntrega()
         ViewModelDetallePedido()
-        FindProductForId()
 
         ViewModelDetalleCumple()
         ViewModelEntrega()
-        ViewModelProducto()
+
         ViewModelPedido()
-        InitRecyclerView( binding.rvOrderproduct )
+
         Listener()
+
     }
     private fun Listener(){
         binding.imageButton.setOnClickListener {
@@ -112,6 +140,12 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         }
     }
 
+    /*
+    * Personalizacion
+    */
+    private fun GetPersTorta( id: Long ){
+        personalizacionViewModel.GetById( id )
+    }
     private fun RegistrarDetaPedido(){
         val intent = this.intent
         val extra = intent.extras
@@ -120,7 +154,14 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         val producto = Producto( id, null, null, null, null, null, null, null )
         val personalizacion = Personalizacion( 0, null, null, null, null, null )
         val detallePedi = DetallePedido( 0, pedido, producto, personalizacion, cantidad, 0.0 )
-        detalleViewModel.RegistrarDetallePedido( detallePedi )
+        if( idPerso != 0L ){
+            val product = Producto( 0, null, null, null, null, null, null, null )
+            val pers = Personalizacion( idPerso, null, null, null, null, null )
+            val detaPedi = DetallePedido( 0, pedido, product, pers, 1, 0.0 )
+            detalleViewModel.RegistrarDetallePedido( detaPedi )
+        }else{
+            detalleViewModel.RegistrarDetallePedido( detallePedi )
+        }
     }
     private fun RegistrarPedido(): Boolean {
         Thread.sleep( 2000 )
@@ -149,13 +190,22 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         entregaViewModel.FindEntregaById( id!! )
         //entregaViewModel.FindEntregaById(  1L )
     }
+    /*
+    * Personalizacion
+    */
+    private fun RecyclerViewPersonalizacion( rv: RecyclerView ){
+        adapterPers = PersAdapter( listPers, this )
+        rv.layoutManager = LinearLayoutManager( this )
+        rv.adapter = adapterPers
+    }
+
     private fun InitRecyclerView( rv: RecyclerView ){
         val intent = this.intent
         val extra = intent.extras
         val precioTotal = extra?.getString("precio")
         val cantidad = extra?.getString("cantidad")
 
-        adapter = ConfirmPedidoAdapter( productos, this , precioTotal?.toDouble()!!, cantidad?.toInt()!! )
+        adapter = ConfirmPedidoAdapter( productos, this , precioTotal?.toDouble()!!, cantidad?.toInt()!!, this )
         rv.layoutManager = LinearLayoutManager( this )
         rv.adapter = adapter
     }
@@ -177,6 +227,18 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
         return monthNames[ month - 1 ]
     }
 
+    /*
+        * Personalizacion
+        */
+    private fun ViewModelPersonalizacion(){
+        personalizacionViewModel.responsePersonalizacion.observe( this, Observer {
+            if( it != null ){
+                listPers.clear()
+                listPers.add( it )
+                adapterPers.notifyDataSetChanged()
+            }
+        } )
+    }
     private fun ViewModelDetalleCumple(){
         detalleCumpleViewModel.MessageDetalle.observe( this,  Observer {
             if( it != null ){
@@ -189,7 +251,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
             if( it != null ){
                 ok = true
                 nombreCliente = "${it.pedido?.cliente?.nombre} ${it.pedido?.cliente?.apellido}"
-                nombreCatego = it.producto?.categoria?.nombre
+                //nombreCatego = it.producto?.categoria?.nombre
             }
         } )
     }
@@ -238,8 +300,16 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
                 binding.tvTiempoConforder.text = it.hora.toString()
                 if( it.envio == false ){
                     binding.tvEnvio.text = "0.0"
+                    if( idPerso != 0L ){
+                        binding.tvConfirmorderTotal.text = precioPer.toString()
+                    }
                 }else{
                     binding.tvEnvio.text = it.distrito?.precio.toString()
+                    if( idPerso != 0L ){
+                        precienvi = it.distrito?.precio?.toDouble()
+                        val total = precioPer?.plus(precienvi!!)
+                        binding.tvConfirmorderTotal.text = total.toString()
+                    }
                 }
             }
         } )
@@ -255,5 +325,14 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener {
     }
     private fun toast( message: String ){
         Toast.makeText( this, message, Toast.LENGTH_SHORT ).show()
+    }
+
+    override fun GetPrecioPers(precio: Double) {
+        binding.tvSubtotal.text = precio.toString()
+        precioPer = precio
+    }
+
+    override fun NombreListener(nombre: String) {
+        nombreCatego = nombre
     }
 }

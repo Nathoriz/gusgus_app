@@ -174,7 +174,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtnombrepiso" />
 
             <Spinner
-                android:id="@+id/spdiametropiso"
+                android:id="@+id/spdiametropisos"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -192,10 +192,10 @@
                 android:fontFamily="@font/montserrat"
                 android:text="@string/tx_sabor"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spdiametropiso" />
+                app:layout_constraintTop_toBottomOf="@+id/spdiametropisos" />
 
             <Spinner
-                android:id="@+id/spsaborpiso"
+                android:id="@+id/spsaborpisos"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -213,10 +213,10 @@
                 android:fontFamily="@font/montserrat"
                 android:text="@string/tx_relleno"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spsaborpiso" />
+                app:layout_constraintTop_toBottomOf="@+id/spsaborpisos" />
 
             <Spinner
-                android:id="@+id/sprellenopiso"
+                android:id="@+id/sprellenopisos"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"

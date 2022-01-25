@@ -4,6 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import mood.honeyprojects.gusgusapp.databinding.ItemCardConfirmarpedidoBinding
+import mood.honeyprojects.gusgusapp.listeners.PedidoCategoNombre
 import mood.honeyprojects.gusgusapp.listeners.ProductoDetailListener
 import mood.honeyprojects.gusgusapp.model.entity.Producto
 
@@ -11,13 +12,14 @@ class ConfirmPedidoViewHolder( view: View ): RecyclerView.ViewHolder( view ) {
     private val binding = ItemCardConfirmarpedidoBinding.bind( view )
     private var valor = 1
 
-    fun bind( producto: Producto, productoDeail: ProductoDetailListener, precioTotal: Double, cantidad: Int ){
+    fun bind( producto: Producto, productoDeail: ProductoDetailListener, precioTotal: Double, cantidad: Int, pedidoCate: PedidoCategoNombre ){
         Picasso.get().load( producto.urlimg ).into( binding.ivImgorder )
         binding.tvNombreorderproducto.text = producto.nombre
         ValiCantidad( cantidad, producto.categoria?.nombre )
         ValiPrecio( precioTotal, producto.precio!! )
         ValiCategoria( producto.categoria?.nombre, productoDeail )
         binding.tvCategoria.text = producto.categoria?.nombre
+        producto.categoria?.nombre?.let { pedidoCate.NombreListener(it) }
 
         binding.ivPluscant.setOnClickListener {
             Incrementar( productoDeail )

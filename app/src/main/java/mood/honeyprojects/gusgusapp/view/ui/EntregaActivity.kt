@@ -30,7 +30,7 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
 
     private var nombreDistri: String?=null
     private var distrito: Distrito?=null
-    private var idEntrega = 0L
+    private var idPers: Long? = 0L
     private var opcion = 0
     private var opcionDateANdTime = 0
 
@@ -39,6 +39,14 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         binding =  ActivityEntregaBinding.inflate( layoutInflater )
         setContentView( binding.root )
         supportActionBar?.hide()
+        val intent = this.intent
+        val extra = intent.extras
+        val id = extra?.getLong("keyIdP")
+        idPers = id
+        if( idPers != null ){
+            Toast.makeText(this, idPers.toString(), Toast.LENGTH_SHORT).show()
+        }
+
         ViewModelEntrega()
         ViewModelDitrito()
         ListDistrito()
@@ -74,6 +82,9 @@ class EntregaActivity : AppCompatActivity(), EntregaListener {
         intentGo.putExtra( "precio", precioTotal )
         intentGo.putExtra( "cantidad", cantidad )
         intentGo.putExtra( "id", identrega )
+        if( idPers != null ){
+            intentGo.putExtra( "keyidPersonali", idPers )
+        }
         intent.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP )
         startActivity( intentGo )
     }

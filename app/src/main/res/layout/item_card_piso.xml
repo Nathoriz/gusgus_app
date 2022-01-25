@@ -16,33 +16,23 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/txtnombrepiso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rancho"
-            android:textColor="@color/title_subtitles"
-            android:textSize="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="1 Piso" />
-
-        <TextView
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/tx_diametro"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtnombrepiso" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
+        <EditText
             android:id="@+id/spdiametropiso"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/custom_spinner"
+            android:background="@drawable/custom_field"
             app:layout_constraintEnd_toEndOf="parent"
+            android:focusable="false"
+            android:clickable="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView20"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -57,12 +47,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spdiametropiso" />
 
-        <Spinner
+        <EditText
             android:id="@+id/spsaborpiso"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/custom_spinner"
+            android:focusable="false"
+            android:clickable="false"
+            android:background="@drawable/custom_field"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView22"
@@ -78,15 +70,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spsaborpiso" />
 
-        <Spinner
+        <EditText
             android:id="@+id/sprellenopiso"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/custom_spinner"
+            android:background="@drawable/custom_field"
+            android:focusable="false"
+            android:clickable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView24"
             tools:ignore="SpeakableTextPresentCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
