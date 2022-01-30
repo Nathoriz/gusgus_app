@@ -6,6 +6,7 @@ import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Producto
 import mood.honeyprojects.gusgusapp.model.entity.Proveedor
 import mood.honeyprojects.gusgusapp.model.requestEntity.DetalleProductoResponse
+import mood.honeyprojects.gusgusapp.model.requestEntity.ProductoResponse
 import mood.honeyprojects.gusgusapp.model.serviceAPI.ProductoAPI
 import mood.honeyprojects.gusgusapp.model.serviceAPI.ProveedorAPI
 import org.json.JSONObject
@@ -90,7 +91,7 @@ class ProductoViewModel: ViewModel() {
             }
         })
     }
-    fun guardarProducto( producto: Producto){
+    fun guardarProducto( producto: ProductoResponse){
         val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).guardarProducto( producto )
         response.enqueue( object: Callback<Producto> {
             override fun onResponse(call: Call<Producto>, response: Response<Producto>) {

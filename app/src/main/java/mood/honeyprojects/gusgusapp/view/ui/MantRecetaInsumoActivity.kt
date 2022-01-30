@@ -26,18 +26,21 @@ class MantRecetaInsumoActivity : AppCompatActivity(), MantRecetaIsumoAdapter.OnC
 
     private val insumoViewModel: InsumoViewModel by viewModels()
     private val listaNombreInsumo = mutableListOf<String>()
+    private var insumo: Insumo? = null
+    private var nombreInsumo:String = ""
 
     private val recetaViewModel: RecetaViewModel by viewModels()
+    private var receta: Receta? = null
 
     private var accion:String = ""
     private var idObtenida:Long = 0L
     private var position:Int = 0
 
     private var idReceta: Long = 0L
-    private var nombreInsumo:String = ""
 
-    private var receta: Receta? = null
-    private var insumo: Insumo? = null
+
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

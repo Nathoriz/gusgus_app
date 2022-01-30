@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_container_itemaltura"
+    android:layout_width="110dp"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/iv_color_itemaltura"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_nombre_itemaltura"
+        app:layout_constraintStart_toStartOf="@+id/tv_nombre_itemaltura"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_altura" />
+
+    <CheckedTextView
+        android:id="@+id/tv_nombre_itemaltura"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Centimetros"
+        android:textAlignment="center"
+        android:checked="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_color_itemaltura" />
+</androidx.constraintlayout.widget.ConstraintLayout>

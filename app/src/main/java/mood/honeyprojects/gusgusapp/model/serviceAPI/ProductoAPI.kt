@@ -3,6 +3,7 @@ package mood.honeyprojects.gusgusapp.model.serviceAPI
 import mood.honeyprojects.gusgusapp.model.entity.Producto
 import mood.honeyprojects.gusgusapp.model.entity.Proveedor
 import mood.honeyprojects.gusgusapp.model.requestEntity.DetalleProductoResponse
+import mood.honeyprojects.gusgusapp.model.requestEntity.ProductoResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -28,7 +29,7 @@ interface ProductoAPI {
     fun listarTodosProducto(): Call<List<Producto>>
 
     @POST( "producto/registrar" )
-    fun guardarProducto( @Body producto: Producto): Call<Producto>
+    fun guardarProducto( @Body producto: ProductoResponse): Call<Producto>
 
     @PUT( "producto/actualizar" )
     fun actualizarProducto( @Body producto: Producto): Call<String>

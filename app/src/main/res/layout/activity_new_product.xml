@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".view.ui.NewProductActivity"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/cv_back_newproduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_back2" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView68"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Nuevo Producto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_productimg_newproduct"
+            android:layout_width="200dp"
+            android:layout_height="240dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/cardView3"
+            app:layout_constraintTop_toBottomOf="@+id/sw_visibilidad_newproduct"
+            app:srcCompat="@drawable/ic_image_notfound" />
+
+        <EditText
+            android:id="@+id/et_nombre_newproduct"
+            style="@style/RoundedLigthEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/tx_name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_productimg_newproduct" />
+
+        <TextView
+            android:id="@+id/tv_abrirgaleria_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ABRIR \nGALERIA"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_productimg_newproduct"
+            app:layout_constraintEnd_toEndOf="@+id/iv_productimg_newproduct"
+            app:layout_constraintStart_toStartOf="@+id/iv_productimg_newproduct"
+            app:layout_constraintTop_toTopOf="@+id/iv_productimg_newproduct" />
+
+        <EditText
+            android:id="@+id/et_descripcion_newproduct"
+            style="@style/RoundedLigthEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/tx_description"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_nombre_newproduct" />
+
+        <Spinner
+            android:id="@+id/sp_categoria_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_spinner"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_descripcion_newproduct"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/et_precio_newproduct"
+            style="@style/RoundedLigthEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/tx_precio"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/textView70"
+            app:layout_constraintTop_toBottomOf="@+id/sp_categoria_newproduct" />
+
+        <TextView
+            android:id="@+id/textView70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S/"
+            app:layout_constraintBottom_toBottomOf="@+id/et_precio_newproduct"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/et_precio_newproduct" />
+
+        <Switch
+            android:id="@+id/sw_visibilidad_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text=" Publicar    "
+            android:thumb="@drawable/thumb_swicth"
+            android:track="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+        <TextView
+            android:id="@+id/tv_diametro_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diametro"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_altura_newproduct" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_diametro_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_diametro_newproduct"
+            app:layout_constraintTop_toBottomOf="@+id/tv_diametro_newproduct" />
+
+        <TextView
+            android:id="@+id/tv_sabor_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sabor"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_diametro_newproduct" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sabor_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sabor_newproduct" />
+
+        <TextView
+            android:id="@+id/tv_relleno_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Relleno"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_sabor_newproduct" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_relleno_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_relleno_newproduct" />
+
+        <TextView
+            android:id="@+id/tv_altura_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Altura"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_cubierta_newproduct" />
+
+        <Spinner
+            android:id="@+id/sp_altura_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_spinner"
+            android:minHeight="48dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_altura_newproduct"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Spinner
+            android:id="@+id/sp_cubierta_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_spinner"
+            android:minHeight="48dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cubierta_newproduct"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/tv_cubierta_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cubierta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_receta_newproduct"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/et_receta_newproduct"
+            style="@style/RoundedLigthEditText"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:editable="false"
+            android:ems="10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_precio_newproduct"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_receta_newproduct"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_receta_newproduct" />
+
+        <Button
+            android:id="@+id/btn_seleccrionarreceta_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar"
+            app:layout_constraintBottom_toBottomOf="@+id/et_receta_newproduct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/et_receta_newproduct" />
+
+        <Button
+            android:id="@+id/btn_agregar_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Guardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_relleno_newproduct" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
