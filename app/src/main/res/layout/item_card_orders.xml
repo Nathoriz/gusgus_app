@@ -15,10 +15,10 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_imgpedidocont"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:backgroundTint="@color/green"
-            app:cardCornerRadius="50dp"
+            app:cardCornerRadius="35dp"
             app:cardElevation="0dp"
             app:cardMaxElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +26,9 @@
 
             <ImageView
                 android:id="@+id/iv_imgpedido"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 app:srcCompat="@drawable/ic_pedido" />
         </androidx.cardview.widget.CardView>
 

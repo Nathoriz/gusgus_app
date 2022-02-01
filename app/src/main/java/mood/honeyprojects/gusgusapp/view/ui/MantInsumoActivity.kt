@@ -142,11 +142,8 @@ class MantInsumoActivity : AppCompatActivity(), MantInsumoAdapter.OnClickInsumoL
     }
     private fun saveImageIntoStorage() {
         val nombre = binding.etNombreMantinsumo.text.toString()
-
         val resultNombre = nombre.replace(" ","")
-
         val datetime = currentDateTime()
-
         imgnombre = "$datetime$resultNombre.png"
         val ref = storageReference.child( imgnombre )
 
@@ -164,6 +161,7 @@ class MantInsumoActivity : AppCompatActivity(), MantInsumoAdapter.OnClickInsumoL
             url = downloadUri.toString();
         }
     }
+
     private fun getDataFotoIDFirebase(){
         imgreferencesUpdate.child( "FotoCategoria" ).addValueEventListener( object:
             ValueEventListener {
@@ -205,6 +203,7 @@ class MantInsumoActivity : AppCompatActivity(), MantInsumoAdapter.OnClickInsumoL
             showMessage( url )
         }
     }
+
     private fun encodeImage(bitmap: Bitmap): ByteArray {
         val previewWidth = 100
         val previewHeight = 100

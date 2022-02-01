@@ -6,6 +6,8 @@ import mood.honeyprojects.gusgusapp.core.RetrofitHelper
 import mood.honeyprojects.gusgusapp.model.entity.Producto
 import mood.honeyprojects.gusgusapp.model.entity.Proveedor
 import mood.honeyprojects.gusgusapp.model.requestEntity.DetalleProductoResponse
+import mood.honeyprojects.gusgusapp.model.requestEntity.ProductoResponse
+import mood.honeyprojects.gusgusapp.model.requestEntity.ProductoUpdate
 import mood.honeyprojects.gusgusapp.model.serviceAPI.ProductoAPI
 import mood.honeyprojects.gusgusapp.model.serviceAPI.ProveedorAPI
 import org.json.JSONObject
@@ -74,6 +76,21 @@ class ProductoViewModel: ViewModel() {
             }
         })
     }
+
+    fun buscarProducto( id: Long ){
+        val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).buscarProducto( id )
+        response.enqueue( object: Callback<Producto> {
+            override fun onResponse(call: Call<Producto>, response: Response<Producto>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        productoLiveData.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Producto>, t: Throwable) {
+            }
+        })
+    }
     fun listarTodosProducto(){
         val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).listarTodosProducto()
         response.enqueue( object: Callback<List<Producto>> {
@@ -90,7 +107,7 @@ class ProductoViewModel: ViewModel() {
             }
         })
     }
-    fun guardarProducto( producto: Producto){
+    fun guardarProducto( producto: ProductoResponse){
         val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).guardarProducto( producto )
         response.enqueue( object: Callback<Producto> {
             override fun onResponse(call: Call<Producto>, response: Response<Producto>) {
@@ -111,7 +128,7 @@ class ProductoViewModel: ViewModel() {
             }
         })
     }
-    fun actualizarProducto( producto: Producto){
+    fun actualizarProducto( producto: ProductoUpdate){
         val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).actualizarProducto( producto )
         response.enqueue( object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -140,6 +157,26 @@ class ProductoViewModel: ViewModel() {
 
             }
 
+        })
+    }
+
+    fun filtroTodoProducto( nombre: String ){
+        val response = RetrofitHelper.getRetrofit().create( ProductoAPI::class.java ).FiltroTodosProducto( nombre )
+        response.enqueue( object: Callback<List<Producto>> {
+            override fun onResponse(call: Call<List<Producto>>, response: Response<List<Producto>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        listaProductoLiveData.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 404 ){
+                        responseMensaje.postValue( "Not Found" )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Producto>>, t: Throwable) {
+            }
         })
     }
 

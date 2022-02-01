@@ -104,12 +104,122 @@ class AdminMainActivity : AppCompatActivity() {
             }
 
         } )
-        binding.cvUsuarios.setOnTouchListener( object: View.OnTouchListener{
+        binding.cvCategorias.setOnTouchListener( object: View.OnTouchListener{
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if( event?.action == MotionEvent.ACTION_UP ){
-                    binding.cvUsuarios.startAnimation( scaleup )
+                    binding.cvCategorias.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantCategoriaActivity::class.java )
+                    startActivity( intent )
                 }else if( event?.action == MotionEvent.ACTION_DOWN ){
-                    binding.cvUsuarios.startAnimation( scaledown )
+                    binding.cvCategorias.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvInsumos.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvInsumos.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantInsumoActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvInsumos.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvProveedores.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvProveedores.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantProveedorActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvProveedores.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvCubiertas.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvCubiertas.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantCubiertaActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvCubiertas.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvTamanios.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvTamanios.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantAlturaActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvTamanios.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvSabores.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvSabores.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantSaborActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvSabores.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvDiametros.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvDiametros.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantDiametroActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvDiametros.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvRellenos.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvRellenos.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, ManRellenoActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvRellenos.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvDistrito.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvDistrito.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantDistritoActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvDistrito.startAnimation( scaledown )
+                }
+                return true
+            }
+        } )
+        binding.cvReceta.setOnTouchListener( object: View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if( event?.action == MotionEvent.ACTION_UP ){
+                    binding.cvReceta.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, MantRecetaActivity::class.java )
+                    startActivity( intent )
+                }else if( event?.action == MotionEvent.ACTION_DOWN ){
+                    binding.cvReceta.startAnimation( scaledown )
                 }
                 return true
             }

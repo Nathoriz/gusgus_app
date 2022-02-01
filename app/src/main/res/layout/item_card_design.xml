@@ -8,6 +8,7 @@
     app:cardCornerRadius="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container_itemdesign"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="15dp">
@@ -32,7 +33,7 @@
                 app:srcCompat="@drawable/ic_image" />
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <CheckedTextView
             android:id="@+id/tv_text_design"
             style="@style/SubtitleStyle"
             android:layout_width="0dp"
@@ -42,6 +43,7 @@
             android:text="TextView"
             android:textColor="@color/dark"
             android:textStyle="bold"
+            android:checked="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_detail_design"
             app:layout_constraintStart_toEndOf="@+id/cv_container_design"
