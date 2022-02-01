@@ -692,9 +692,11 @@ class UpdateDeleteProductActivity : AppCompatActivity(), SelectRecetaAdapter.OnC
             binding.tvAlturaUpdatedeleteproduct.visibility = View.VISIBLE
             binding.spAlturaUpdatedeleteproduct.visibility = View.VISIBLE
             binding.tvAlturaupUpdatedeleteproduct.visibility = View.VISIBLE
+            binding.rvProductoalturaUpdatedeleteproduct.visibility = View.VISIBLE
             binding.tvCubiertaUpdatedeleteproduct.visibility = View.VISIBLE
             binding.spCubiertaUpdatedeleteproduct.visibility = View.VISIBLE
             binding.tvCubiertaupUpdatedeleteproduct.visibility = View.VISIBLE
+
         }else if(nombre == "Packs"){
             binding.tvAlturaUpdatedeleteproduct.visibility = View.VISIBLE
             binding.spAlturaUpdatedeleteproduct.visibility = View.VISIBLE

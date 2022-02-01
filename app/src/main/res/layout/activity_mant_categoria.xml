@@ -105,6 +105,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/delete"
         android:padding="3dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/ib_update_mantcategoria"
         app:layout_constraintTop_toTopOf="@+id/ib_update_mantcategoria"
         app:srcCompat="@drawable/ic_delete"
@@ -114,10 +115,9 @@
         android:id="@+id/rv_categoria_mantcategoria"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ib_delete_mantcategoria" />
+        app:layout_constraintTop_toBottomOf="@+id/ib_update_mantcategoria" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

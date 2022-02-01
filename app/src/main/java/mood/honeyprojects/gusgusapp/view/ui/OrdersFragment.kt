@@ -41,10 +41,10 @@ class OrdersFragment : Fragment() {
     }
 
     private fun Listener(){
-        binding.ivEspera.setOnClickListener { Go( "En espera" ) }
-        binding.ivPendiente.setOnClickListener { Go( "Pendiente" ) }
-        binding.ivEnviado.setOnClickListener { Go( "Enviado" ) }
-        binding.ivCancelado.setOnClickListener { Go( "Cancelado" ) }
+        binding.ivEspera.setOnClickListener { Go( "EN ESPERA" ) }
+        binding.ivPendiente.setOnClickListener { Go( "PENDIENTE" ) }
+        binding.ivEnviado.setOnClickListener { Go( "ENVIADO" ) }
+        binding.ivCancelado.setOnClickListener { Go( "CANCELADO" ) }
     }
     private fun Go( nombre: String ){
         val intent = Intent( context, SearchOrdersActivity::class.java )

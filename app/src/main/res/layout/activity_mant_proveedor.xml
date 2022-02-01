@@ -63,6 +63,7 @@
         android:layout_marginStart="16dp"
         android:backgroundTint="@color/delete"
         android:minHeight="48dp"
+        android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/ib_update_mantproveedor"
         app:layout_constraintTop_toTopOf="@+id/ib_update_mantproveedor"
         app:srcCompat="@drawable/ic_delete"

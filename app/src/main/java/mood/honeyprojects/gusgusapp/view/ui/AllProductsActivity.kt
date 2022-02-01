@@ -89,6 +89,11 @@ class AllProductsActivity : AppCompatActivity() {
             startActivity( intent )
             finish()
         }
+        binding.fbAddAllproducts.setOnClickListener {
+            val intent = Intent( this, NewProductActivity::class.java )
+            startActivity( intent )
+            finish()
+        }
     }
 
 

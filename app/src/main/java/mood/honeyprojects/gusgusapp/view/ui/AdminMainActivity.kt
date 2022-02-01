@@ -74,6 +74,8 @@ class AdminMainActivity : AppCompatActivity() {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if( event?.action == MotionEvent.ACTION_UP ){
                     binding.cvProducto.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, AllProductsActivity::class.java )
+                    startActivity( intent )
                 }else if( event?.action == MotionEvent.ACTION_DOWN ){
                     binding.cvProducto.startAnimation( scaledown )
                 }
@@ -84,6 +86,8 @@ class AdminMainActivity : AppCompatActivity() {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if( event?.action == MotionEvent.ACTION_UP ){
                     binding.cvPedidos.startAnimation( scaleup )
+                    val intent = Intent( this@AdminMainActivity, AllPedidosActivity::class.java )
+                    startActivity( intent )
                 }else if( event?.action == MotionEvent.ACTION_DOWN ){
                     binding.cvPedidos.startAnimation( scaledown )
                 }

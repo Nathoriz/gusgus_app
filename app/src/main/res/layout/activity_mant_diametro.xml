@@ -114,6 +114,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/delete"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/ib_update_mantdiametro"
         app:layout_constraintTop_toBottomOf="@+id/cardView10"
         app:srcCompat="@drawable/ic_delete"
