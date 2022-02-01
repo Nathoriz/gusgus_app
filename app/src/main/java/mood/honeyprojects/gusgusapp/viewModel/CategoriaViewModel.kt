@@ -60,6 +60,25 @@ class CategoriaViewModel: ViewModel() {
             }
         } )
     }
+    fun listarCategoriaAll(){
+        val response = RetrofitHelper.getRetrofit().create( CategoriaAPI::class.java ).listarCategoriaall()
+        response.enqueue( object: Callback<List<Categoria>>{
+            override fun onResponse(call: Call<List<Categoria>>, response: Response<List<Categoria>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        listaCategoriaLiveData.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 400 ){
+                        messageResponse.postValue( it.string() )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Categoria>>, t: Throwable) {
+            }
+        } )
+    }
     fun guardarCategoria( categoria: CategoriaResponse){
         val response = RetrofitHelper.getRetrofit().create( CategoriaAPI::class.java ).guardarCategoria( categoria )
         response.enqueue( object: Callback<Categoria> {

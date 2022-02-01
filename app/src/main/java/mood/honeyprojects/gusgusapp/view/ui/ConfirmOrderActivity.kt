@@ -53,8 +53,8 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersLi
     private var cantidad: Int?=null
     private var ok: Boolean?=null
     private var idPerso: Long?= 0L
-    private var precienvi: Double?=0.0
-    private var precioPer: Double?= 0.0
+    private var precienvi: Double =0.0
+    private var precioPer: Double = 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -173,7 +173,7 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersLi
         val entrega = Entrega( entregaid, null, null, null, null, null )
         val sdf = SimpleDateFormat("yyyy/MM/dd")
         val currentDate = sdf.format(Date())
-        val estado = Estado( 2L, null )
+        val estado = Estado( 1L, null )
         val monto: Double = binding.tvConfirmorderTotal.text.toString().toDouble()
         precioTotal = monto
         val pedido = Pedido( null, cliente, entrega, currentDate.toString(), estado, monto )
@@ -310,8 +310,8 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersLi
                 }else{
                     binding.tvEnvio.text = it.distrito?.precio.toString()
                     if( idPerso != 0L ){
-                        precienvi = it.distrito?.precio?.toDouble()
-                        val total = precioPer?.plus(precienvi!!)
+                        precienvi = it.distrito?.precio?.toDouble()!!
+                        val total = precioPer + precienvi
                         binding.tvConfirmorderTotal.text = total.toString()
                     }
                 }

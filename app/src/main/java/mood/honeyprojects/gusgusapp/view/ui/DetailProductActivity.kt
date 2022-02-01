@@ -63,14 +63,31 @@ class DetailProductActivity : AppCompatActivity() {
                 binding.tvDescripcion.text = it.detalle?.producto?.descripcion
                 binding.tvTotal.text = "${it.detalle?.producto?.precio.toString()}"
                 binding.precioFalso.text = "${it.detalle?.producto?.precio.toString()}"
+
                 if (it.detalle?.diametros?.get(0)?.descripcion == "vacio") {
                     binding.rlDiametrocont.visibility = View.GONE
+                }else{
+                    binding.rlDiametrocont.visibility = View.VISIBLE
                 }
                 if (it.detalle?.altura?.descripcion == "vacio") {
                     binding.rlAlturacont.visibility = View.GONE
+                }else{
+                    binding.rlAlturacont.visibility = View.VISIBLE
                 }
                 if (it.detalle?.rellenos?.get(0)?.descripcion == "vacio") {
                     binding.rlRellenocont.visibility = View.GONE
+                }else{
+                    binding.rlRellenocont.visibility = View.VISIBLE
+                }
+                if( it.detalle?.sabores?.get(0)?.nombre == "vacio" ){
+                    binding.rlSaborcont.visibility = View.GONE
+                }else{
+                    binding.rlSaborcont.visibility = View.VISIBLE
+                }
+                if (it.detalle?.cubierta?.nombre == "vacio") {
+                    binding.rlCubiertacont.visibility = View.GONE
+                }else{
+                    binding.rlCubiertacont.visibility = View.VISIBLE
                 }
                 var diametros: String? = ""
                 if (it.detalle?.diametros?.size == 1) {

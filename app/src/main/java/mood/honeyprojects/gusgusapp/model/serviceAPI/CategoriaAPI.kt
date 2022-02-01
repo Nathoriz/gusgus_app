@@ -11,6 +11,9 @@ interface CategoriaAPI {
     @GET( "categoria/listar" )
     fun listarCategoria(): Call<List<Categoria>>
 
+    @GET( "categoria/listarAll" )
+    fun listarCategoriaall(): Call<List<Categoria>>
+
     @POST( "categoria/guardar" )
     fun guardarCategoria( @Body categoria: CategoriaResponse): Call<Categoria>
 
