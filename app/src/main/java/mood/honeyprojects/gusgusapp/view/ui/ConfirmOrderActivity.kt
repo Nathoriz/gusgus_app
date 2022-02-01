@@ -3,6 +3,7 @@ package mood.honeyprojects.gusgusapp.view.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -310,9 +311,11 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersLi
                 }else{
                     binding.tvEnvio.text = it.distrito?.precio.toString()
                     if( idPerso != 0L ){
-                        precienvi = it.distrito?.precio?.toDouble()!!
-                        val total = precioPer + precienvi
-                        binding.tvConfirmorderTotal.text = total.toString()
+                        Handler().postDelayed({
+                            precienvi = it.distrito?.precio?.toDouble()!!
+                            var total = precioPer + precienvi
+                            binding.tvConfirmorderTotal.text = total.toString()
+                        }, 2000)
                     }
                 }
             }

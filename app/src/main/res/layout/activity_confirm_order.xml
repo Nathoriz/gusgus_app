@@ -208,7 +208,6 @@
             android:id="@+id/tv_confirmorder_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textColor="@color/text"
             android:textSize="16sp"
             android:textStyle="bold"
