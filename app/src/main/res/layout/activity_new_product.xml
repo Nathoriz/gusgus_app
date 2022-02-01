@@ -32,6 +32,7 @@
 
         <TextView
             android:id="@+id/textView68"
+            style="@style/TitleStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -44,6 +45,7 @@
             android:id="@+id/iv_productimg_newproduct"
             android:layout_width="200dp"
             android:layout_height="240dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/cardView3"
             app:layout_constraintTop_toBottomOf="@+id/sw_visibilidad_newproduct"
@@ -54,6 +56,7 @@
             style="@style/RoundedLigthEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/tx_name"
             android:inputType="textPersonName"
@@ -67,6 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ABRIR \nGALERIA"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/iv_productimg_newproduct"
             app:layout_constraintEnd_toEndOf="@+id/iv_productimg_newproduct"
             app:layout_constraintStart_toStartOf="@+id/iv_productimg_newproduct"
@@ -77,6 +82,7 @@
             style="@style/RoundedLigthEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/tx_description"
             android:inputType="textMultiLine"
@@ -89,6 +95,7 @@
             android:id="@+id/sp_categoria_newproduct"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/custom_spinner"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/tx_precio"
             android:inputType="textPersonName"
@@ -114,6 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="S/"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/et_precio_newproduct"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/et_precio_newproduct" />
@@ -122,6 +130,7 @@
             android:id="@+id/sw_visibilidad_newproduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:minHeight="48dp"
             android:text=" Publicar    "
             android:thumb="@drawable/thumb_swicth"
@@ -134,6 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Diametro"
+            android:textSize="16sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sp_altura_newproduct" />
@@ -152,6 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sabor"
+            android:textSize="16sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_diametro_newproduct" />
@@ -170,6 +181,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Relleno"
+            android:textSize="16sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_sabor_newproduct" />
@@ -188,6 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Altura"
+            android:textSize="16sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sp_cubierta_newproduct" />
@@ -223,18 +236,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cubierta"
+            android:textSize="16sp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_receta_newproduct"
-            android:visibility="gone" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_receta_newproduct" />
 
         <EditText
             android:id="@+id/et_receta_newproduct"
             style="@style/RoundedLigthEditText"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:inputType="none"
+            android:layout_marginTop="16dp"
             android:editable="false"
             android:ems="10"
+            android:hint="Receta..."
+            android:inputType="none"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_precio_newproduct"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -254,13 +270,16 @@
             android:id="@+id/btn_seleccrionarreceta_newproduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/dkskyblue"
             android:text="Seleccionar"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/et_receta_newproduct"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/et_receta_newproduct" />
 
         <Button
             android:id="@+id/btn_agregar_newproduct"
+            style="@style/RectangleLightBuuton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

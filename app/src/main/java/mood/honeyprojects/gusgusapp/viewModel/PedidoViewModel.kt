@@ -36,8 +36,22 @@ class PedidoViewModel: ViewModel() {
             }
         } )
     }
-     fun ListarPedidoIDClient( id: Long ){
+    fun ListarPedidoIDClient( id: Long ){
         val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).ListarPedidoAll( id )
+        response.enqueue( object: Callback<List<Pedido>> {
+            override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        ListaPedidos.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Pedido>>, t: Throwable) {
+            }
+        })
+    }
+    fun listarPedidos( ){
+        val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).listarPedidos( )
         response.enqueue( object: Callback<List<Pedido>> {
             override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
                 response.body()?.let {
@@ -64,8 +78,42 @@ class PedidoViewModel: ViewModel() {
             }
         })
     }
+
+    fun cambioEstado( id: Long ,estado: String) {
+        val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).cambioEstadoPedido( id,estado )
+        response.enqueue( object: Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        responseMessage.postValue( it )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+            }
+        })
+    }
     fun FindPedidosClientsById( id: Long, estado: String, pedidoId: String ){
         val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).FindPedidosClientsById( id, estado, pedidoId )
+        response.enqueue( object: Callback<List<Pedido>> {
+            override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
+                response.body()?.let {
+                    if( response.code() == 200 ){
+                        ListaPedidos.postValue( it )
+                    }
+                }
+                response.errorBody()?.let {
+                    if( response.code() == 404 ){
+                        responseMessage.postValue( getErrorMessage( it.string() ) )
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<Pedido>>, t: Throwable) {
+            }
+        })
+    }
+    fun FindPedidosById(pedidoId: String ){
+        val response = RetrofitHelper.getRetrofit().create( PedidoAPI::class.java ).FindPedidosById(pedidoId )
         response.enqueue( object: Callback<List<Pedido>> {
             override fun onResponse(call: Call<List<Pedido>>, response: Response<List<Pedido>>) {
                 response.body()?.let {

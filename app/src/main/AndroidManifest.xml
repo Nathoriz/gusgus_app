@@ -15,17 +15,23 @@
         android:theme="@style/Theme.GusGusApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.ui.AllProductsActivity"
+            android:name=".view.ui.PedidoEstadoUpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ui.NewProductActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".view.ui.AllPedidosActivity"
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity
+            android:name=".view.ui.UpdateDeleteProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.AllProductsActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.ui.NewProductActivity"
+            android:exported="false" />
         <activity
             android:name=".view.ui.RegistroProductoActivity"
             android:exported="false" />
@@ -117,8 +123,12 @@
             android:exported="false" />
         <activity
             android:name=".view.ui.SplashActivity"
-            android:exported="false">
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".view.ui.LoginActivity"

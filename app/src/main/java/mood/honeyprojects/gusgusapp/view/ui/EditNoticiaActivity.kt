@@ -135,7 +135,6 @@ class EditNoticiaActivity : AppCompatActivity() {
             finish()
         }
     }
-
     private fun FindNoticia(){
         val noticia = intent.getSerializableExtra("Noticia") as Noticias
         noticias = noticia
