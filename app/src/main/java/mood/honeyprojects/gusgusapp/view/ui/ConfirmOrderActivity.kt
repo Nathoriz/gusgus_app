@@ -79,8 +79,6 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersLi
             FindProductForId()
             InitRecyclerView( binding.rvOrderproduct )
             ViewModelProducto()
-
-
         }
         FindEntrega()
         ViewModelDetallePedido()
@@ -101,8 +99,14 @@ class ConfirmOrderActivity : AppCompatActivity(), ProductoDetailListener, PersLi
         }
         binding.btnConfirmPedido.setOnClickListener {
             lifecycleScope.launch {
+                binding.progressBar2.visibility = View.VISIBLE
+                binding.btnConfirmPedido.visibility = View.INVISIBLE
                 val response = async( Dispatchers.IO ){ RegistrarPedido() }
-                if( response.await() ){ BuildModalDeatalle() }
+                if( response.await() ){
+                    binding.progressBar2.visibility = View.GONE
+                    binding.btnConfirmPedido.visibility = View.VISIBLE
+                    BuildModalDeatalle()
+                }
             }
         }
     }
